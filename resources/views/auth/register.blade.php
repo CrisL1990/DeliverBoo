@@ -27,22 +27,6 @@
                         </div>
                         <!--fine inserisci nome-->
 
-                        <!--Inserisci cognome-->
-                         <div class="form-group row">
-                            <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Lastname') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
-
-                                @error('lastname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div> 
-                        <!--fine inserisci cognome-->
-
                         <!--inserisci vat-->
                          <div class="form-group row">
                             <label for="vat" class="col-md-4 col-form-label text-md-right">{{ __('Vat Number') }}</label>
@@ -58,23 +42,6 @@
                             </div>
                         </div>
                         <!--fine inserisci vat-->
-
-                        <!--inserisci numero di telefono-->
-                         <div class="form-group row">
-                            <label for="telephone_number" class="col-md-4 col-form-label text-md-right">{{ __('Telephone Number') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="telephone_number" type="tel" class="form-control @error('telephone_number') is-invalid @enderror" name="telephone_number" value="{{ old('telephone_number') }}" required autocomplete="telephone_number" autofocus>
-
-                                @error('telephone_number')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <!--fine inserisci numero di telefono-->
-
 
                         <!--Inserisci mail-->
                         <div class="form-group row">
@@ -92,23 +59,6 @@
                         </div>
                         <!--fine inserisci mail-->
 
-
-
-                        <!--inserisci password-->
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <!--fine inserisci password-->
 
                         <!--Inserisci nome ristorante-->
                         <div class="form-group row">
@@ -146,34 +96,33 @@
                         <!--inserisci orario di apertura-->
                         
                             <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right" for="opening_times">Opening times</label>
-                                <select name="opening_times" class="form-control col-md-6" id="opening_times">
+                                <label class="col-md-4 col-form-label text-md-right" for="category">Categoria</label>
+                                <select name="category" class="form-control col-md-6" id="category">
 
-                                    <option value="">Scegli un orario</option>
+                                    <option value="">Scegli una categoria</option>
 
-                                    <option value="breakfast">Breakfast</option>
-                                    <option value="lunch">Lunch</option>
-                                    <option value="dinner">Dinner</option>
+                                    <option value="italiano">Italiano</option>
+                                    <option value="giapponese">Giapponese</option>
+                                    <option value="cinese">Cinese</option>
                                 </select>
                             </div>
                         <!--fine inserisci orario di apertura-->
 
-                        <!--Inserisci città-->
+                        <!--inserisci password-->
                         <div class="form-group row">
-                            <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" required autocomplete="city" autofocus>
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                                @error('city')
+                                @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-
                         </div>
-                        <!--Fine inserisci città-->
+                        <!--fine inserisci password-->
 
                         <!--inserisci conferma password-->
                         <div class="form-group row">
