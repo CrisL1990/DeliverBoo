@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->rememberToken();
             $table->timestamps();
+            $table->save();
         });
     }
 
