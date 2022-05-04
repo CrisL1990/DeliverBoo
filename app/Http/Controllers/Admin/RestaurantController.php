@@ -17,8 +17,10 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = User::all();
-        return view('admin.restaurant.index', compact('restaurants'));
+        $data = User::all();
+        $dishes = Dish::all();
+
+        return view('admin.restaurant.index', compact('data', 'dishes'));
     }
 
     /**
@@ -45,7 +47,7 @@ class RestaurantController extends Controller
         $request->validate(
             [
                 'name' => 'required|min:5',
-                'price' => 'required|numeric|digits_between:1,999',
+                'price' => 'required|numeric|between:1,999.99',
                 'description' => 'nullable|min:20',
                 'ingredients' => 'required|min:5',
                 'available' => 'required',
@@ -81,9 +83,9 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Dish $restaurant)
     {
-        //
+        return view('admin.restaurant.show', compact('restaurant'));
     }
 
     /**
@@ -92,9 +94,9 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Dish $restaurant)
     {
-        //
+        return view('admin.restaurant.edit', compact('restaurant'));
     }
 
     /**
@@ -104,9 +106,38 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Dish $restaurant)
     {
-        //
+        $request->validate(
+            [
+                'name' => 'required|min:5',
+                'price' => 'required|numeric|between:1,999.99',
+                'description' => 'nullable|min:20',
+                'ingredients' => 'required|min:5',
+                'available' => 'required',
+                'food_type' => 'required|min:5',
+                'category' => 'required|min:5'
+            ]
+        );
+
+        $data = $request->all();
+
+        $slug = Str::slug($data['name']);
+
+        if ($restaurant->slug != $slug) {
+            $counter = 1;
+            while ( Dish::where('slug', '=', $slug)->first() ) {
+                $slug = Str::slug($data['name']) . '-' . $counter;
+                $counter++;
+            }
+            $data['slug'] = $slug;
+        }
+
+        $restaurant->update($data);
+        $restaurant->save();
+
+        return redirect()->route('admin.restaurants.index');
+
     }
 
     /**
@@ -115,8 +146,11 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Dish $restaurant)
     {
-        //
+
+        $restaurant->delete();
+
+        return redirect()->route('admin.restaurants.index');
     }
 }
