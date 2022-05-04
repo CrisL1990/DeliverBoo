@@ -29,6 +29,8 @@
                                 
                                 <td>
                                     <a href="{{route('admin.restaurants.show', $dish->id)}}" class="btn btn-primary">Mostra un piatto</a>
+
+                                    @dump($dish->id)
                                     {{-- <a href="{{route('admin.dish.edit', $dish->id)}}" class="btn btn-secondary">Modifica</a> --}}
 
                                     {{-- <form method="POST" action="{{route('admin.posts.destroy', $post->id)}}">
