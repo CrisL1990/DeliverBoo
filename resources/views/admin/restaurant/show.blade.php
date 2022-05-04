@@ -9,7 +9,13 @@
                 <div><strong>Nome: </strong> {{$restaurant->name}}</div>
                 <div><strong>Ingredienti: </strong> {{ $restaurant->ingredients }}</div>
                 <div><strong>Prezzo: </strong> {{$restaurant->price}}</div>
-                <div><strong>Available: </strong> {{$restaurant->available}}</div>
+                <div><strong>Disponibilità: </strong> 
+                    @if ($restaurant->available == 1)
+                        <span>Disponibile</span>                                  
+                    @else
+                        <span>Non Disponibile</span>
+                    @endif
+                </div>
 
                 <a href="{{ url()->previous() }}" class="btn btn-primary">Torna indietro</a>
             </div>
