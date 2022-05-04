@@ -44,12 +44,11 @@
                 <div class="form-group">
                     <label for="food_type">Tipo di piatto</label>
                     <select class="form-control" id="food_type" name="food_type">
-                        
-                        @foreach ($types as $key => $name)
 
-                            <option {{ old('name') == $key ? 'selected' : '' }} value="{{ $key }}">{{ $name }}</option>
-
-                        @endforeach
+                        <option {{(old('food_type') == 'vegetariano') ? 'selected' : ''}} value="vegetariano">Vegetariano</option>
+                        <option {{(old('food_type') == 'vegano') ? 'selected' : ''}} value="vegano">Vegano</option>
+                        <option {{(old('food_type') == 'carne') ? 'selected' : ''}} value="carne">Carne</option>
+                        <option {{(old('food_type') == 'pesce') ? 'selected' : ''}} value="pesce">Pesce</option>
 
                     </select>
                 </div>
@@ -58,11 +57,11 @@
                     <label for="category">Categoria piatto</label>
                     <select class="form-control" id="category" name="category">
                         
-                        @foreach ($categories as $key => $name)
-
-                            <option {{ old('name') == $key ? 'selected' : '' }} value="{{ $key }}">{{ $name }}</option>
-                            
-                        @endforeach
+                        <option {{(old('category') == 'antipasto') ? 'selected' : ''}} value="antipasto">Antipasto</option>
+                        <option {{(old('category') == 'primo') ? 'selected' : ''}} value="primo">Primo</option>
+                        <option {{(old('category') == 'secondo') ? 'selected' : ''}} value="secondo">Secondo</option>
+                        <option {{(old('category') == 'contorno') ? 'selected' : ''}} value="contorno">Contorno</option>
+                        <option {{(old('category') == 'dolce') ? 'selected' : ''}} value="dolce">Dolce</option>
 
                     </select>
                 </div>
