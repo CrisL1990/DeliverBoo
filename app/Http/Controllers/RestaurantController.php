@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -13,7 +14,8 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::user();
+        return view('admin.owner.index', compact('user'));
     }
 
     /**
