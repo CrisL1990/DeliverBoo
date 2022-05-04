@@ -15,7 +15,7 @@ class RestaurantController extends Controller
     public function index()
     {
         $user = User::user();
-        return view('admin.owner.index', compact('user'));
+        return view('admin.restaurant.index', compact('user'));
     }
 
     /**

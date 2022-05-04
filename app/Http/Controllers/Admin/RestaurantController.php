@@ -16,7 +16,7 @@ class RestaurantController extends Controller
     public function index()
     {
         $restaurants = User::all();
-        return view('admin.owner.index', compact('restaurants'));
+        return view('admin.restaurant.index', compact('restaurants'));
     }
 
     /**
@@ -26,10 +26,9 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        /* $categories = Category::all();
-        $tags = Tag::all(); */
+        /* $categories = Category::all();*/
 
-        return view('admin.owner.create' /* compact('categories', 'tags') */);
+        return view('admin.restaurant.create' /* compact('categories') */);
 
     }
 
