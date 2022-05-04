@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+
 class RestaurantController extends Controller
 {
     /**
@@ -30,9 +31,12 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        /* $categories = Category::all();*/
+     
+        $types = ['Vegetariano', "Vegano", 'Carne', "Pesce"];
 
-        return view('admin.restaurant.create' /* compact('categories') */);
+        $categories = ['Antipasto', 'Primo', 'Secondo', 'Contorno', 'Dolce'];
+
+        return view('admin.restaurant.create' , compact('types', 'categories'));
 
     }
 
@@ -51,8 +55,8 @@ class RestaurantController extends Controller
                 'description' => 'nullable|min:20',
                 'ingredients' => 'required|min:5',
                 'available' => 'required',
-                'food_type' => 'required|min:5',
-                'category' => 'required|min:5'
+                'food_type' => 'required',
+                'category' => 'required'
             ]
         );
 
@@ -96,7 +100,12 @@ class RestaurantController extends Controller
      */
     public function edit(Dish $restaurant)
     {
-        return view('admin.restaurant.edit', compact('restaurant'));
+
+        $types = ['Vegetariano', "Vegano", 'Carne', "Pesce"];
+
+        $categories = ['Antipasto', 'Primo', 'Secondo', 'Contorno', 'Dolce'];
+
+        return view('admin.restaurant.edit', compact('restaurant', 'types', 'categories'));
     }
 
     /**
@@ -115,8 +124,8 @@ class RestaurantController extends Controller
                 'description' => 'nullable|min:20',
                 'ingredients' => 'required|min:5',
                 'available' => 'required',
-                'food_type' => 'required|min:5',
-                'category' => 'required|min:5'
+                'food_type' => 'required',
+                'category' => 'required'
             ]
         );
 

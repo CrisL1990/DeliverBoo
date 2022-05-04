@@ -15,7 +15,7 @@
                         <th scope="col">Nome</th>
                         <th scope="col">Prezzo</th>
                         <th scope="col">Ingredienti</th>
-                        <th scope="col">Disponibile</th>
+                        <th scope="col">Disponibilità</th>
                         <th scope="col">Azioni</th>
                       </tr>
                     </thead>
@@ -25,7 +25,13 @@
                                 <td>{{$dish->name}}</td>
                                 <td>{{$dish->price}}</td>
                                 <td>{{substr($dish->ingredients, 0, 30)}}</td>
-                                <td>{{$dish->available}}</td>
+                                <td>
+                                    @if ($dish->available == 1)
+                                        <span>Disponibile</span>                                  
+                                    @else
+                                        <span>Non Disponibile</span>
+                                    @endif
+                                </td>
                                 
                                 <td class="d-flex">
 
@@ -36,7 +42,7 @@
                                     <form method="POST" action="{{route('admin.restaurants.destroy', $dish->id)}}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Elimina</button>
+                                        <button onclick="return confirm('Sei sicuro di volerlo eliminare?')" type="submit" class="btn btn-danger">Elimina</button>
                                     </form>
                                 </td>
 

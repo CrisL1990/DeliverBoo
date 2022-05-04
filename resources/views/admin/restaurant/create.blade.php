@@ -32,21 +32,24 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="radio" id="disponibile" name="available" value="1">
-                    <label for="html">Disponibile</label><br>
-                    <input type="radio" id="non-disponibile" name="available" value="0">
-                    <label for="css">Non disponibile</label><br>
+
+                    <input type="radio" name="available" id="disponibile" value="1" {{(old('available') == '1') ? 'checked' : ''}}>
+                    <label for="available">Disponibile</label><br>
+
+                    <input type="radio" name="available" id="non-disponibile" value="0" {{(old('available') == '0') ? 'checked' : ''}}>
+                    <label for="available">Non Disponibile</label><br>
+
                 </div>
 
                 <div class="form-group">
                     <label for="food_type">Tipo di piatto</label>
                     <select class="form-control" id="food_type" name="food_type">
+                        
+                        @foreach ($types as $key => $name)
 
-                        <option value="">Nessuna categoria</option>
-                        <option value="vegetariano">Vegetariano</option>
-                        <option value="vegano">Vegano</option>
-                        <option value="carne">Carne</option>
-                        <option value="pesce">Pesce</option>
+                            <option {{ old('name') == $key ? 'selected' : '' }} value="{{ $key }}">{{ $name }}</option>
+
+                        @endforeach
 
                     </select>
                 </div>
@@ -54,13 +57,12 @@
                 <div class="form-group">
                     <label for="category">Categoria piatto</label>
                     <select class="form-control" id="category" name="category">
+                        
+                        @foreach ($categories as $key => $name)
 
-                        <option value="">Nessuna categoria</option>
-                        <option value="antipasto">Antipasto</option>
-                        <option value="primo">Primo</option>
-                        <option value="secondo">Secondo</option>
-                        <option value="contorno">Contorno</option>
-                        <option value="dolce">Dolce</option>
+                            <option {{ old('name') == $key ? 'selected' : '' }} value="{{ $key }}">{{ $name }}</option>
+                            
+                        @endforeach
 
                     </select>
                 </div>
