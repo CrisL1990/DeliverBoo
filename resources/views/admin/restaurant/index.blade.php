@@ -28,6 +28,7 @@
                                 <td>{{$dish->available}}</td>
                                 
                                 <td>
+                                    
                                     <a href="{{route('admin.restaurants.show', $dish->id)}}" class="btn btn-primary">Mostra un piatto</a>
 
                                     @dump($dish->id)
