@@ -31,12 +31,8 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-     
-        $types = ['Vegetariano', "Vegano", 'Carne', "Pesce"];
-
-        $categories = ['Antipasto', 'Primo', 'Secondo', 'Contorno', 'Dolce'];
-
-        return view('admin.restaurant.create' , compact('types', 'categories'));
+    
+        return view('admin.restaurant.create');
 
     }
 

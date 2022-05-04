@@ -24,7 +24,7 @@
                             <tr>
                                 <td>{{$dish->name}}</td>
                                 <td>{{$dish->price}}</td>
-                                <td>{{substr($dish->ingredients, 0, 30)}}</td>
+                                <td>{{substr($dish->ingredients, 0, 30) . "..."}}</td>
                                 <td>
                                     @if ($dish->available == 1)
                                         <span>Disponibile</span>                                  
