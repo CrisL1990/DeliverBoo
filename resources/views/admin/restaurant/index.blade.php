@@ -28,17 +28,16 @@
                                 <td>{{$dish->available}}</td>
                                 
                                 <td>
-                                    
-                                    <a href="{{route('admin.restaurants.show', $dish->id)}}" class="btn btn-primary">Mostra un piatto</a>
 
-                                    @dump($dish->id)
-                                    {{-- <a href="{{route('admin.dish.edit', $dish->id)}}" class="btn btn-secondary">Modifica</a> --}}
+                                    <a href="{{route('admin.restaurants.show', $dish->id)}}" class="btn btn-primary">Mostra</a>
 
-                                    {{-- <form method="POST" action="{{route('admin.posts.destroy', $post->id)}}">
+                                   <a href="{{route('admin.restaurants.edit', $dish->id)}}" class="btn btn-secondary">Modifica</a>
+
+                                    <form method="POST" action="{{route('admin.restaurants.destroy', $dish->id)}}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Elimina</button>
-                                    </form> --}}
+                                    </form>
                                 </td>
 
                             </tr>
