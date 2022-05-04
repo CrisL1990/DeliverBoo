@@ -27,11 +27,11 @@
                                 <td>{{substr($dish->ingredients, 0, 30)}}</td>
                                 <td>{{$dish->available}}</td>
                                 
-                                <td>
+                                <td class="d-flex">
 
                                     <a href="{{route('admin.restaurants.show', $dish->id)}}" class="btn btn-primary">Mostra</a>
 
-                                   <a href="{{route('admin.restaurants.edit', $dish->id)}}" class="btn btn-secondary">Modifica</a>
+                                   <a href="{{route('admin.restaurants.edit', $dish->id)}}" class="btn mx-2 btn-secondary">Modifica</a>
 
                                     <form method="POST" action="{{route('admin.restaurants.destroy', $dish->id)}}">
                                         @csrf
