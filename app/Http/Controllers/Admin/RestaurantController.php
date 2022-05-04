@@ -26,7 +26,11 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        /* $categories = Category::all();
+        $tags = Tag::all(); */
+
+        return view('admin.owner.create' /* compact('categories', 'tags') */);
+
     }
 
     /**
