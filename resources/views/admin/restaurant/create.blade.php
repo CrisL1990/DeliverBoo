@@ -32,8 +32,10 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="checkbox" id="available" name="available" checked>
-                    <label for="available">Disponibile?</label>
+                    <input type="radio" id="disponibile" name="available" value="1">
+                    <label for="html">Disponibile</label><br>
+                    <input type="radio" id="non-disponibile" name="available" value="0">
+                    <label for="css">Non disponibile</label><br>
                 </div>
 
                 <div class="form-group">
