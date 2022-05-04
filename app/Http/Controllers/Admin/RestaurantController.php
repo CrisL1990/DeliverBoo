@@ -17,8 +17,10 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = User::all();
-        return view('admin.restaurant.index', compact('restaurants'));
+        $data = User::all();
+        $dishes = Dish::all();
+
+        return view('admin.restaurant.index', compact('data', 'dishes'));
     }
 
     /**
@@ -81,9 +83,9 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Dish $dish)
     {
-        //
+        return view('admin.restaurant.show', compact('dish'));
     }
 
     /**
