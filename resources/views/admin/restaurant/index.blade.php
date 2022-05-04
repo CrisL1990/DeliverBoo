@@ -4,7 +4,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-              <h1>Ciao</h1>
+
+                <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary">Crea un piatto</a>
+
+                <h1>Ciao</h1>
+              
             </div>
         </div>
     </div>

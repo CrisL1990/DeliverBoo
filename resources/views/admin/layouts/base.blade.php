@@ -38,8 +38,6 @@
 
                         <li class="mx-2"><a href="{{route('admin.restaurants.index')}}">Restaurants</a></li>
 
-{{--                         <li class="mx-2"><a href="{{route('admin.tags.index')}}">Tag</a></li>
- --}}
                     </ul>
 
                     <!-- Right Side Of Navbar -->
