@@ -24,7 +24,6 @@ class CreateDishesTable extends Migration
             $table->string('category');
             $table->string('slug')->nullable()->unique();
             $table->string('food_type');
-            $table->unsignedBigInteger('user_id');
 
             $table->timestamps();
         });
