@@ -36,7 +36,7 @@
 
                         <li class="mx-2"><a href="{{route('admin.home')}}">Dashboard</a></li>
 
-                        <li class="mx-2"><a href="{{route('admin.restaurants.index')}}">Restaurants</a></li>
+                        <li class="mx-2"><a href="{{route('admin.restaurants.index')}}">Piatti</a></li>
 
                     </ul>
 
