@@ -17363,10 +17363,10 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/js/backend.js":
-/*!*********************************!*\
-  !*** ./resources/js/backend.js ***!
-  \*********************************/
+/***/ "./resources/js/register.js":
+/*!**********************************!*\
+  !*** ./resources/js/register.js ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17374,6 +17374,8 @@ var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.j
     isNumber = _require.isNumber;
 
 var bottone = document.getElementById('bottone');
+var categoria = document.getElementById('category');
+/*REGISTRAZIONE*/
 
 if (bottone) {
   bottone.addEventListener('click', function () {
@@ -17423,23 +17425,30 @@ if (bottone) {
     if (_boolean == false || restaurant_address.value.length <= 5) {
       alert('L\'indirizzo del ristorante non è valido');
     }
+    /*CATEGORIA*/
+
+
+    if (categoria.value == '') {
+      alert('Scegli una categoria');
+    }
   });
 }
 
 function endsWithNumber(str) {
   return /[0-9]+$/.test(str);
 }
+/*EDIT*/
 
 /***/ }),
 
 /***/ 2:
-/*!***************************************!*\
-  !*** multi ./resources/js/backend.js ***!
-  \***************************************/
+/*!****************************************!*\
+  !*** multi ./resources/js/register.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/christian/Desktop/Boolean/Esercizi/DeliverBoo/resources/js/backend.js */"./resources/js/backend.js");
+module.exports = __webpack_require__(/*! /Users/christian/Desktop/Boolean/Esercizi/DeliverBoo/resources/js/register.js */"./resources/js/register.js");
 
 
 /***/ })

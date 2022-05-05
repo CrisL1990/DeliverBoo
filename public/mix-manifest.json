@@ -1,6 +1,7 @@
 {
+    "/js/admin/edit.js": "/js/admin/edit.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/backend.js": "/js/backend.js",
-    "/js/front.js": "/js/front.js"
+    "/js/front.js": "/js/front.js",
+    "/js/register.js": "/js/register.js"
 }

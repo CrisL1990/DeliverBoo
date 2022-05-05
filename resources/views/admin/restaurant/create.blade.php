@@ -33,7 +33,7 @@
 
                 <div class="form-group">
 
-                    <input type="radio" name="available" id="disponibile" value="1" {{(old('available') == '1') ? 'checked' : ''}}>
+                    <input type="radio" name="available" id="disponibile" value="1" {{(old('available') == '1') ? 'checked' : ''}} checked>
                     <label for="available">Disponibile</label><br>
 
                     <input type="radio" name="available" id="non-disponibile" value="0" {{(old('available') == '0') ? 'checked' : ''}}>
@@ -66,11 +66,12 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Salva</button>
+                <button id="bottone" type="submit" class="btn btn-primary">Salva</button>
 
             </form>
 
         </div>
     </div>
 </div>
+<script src="{{ asset('js/admin/edit.js') }}" defer></script>
 @endsection

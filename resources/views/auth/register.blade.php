@@ -98,12 +98,13 @@
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="category">Categoria</label>
                                 <select name="category" class="form-control col-md-6" id="category">
-
                                     <option value="">Scegli una categoria</option>
-
-                                    <option value="italiano">Italiano</option>
-                                    <option value="giapponese">Giapponese</option>
-                                    <option value="cinese">Cinese</option>
+                                    <option {{(old('category') == 'italiano') ? 'selected' : ''}} value="italiano">Italiano</option>
+                                    <option {{(old('category') == 'giapponese') ? 'selected' : ''}} value="giapponese">Giapponese</option>
+                                    <option {{(old('category') == 'indiano') ? 'selected' : ''}} value="indiano">Indiano</option>
+                                    <option {{(old('category') == 'cinese') ? 'selected' : ''}} value="cinese">Cinese</option>
+                                    <option {{(old('category') == 'greco') ? 'selected' : ''}} value="greco">Greco</option>
+            
                                 </select>
                             </div>
                         <!--fine inserisci orario di apertura-->
@@ -151,6 +152,6 @@
     </div>
 </div>
 
-<script src="{{ asset('js/backend.js') }}" defer></script>
+<script src="{{ asset('js/register.js') }}" defer></script>
 
 @endsection

@@ -72,11 +72,12 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Salva</button>
+                    <button id="bottone" type="submit" class="btn btn-primary">Salva</button>
 
                   </form>
 
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/admin/edit.js') }}" defer></script>
 @endsection

@@ -1,7 +1,10 @@
 const { isNumber } = require("lodash");
 
 const bottone = document.getElementById('bottone');
+const categoria = document.getElementById('category');
 
+
+/*REGISTRAZIONE*/
 if (bottone) {
 
     bottone.addEventListener('click', 
@@ -58,6 +61,11 @@ if (bottone) {
         if (boolean == false || restaurant_address.value.length <= 5) {
             alert('L\'indirizzo del ristorante non è valido');
         }
+
+        /*CATEGORIA*/
+        if(categoria.value == ''){
+            alert('Scegli una categoria');
+        } 
         
     }
 )
@@ -65,3 +73,5 @@ if (bottone) {
 function endsWithNumber(str) {
     return /[0-9]+$/.test(str);
   }
+
+/*EDIT*/
