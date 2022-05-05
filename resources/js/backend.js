@@ -49,7 +49,7 @@ if (bottone) {
             
         for (let i=0; i < indirizzi.length; i++){
 
-            if (restaurant_address.value.includes(indirizzi[i])) {
+            if (restaurant_address.value.includes(indirizzi[i]) && endsWithNumber(restaurant_address.value)) {
 
                 boolean = true;
             } 
@@ -62,4 +62,6 @@ if (bottone) {
     }
 )
 }
-
+function endsWithNumber(str) {
+    return /[0-9]+$/.test(str);
+  }

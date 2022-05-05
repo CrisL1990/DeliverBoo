@@ -17415,7 +17415,7 @@ if (bottone) {
     var _boolean = false;
 
     for (var i = 0; i < indirizzi.length; i++) {
-      if (restaurant_address.value.includes(indirizzi[i])) {
+      if (restaurant_address.value.includes(indirizzi[i]) && endsWithNumber(restaurant_address.value)) {
         _boolean = true;
       }
     }
@@ -17424,6 +17424,10 @@ if (bottone) {
       alert('L\'indirizzo del ristorante non è valido');
     }
   });
+}
+
+function endsWithNumber(str) {
+  return /[0-9]+$/.test(str);
 }
 
 /***/ }),
@@ -17435,7 +17439,7 @@ if (bottone) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Henry\Documents\Boolean\GitHub\DeliverBoo\resources\js\backend.js */"./resources/js/backend.js");
+module.exports = __webpack_require__(/*! /Users/christian/Desktop/Boolean/Esercizi/DeliverBoo/resources/js/backend.js */"./resources/js/backend.js");
 
 
 /***/ })
