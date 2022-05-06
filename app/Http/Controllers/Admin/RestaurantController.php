@@ -6,6 +6,7 @@ use App\Dish;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 
@@ -20,8 +21,11 @@ class RestaurantController extends Controller
     {
         $data = User::all();
         $dishes = Dish::all();
+        $userId = Auth::id();
 
-        return view('admin.restaurant.index', compact('data', 'dishes'));
+        return view('admin.restaurant.index', compact('data', 'dishes','userId'));
+
+ 
     }
 
     /**
@@ -85,7 +89,9 @@ class RestaurantController extends Controller
      */
     public function show(Dish $restaurant)
     {
-        return view('admin.restaurant.show', compact('restaurant'));
+        $userId = Auth::id();
+      
+        return view('admin.restaurant.show', compact('restaurant', 'userId'));
     }
 
     /**
@@ -96,12 +102,13 @@ class RestaurantController extends Controller
      */
     public function edit(Dish $restaurant)
     {
-
+        $userId = Auth::id();
+        
         $types = ['Vegetariano', "Vegano", 'Carne', "Pesce"];
 
         $categories = ['Antipasto', 'Primo', 'Secondo', 'Contorno', 'Dolce'];
 
-        return view('admin.restaurant.edit', compact('restaurant', 'types', 'categories'));
+        return view('admin.restaurant.edit', compact('restaurant', 'types', 'categories', 'userId'));
     }
 
     /**

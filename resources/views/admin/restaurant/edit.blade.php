@@ -7,11 +7,12 @@
 
                 <h1>Modifica piatto</h1>
 
+                @if($userId== $restaurant->user_id)
                 <form method="POST" action={{route('admin.restaurants.update', $restaurant->id)}} >
 
                     @csrf
                     @method('PUT')
-
+                    <input type="hidden" id="user_id" name="user_id" value="{{Auth::user()->id}}">
                     <div class="form-group">
                         <label for="name">Nome piatto</label>
                         <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $restaurant->name) }}">
@@ -75,7 +76,7 @@
                     <button id="bottone" type="submit" class="btn btn-primary">Salva</button>
 
                   </form>
-
+                  @endif
             </div>
         </div>
     </div>

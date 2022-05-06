@@ -10,7 +10,7 @@
             <form method="POST" action={{ route('admin.restaurants.store') }} >
 
                 @csrf
-
+                <input type="hidden" id="user_id" name="user_id" value="{{Auth::user()->id}}">
                 <div class="form-group">
                     <label for="name">Nome piatto</label>
                     <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">

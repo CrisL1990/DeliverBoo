@@ -21,6 +21,7 @@
                     </thead>
                     <tbody>
                         @foreach ($dishes as $dish)
+                        @if ($userId== $dish->user_id)
                             <tr>
                                 <td>{{$dish->name}}</td>
                                 <td>{{$dish->price}}</td>
@@ -47,6 +48,7 @@
                                 </td>
 
                             </tr>
+                            @endif
                         @endforeach
                     </tbody>
                   </table>
