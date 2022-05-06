@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -50,12 +51,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'min:5'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'vat' => ['required', 'string', 'max:255'],
-            'restaurant_name' => ['required', 'string', 'max:255'],
-            'restaurant_address' => ['required', 'string', 'max:255'],
+            'vat' => ['required', 'numeric','digits:11'],
+            'restaurant_name' => ['required', 'string', 'min:3', 'max:255'],
+            'restaurant_address' => ['required', 'string', 'max:255', "regex:(via|piazza|vicolo|vico|borgo|corso|viale|riva|rio)", "regex:(0|1|2|3|4|5|6|7|8|9)"],
             'category' => ['required', 'string']
         ]);
     }
