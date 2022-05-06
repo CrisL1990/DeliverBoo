@@ -16,7 +16,7 @@ class AddForeignKeyDishTable extends Migration
         Schema::table('Dishes', function (Blueprint $table) {
             
             $table->foreignId('user_id')->after('category')->nullable()
-            ->constrained()->onDelete('set null'); 
+            ->constrained()->onDelete('cascade'); 
         });
     }
 
