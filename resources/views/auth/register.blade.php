@@ -93,7 +93,7 @@
                         </div>
                         <!--fine inserisci indirizzo ristorante-->
 
-                        <!--inserisci orario di apertura-->
+                        <!--inserisci categoria-->
                         
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="category">Categoria</label>
@@ -107,7 +107,7 @@
             
                                 </select>
                             </div>
-                        <!--fine inserisci orario di apertura-->
+                        <!--fine inserisci categoria-->
 
                         <!--inserisci password-->
                         <div class="form-group row">
