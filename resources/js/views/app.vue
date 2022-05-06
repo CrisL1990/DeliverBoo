@@ -1,18 +1,24 @@
 <template>
   <div>
-      <h1>Work in progress</h1>
-      <h3>Torna a trovarci presto!</h3>
+      <h1>Ricerca</h1>
+      <Header></Header>
       <Main></Main>
+      <Footer></Footer>
+      
   </div>
 </template>
 
 <script>
 
 import Main from '../components/Main.vue'
+import Header from '../components/Header.vue'
+import Footer from '../components/Footer.vue'
 
 export default {
     name: 'App',
-    components:{Main}
+    components:{Main,
+      Header,
+      Footer}
 }
 </script>
 
