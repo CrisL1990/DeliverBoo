@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'vat' => ['required', 'numeric','digits:11'],
             'restaurant_name' => ['required', 'string', 'min:3', 'max:255'],
-            'restaurant_address' => ['required', 'string', 'max:255', "regex:(via|piazza|vicolo|vico|borgo|corso|viale|riva|rio)", "regex:(0|1|2|3|4|5|6|7|8|9)"],
+            'restaurant_address' => ['required', 'string', 'max:255', "regex:(via|piazza|vicolo|vico|borgo|corso|viale|riva|rio|Via|Piazza|Vicolo|Vico|Borgo|Corso|Viale|Riva|Rio)", "regex:(0|1|2|3|4|5|6|7|8|9)"],
             'category' => ['required', 'string']
         ]);
     }

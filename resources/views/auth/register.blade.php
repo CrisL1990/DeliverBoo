@@ -82,7 +82,7 @@
                             <label for="restaurant_address" class="col-md-4 col-form-label text-md-right">{{ __('Restaurant Address') }}</label>
 
                             <div class="col-md-6">
-                                <input required id="restaurant_address" type="text" class="form-control @error('restaurant_address') is-invalid @enderror" name="restaurant_address" value="{{ old('restaurant_address') }}" required autocomplete="restaurant_address" autofocus>
+                                <input required id="restaurant_address" type="text" class="form-control @error('restaurant_address') is-invalid @enderror" name="restaurant_address" value="{{old('restaurant_address') }}" required autocomplete="restaurant_address" autofocus>
 
                                 @error('restaurant_address')
                                     <span class="invalid-feedback" role="alert">

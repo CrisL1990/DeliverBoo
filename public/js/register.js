@@ -17417,7 +17417,7 @@ if (bottone) {
     var _boolean = false;
 
     for (var i = 0; i < indirizzi.length; i++) {
-      if (restaurant_address.value.includes(indirizzi[i]) && endsWithNumber(restaurant_address.value)) {
+      if (strtolower(restaurant_address.value.includes(indirizzi[i])) && endsWithNumber(restaurant_address.value)) {
         _boolean = true;
       }
     }
