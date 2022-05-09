@@ -104,6 +104,11 @@
                                     <option {{(old('category') == 'indiano') ? 'selected' : ''}} value="indiano">Indiano</option>
                                     <option {{(old('category') == 'cinese') ? 'selected' : ''}} value="cinese">Cinese</option>
                                     <option {{(old('category') == 'greco') ? 'selected' : ''}} value="greco">Greco</option>
+                                    <option {{(old('category') == 'messicano') ? 'selected' : ''}} value="giapponese">Messicano</option>
+                                    <option {{(old('category') == 'americano') ? 'selected' : ''}} value="indiano">Americano</option>
+                                    <option {{(old('category') == 'thailandese') ? 'selected' : ''}} value="cinese">Thailandese</option>
+                                    <option {{(old('category') == 'francese') ? 'selected' : ''}} value="greco">Francese</option>
+                                    <option {{(old('category') == 'spagnolo') ? 'selected' : ''}} value="greco">Spagnolo</option>
             
                                 </select>
                             </div>
