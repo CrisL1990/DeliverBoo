@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use League\CommonMark\Extension\Table\TableRow;
 
 class CreateDishOrderTable extends Migration
 {
@@ -22,6 +23,7 @@ class CreateDishOrderTable extends Migration
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
 
             $table->index(['dish_id', 'order_id']);
+            $table->unsignedTinyInteger('quantity');
             $table->timestamps();
     });
     }

@@ -20,11 +20,33 @@ export default {
 
         return {
             category: '',
-
+            restaurant: null,-
         }
 
     },
-}
+    methods:{
+        getRestaurant(apiPage) {
+
+            //effettuo una chiamata all'url indicato dalla variabile endpoint
+            axios.get('api/restaurants', {
+                'params' : {
+                    'page' : apiPage,
+                    }
+            })
+            
+                .then((risposta) => {
+
+                    //inserisco i dati dell'array nella variabile vuota albums
+                    this.restaurant = risposta.data.response;
+            })
+        },
+        
+     },
+     mounted(){
+
+          this.getRestaurant();
+        }
+  }
 </script>
 
 <style>

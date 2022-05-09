@@ -99,16 +99,16 @@
                                 <label class="col-md-4 col-form-label text-md-right" for="category">Categoria</label>
                                 <select name="category" class="form-control col-md-6" id="category">
                                     <option value="">Scegli una categoria</option>
-                                    <option {{(old('category') == 'italiano') ? 'selected' : ''}} value="italiano">Italiano</option>
-                                    <option {{(old('category') == 'giapponese') ? 'selected' : ''}} value="giapponese">Giapponese</option>
-                                    <option {{(old('category') == 'indiano') ? 'selected' : ''}} value="indiano">Indiano</option>
-                                    <option {{(old('category') == 'cinese') ? 'selected' : ''}} value="cinese">Cinese</option>
-                                    <option {{(old('category') == 'greco') ? 'selected' : ''}} value="greco">Greco</option>
-                                    <option {{(old('category') == 'messicano') ? 'selected' : ''}} value="giapponese">Messicano</option>
-                                    <option {{(old('category') == 'americano') ? 'selected' : ''}} value="indiano">Americano</option>
-                                    <option {{(old('category') == 'thailandese') ? 'selected' : ''}} value="cinese">Thailandese</option>
-                                    <option {{(old('category') == 'francese') ? 'selected' : ''}} value="greco">Francese</option>
-                                    <option {{(old('category') == 'spagnolo') ? 'selected' : ''}} value="greco">Spagnolo</option>
+                                    <option {{(old('category') == 'Italiano') ? 'selected' : ''}} value="Italiano">Italiano</option>
+                                    <option {{(old('category') == 'Giapponese') ? 'selected' : ''}} value="Giapponese">Giapponese</option>
+                                    <option {{(old('category') == 'Indiano') ? 'selected' : ''}} value="Indiano">Indiano</option>
+                                    <option {{(old('category') == 'Cinese') ? 'selected' : ''}} value="Cinese">Cinese</option>
+                                    <option {{(old('category') == 'Greco') ? 'selected' : ''}} value="Greco">Greco</option>
+                                    <option {{(old('category') == 'Messicano') ? 'selected' : ''}} value="Messicano">Messicano</option>
+                                    <option {{(old('category') == 'Americano') ? 'selected' : ''}} value="Americano">Americano</option>
+                                    <option {{(old('category') == 'Thailandese') ? 'selected' : ''}} value="Thailandese">Thailandese</option>
+                                    <option {{(old('category') == 'Francese') ? 'selected' : ''}} value="Francese">Francese</option>
+                                    <option {{(old('category') == 'Spagnolo') ? 'selected' : ''}} value="Spagnolo">Spagnolo</option>
             
                                 </select>
                             </div>
