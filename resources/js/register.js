@@ -52,7 +52,7 @@ if (bottone) {
             
         for (let i=0; i < indirizzi.length; i++){
 
-            if (strtolower(restaurant_address.value.includes(indirizzi[i])) && endsWithNumber(restaurant_address.value)) {
+            if (mb_strtolower(restaurant_address.value.includes(indirizzi[i])) && endsWithNumber(restaurant_address.value)) {
 
                 boolean = true;
             } 
