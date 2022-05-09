@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>Ricerca</h1>
+
       <Header></Header>
       <Main></Main>
       <Footer></Footer>
@@ -16,9 +16,11 @@ import Footer from '../components/Footer.vue'
 
 export default {
     name: 'App',
-    components:{Main,
+    components:{
+      Main,
       Header,
-      Footer}
+      Footer
+    }
 }
 </script>
 
