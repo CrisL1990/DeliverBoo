@@ -2884,7 +2884,15 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [_c("Header"), _vm._v(" "), _c("Main"), _vm._v(" "), _c("Footer")],
+    [
+      _c("h1", [_vm._v("Ricerca")]),
+      _vm._v(" "),
+      _c("Header"),
+      _vm._v(" "),
+      _c("Main"),
+      _vm._v(" "),
+      _c("Footer"),
+    ],
     1
   )
 }
