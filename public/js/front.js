@@ -2040,22 +2040,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Restaurants',
   data: function data() {
     return {
       category: '',
-      restaurants: null,
       categorie: [{
         id: 0,
         nome: 'Italiano'
@@ -2096,18 +2085,23 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('api/restaurants').then(function (risposta) {
-        console.log(risposta);
-        _this.restaurants = risposta.data.results;
-        _this.risultato = true;
-      });
-    }
-  },
-  computed: {
-    filteredSearch: function filteredSearch() {
-      var _this2 = this;
+        var dataAxios = risposta.data.results;
+        var data2 = dataAxios.filter(function (item) {
+          return item.user.category.includes(_this.valoriRicercati);
+        });
+        data2.forEach(function (element) {
+          //console.log(data2);
+          console.log(element);
 
-      return this.valoriRicercati.filter(function (disc) {
-        return disc.genre == _this2.valoriRicercati;
+          for (var key in element) {
+            if (_this.valoriRicercati.indexOf(element.user.restaurant_name) === -1) {
+              //console.log(element.user.restaurant_name);
+              _this.valoriRicercati.push(element.user.restaurant_name);
+            }
+          }
+        });
+        _this.risultato = true;
+        console.log(_this.valoriRicercati);
       });
     }
   }
@@ -2779,17 +2773,55 @@ var render = function () {
             [
               _vm._l(_vm.categorie, function (categoria) {
                 return _c("div", { key: categoria.id, staticClass: "d-flex" }, [
-                  _c("input", {
-                    attrs: {
-                      type: "checkbox",
-                      id: categoria.nome,
-                      name: categoria.nome,
-                    },
-                    domProps: { value: categoria.nome },
-                  }),
-                  _vm._v(" "),
                   _c("label", { attrs: { for: categoria.nome } }, [
-                    _vm._v(_vm._s(categoria.nome)),
+                    _vm._v(
+                      "\r\n                            " +
+                        _vm._s(categoria.nome) +
+                        "\r\n                            "
+                    ),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.valoriRicercati,
+                          expression: "valoriRicercati",
+                        },
+                      ],
+                      attrs: {
+                        type: "checkbox",
+                        id: categoria.nome,
+                        name: categoria.nome,
+                      },
+                      domProps: {
+                        value: categoria.nome,
+                        checked: Array.isArray(_vm.valoriRicercati)
+                          ? _vm._i(_vm.valoriRicercati, categoria.nome) > -1
+                          : _vm.valoriRicercati,
+                      },
+                      on: {
+                        change: function ($event) {
+                          var $$a = _vm.valoriRicercati,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = categoria.nome,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                (_vm.valoriRicercati = $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                (_vm.valoriRicercati = $$a
+                                  .slice(0, $$i)
+                                  .concat($$a.slice($$i + 1)))
+                            }
+                          } else {
+                            _vm.valoriRicercati = $$c
+                          }
+                        },
+                      },
+                    }),
                   ]),
                   _c("br"),
                 ])
@@ -2818,9 +2850,9 @@ var render = function () {
     _vm.risultato
       ? _c(
           "div",
-          _vm._l(_vm.restaurants, function (restaurant) {
+          _vm._l(_vm.valoriRicercati, function (restaurant) {
             return _c("div", { key: restaurant.id }, [
-              _c("h1", [_vm._v(_vm._s(restaurant.name))]),
+              _c("h3", [_vm._v(_vm._s(restaurant))]),
             ])
           }),
           0
@@ -2852,15 +2884,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [
-      _c("h1", [_vm._v("Ricerca")]),
-      _vm._v(" "),
-      _c("Header"),
-      _vm._v(" "),
-      _c("Main"),
-      _vm._v(" "),
-      _c("Footer"),
-    ],
+    [_c("Header"), _vm._v(" "), _c("Main"), _vm._v(" "), _c("Footer")],
     1
   )
 }
