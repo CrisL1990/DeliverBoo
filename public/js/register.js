@@ -17421,10 +17421,7 @@ if (bottone) {
     /* INDIRIZZO RISTORANTE */
 
 
-    var restaurant_address = document.getElementById('restaurant_address'); //    let lower_restaurant_address = restaurant_address.value.map(element => {
-    //     return element.toLowerCase();
-    //   });
-
+    var restaurant_address = document.getElementById('restaurant_address');
     var indirizzi = ['via', 'piazza', 'vicolo', 'vico', 'borgo', 'corso', 'viale', 'riva', 'rio'];
     var _boolean = false;
 
@@ -17445,8 +17442,8 @@ if (bottone) {
 
     if (psw1.value != psw2.value) {
       psw2.setCustomValidity("La password non corrisponde");
-    } else if (psw1.value.length < 8) {
-      psw1.setCustomValidity("La password deve essere più lunga di otto caratteri");
+    } else if (psw1.value.length <= 8) {
+      psw1.setCustomValidity("La password deve essere almeno di otto caratteri");
     } else {
       psw2.setCustomValidity("");
     }
