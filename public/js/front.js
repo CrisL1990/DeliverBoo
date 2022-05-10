@@ -2077,7 +2077,8 @@ __webpack_require__.r(__webpack_exports__);
         nome: 'Spagnolo'
       }],
       risultato: false,
-      valoriRicercati: []
+      valoriRicercati: [],
+      ristoranti: []
     };
   },
   methods: {
@@ -2094,9 +2095,9 @@ __webpack_require__.r(__webpack_exports__);
           console.log(element);
 
           for (var key in element) {
-            if (_this.valoriRicercati.indexOf(element.user.restaurant_name) === -1) {
+            if (_this.ristoranti.indexOf(element.user.restaurant_name) === -1) {
               //console.log(element.user.restaurant_name);
-              _this.valoriRicercati.push(element.user.restaurant_name);
+              _this.ristoranti.push(element.user.restaurant_name);
             }
           }
         });
@@ -2850,9 +2851,9 @@ var render = function () {
     _vm.risultato
       ? _c(
           "div",
-          _vm._l(_vm.valoriRicercati, function (restaurant) {
-            return _c("div", { key: restaurant.id }, [
-              _c("h3", [_vm._v(_vm._s(restaurant))]),
+          _vm._l(_vm.ristoranti, function (ristorante) {
+            return _c("div", { key: ristorante.id }, [
+              _c("h3", [_vm._v(_vm._s(ristorante))]),
             ])
           }),
           0
@@ -2884,15 +2885,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [
-      _c("h1", [_vm._v("Ricerca")]),
-      _vm._v(" "),
-      _c("Header"),
-      _vm._v(" "),
-      _c("Main"),
-      _vm._v(" "),
-      _c("Footer"),
-    ],
+    [_c("Header"), _vm._v(" "), _c("Main"), _vm._v(" "), _c("Footer")],
     1
   )
 }

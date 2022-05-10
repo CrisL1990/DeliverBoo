@@ -26,8 +26,8 @@
 
     <div v-if="risultato">
 
-        <div v-for="restaurant in valoriRicercati" :key="restaurant.id">
-            <h3>{{restaurant}}</h3>
+        <div v-for="ristorante in ristoranti" :key="ristorante.id">
+            <h3>{{ristorante}}</h3>
         </div>
 
     </div> 
@@ -85,7 +85,8 @@ export default {
                 }
             ],
             risultato: false,
-            valoriRicercati: []
+            valoriRicercati: [],
+            ristoranti: []
         }
 
     },
@@ -106,11 +107,11 @@ export default {
 
                         for (let key in element) {
 
-                            if(this.valoriRicercati.indexOf(element.user.restaurant_name) === -1) {
+                            if(this.ristoranti.indexOf(element.user.restaurant_name) === -1) {
 
                                 //console.log(element.user.restaurant_name);
 
-                                this.valoriRicercati.push(element.user.restaurant_name);
+                                this.ristoranti.push(element.user.restaurant_name);
                             }
                         }
                         
