@@ -3,8 +3,6 @@
 use App\Category;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-
-
 class CategoriesTableSeeder extends Seeder
 {
     /**

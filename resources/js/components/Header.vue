@@ -8,6 +8,7 @@
             <li class="nav-item">
 
                 <router-link class="nav-link" :to="{name: 'Restaurants'}">Ristoranti</router-link>
+
             </li>
         </ul>
 

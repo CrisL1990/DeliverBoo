@@ -25,7 +25,6 @@ class RestaurantController extends Controller
 
         return view('admin.restaurant.index', compact('data', 'dishes','userId'));
 
- 
     }
 
     /**
