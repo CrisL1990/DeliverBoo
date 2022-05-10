@@ -5,9 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
 
-                <h1>Modifica piatto</h1>
+                
 
                 @if($userId== $restaurant->user_id)
+                <h1>Modifica piatto</h1>
                 <form method="POST" action={{route('admin.restaurants.update', $restaurant->id)}} >
 
                     @csrf
@@ -76,6 +77,9 @@
                     <button id="bottone" type="submit" class="btn btn-primary">Salva</button>
 
                   </form>
+                  @else
+                  <h1>Piatto non disponibile, torna indietro</h1>
+                  <a href="{{ url()->previous() }}" class="btn btn-primary">Torna indietro</a>
                   @endif
             </div>
         </div>
