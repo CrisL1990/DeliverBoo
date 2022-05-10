@@ -143,7 +143,7 @@ if (bottone) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Henry\Documents\Boolean\GitHub\DeliverBoo\resources\js\admin\edit.js */"./resources/js/admin/edit.js");
+module.exports = __webpack_require__(/*! C:\Users\Roberto\Desktop\DeliverBoo\resources\js\admin\edit.js */"./resources/js/admin/edit.js");
 
 
 /***/ })
