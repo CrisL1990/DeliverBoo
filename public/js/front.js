@@ -2776,9 +2776,9 @@ var render = function () {
                 return _c("div", { key: categoria.id, staticClass: "d-flex" }, [
                   _c("label", { attrs: { for: categoria.nome } }, [
                     _vm._v(
-                      "\r\n                            " +
+                      "\n                            " +
                         _vm._s(categoria.nome) +
-                        "\r\n                            "
+                        "\n                            "
                     ),
                     _c("input", {
                       directives: [
@@ -18724,7 +18724,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Henry\Documents\Boolean\GitHub\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/christian/Desktop/Boolean/Esercizi/DeliverBoo/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })
