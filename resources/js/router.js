@@ -5,6 +5,7 @@ Vue.use(VueRouter);
 
 import Home from './pages/Home';
 import Restaurants from './pages/Restaurants';
+import Dishes from './pages/Dishes';
 
 const router = new VueRouter({
     mode: "history",
@@ -20,6 +21,11 @@ const router = new VueRouter({
             name: 'Restaurants',
             component: Restaurants
         },
+        {
+            path:'/dishes',
+            name:'Dishes',
+            component: Dishes
+        }
     ]
 });
 export default router;
