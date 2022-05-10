@@ -36,18 +36,10 @@
     <div>
         <div class="row row-cols-3 py-3" v-if="risultato">
             <div class="col" v-for="utente in utenti" :key="utente.id">
-            <!-- <div class="col" v-for="utente in utenti" :key="utente.id">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{utente.restaurant_name}}</h5>
-                        <p class="card-text">{{utente.restaurant_address}}</p>
-                        <p>{{utente.email}}</p>
-                        <p>{{utente.category}}</p>
-                        <router-link class="nav-link btn btn-primary" :to="{name: 'Dishes'}">Vedi piatti</router-link>
-                    </div>
-                </div>
-            </div>     -->
-            <RestaurantCard :utenti="utente"></RestaurantCard>
+                <RestaurantCard :utenti="utente"></RestaurantCard>
+            </div>
+            <div v-if="utenti.length == 0">
+                <h1>Nessun ristorante trovato</h1>
             </div>
         </div>
         
@@ -116,6 +108,7 @@ export default {
             valoriRicercati: [],
             ristoranti: [],
             utenti: [],
+            controllo: false
         }
     },
 
@@ -142,15 +135,20 @@ export default {
 
                                 this.ristoranti.push(element.user.restaurant_name);
                                 this.utenti.push(element.user);
+                    
                             }
+                
                         }
-                        
+                        console.log(this.ristoranti)
+                        // if(risposta == null){
+                           
+                        // }
                     });
 
                     this.risultato = true;
-
+                    //console.log(risposta)
                     // console.log(this.valoriRicercati);
-                    console.log(this.utenti);
+                    //console.log(this.utenti);
                 }
             )
         }

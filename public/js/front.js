@@ -2107,14 +2107,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Restaurants',
@@ -2158,7 +2150,8 @@ __webpack_require__.r(__webpack_exports__);
       risultato: false,
       valoriRicercati: [],
       ristoranti: [],
-      utenti: []
+      utenti: [],
+      controllo: false
     };
   },
   methods: {
@@ -2181,10 +2174,13 @@ __webpack_require__.r(__webpack_exports__);
               _this.utenti.push(element.user);
             }
           }
-        });
-        _this.risultato = true; // console.log(this.valoriRicercati);
 
-        console.log(_this.utenti);
+          console.log(_this.ristoranti); // if(risposta == null){
+          // }
+        });
+        _this.risultato = true; //console.log(risposta)
+        // console.log(this.valoriRicercati);
+        //console.log(this.utenti);
       });
     }
   }
@@ -3017,15 +3013,21 @@ var render = function () {
         ? _c(
             "div",
             { staticClass: "row row-cols-3 py-3" },
-            _vm._l(_vm.utenti, function (utente) {
-              return _c(
-                "div",
-                { key: utente.id, staticClass: "col" },
-                [_c("RestaurantCard", { attrs: { utenti: utente } })],
-                1
-              )
-            }),
-            0
+            [
+              _vm._l(_vm.utenti, function (utente) {
+                return _c(
+                  "div",
+                  { key: utente.id, staticClass: "col" },
+                  [_c("RestaurantCard", { attrs: { utenti: utente } })],
+                  1
+                )
+              }),
+              _vm._v(" "),
+              _vm.utenti.length == 0
+                ? _c("div", [_c("h1", [_vm._v("Nessun ristorante trovato")])])
+                : _vm._e(),
+            ],
+            2
           )
         : _vm._e(),
     ]),
