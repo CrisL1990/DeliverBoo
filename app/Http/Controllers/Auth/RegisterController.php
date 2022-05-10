@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -57,7 +58,7 @@ class RegisterController extends Controller
             'vat' => ['required', 'numeric','digits:11'],
             'restaurant_name' => ['required', 'string', 'min:3', 'max:255'],
             'restaurant_address' => ['required', 'string', 'max:255', "regex:(via|piazza|vicolo|vico|borgo|corso|viale|riva|rio|Via|Piazza|Vicolo|Vico|Borgo|Corso|Viale|Riva|Rio)", "regex:(0|1|2|3|4|5|6|7|8|9)"],
-            'category' => ['required', 'string']
+            'category' => ['required']
         ]);
     }
 
@@ -76,7 +77,16 @@ class RegisterController extends Controller
             'vat' => $data['vat'],
             'restaurant_name' => $data['restaurant_name'],
             'restaurant_address' => $data['restaurant_address'],
-            'category' => $data['category']
+            'category' => implode(",", $data['category'])
         ]);
+
     }
+
+    public function showRegistrationForm()
+    {
+        $categories = Category::all();
+        return view('auth.register', compact('categories'));
+    }
+
+    
 }

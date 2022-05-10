@@ -93,25 +93,22 @@
                         </div>
                         <!--fine inserisci indirizzo ristorante-->
 
-                        <!--inserisci categoria-->
-                        
+                        <!--inserisci categoria-->                        
+
                             <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right" for="category">Categoria</label>
-                                <select name="category" class="form-control col-md-6" id="category">
-                                    <option value="">Scegli una categoria</option>
-                                    <option {{(old('category') == 'Italiano') ? 'selected' : ''}} value="Italiano">Italiano</option>
-                                    <option {{(old('category') == 'Giapponese') ? 'selected' : ''}} value="Giapponese">Giapponese</option>
-                                    <option {{(old('category') == 'Indiano') ? 'selected' : ''}} value="Indiano">Indiano</option>
-                                    <option {{(old('category') == 'Cinese') ? 'selected' : ''}} value="Cinese">Cinese</option>
-                                    <option {{(old('category') == 'Greco') ? 'selected' : ''}} value="Greco">Greco</option>
-                                    <option {{(old('category') == 'Messicano') ? 'selected' : ''}} value="Messicano">Messicano</option>
-                                    <option {{(old('category') == 'Americano') ? 'selected' : ''}} value="Americano">Americano</option>
-                                    <option {{(old('category') == 'Thailandese') ? 'selected' : ''}} value="Thailandese">Thailandese</option>
-                                    <option {{(old('category') == 'Francese') ? 'selected' : ''}} value="Francese">Francese</option>
-                                    <option {{(old('category') == 'Spagnolo') ? 'selected' : ''}} value="Spagnolo">Spagnolo</option>
-            
-                                </select>
+                                
+                                @foreach ($categories as $category)
+                                    <div class="custom-control custom-checkbox">
+
+                                        <label for="{{$category->name}}"> {{$category->name}}
+                                            <input {{(old('category') == $category->name) ? 'checked' : ''}} type="checkbox" id="{{$category->name}}" name="category[]" value="{{$category->name}}">
+                                        </label>
+                                        
+                                    </div>
+                                @endforeach
+                               
                             </div>
+
                         <!--fine inserisci categoria-->
 
                         <!--inserisci password-->
