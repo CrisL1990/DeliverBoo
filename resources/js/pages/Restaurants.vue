@@ -23,16 +23,6 @@
         <button @click="getRestaurant()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerca</button>
     </div>
     
-    <!-- <div class="py-3" v-if="risultato">
-        <div v-for="utente in utenti" :key="utente.id">
-            <h3>{{utente.restaurant_name}}</h3>
-            <p>{{utente.restaurant_address}}</p>
-            <p>{{utente.email}}</p>
-            <p>{{utente.category}}</p>
-            <router-link class="nav-link" :to="{name: 'Dishes'}">Vedi piatti</router-link>
-        </div>
-    </div>  -->
-    
     <div>
         <div class="row row-cols-3 py-3" v-if="risultato">
             <div class="col" v-for="utente in utenti" :key="utente.id">
@@ -108,6 +98,7 @@ export default {
             valoriRicercati: [],
             ristoranti: [],
             utenti: [],
+            piatti: [],
             controllo: false
         }
     },
@@ -124,31 +115,27 @@ export default {
 
                     data2.forEach(element => {
 
-                        //console.log(data2);
-                        //console.log(element);
-
                         for (let key in element) {
 
                             if(this.ristoranti.indexOf(element.user.restaurant_name) === -1) {
 
-                                //console.log(element.user.restaurant_name);
-
                                 this.ristoranti.push(element.user.restaurant_name);
                                 this.utenti.push(element.user);
-                    
+                                
+
                             }
                 
                         }
-                        console.log(this.ristoranti)
-                        // if(risposta == null){
-                           
-                        // }
+
+                        this.piatti.push(element);
+                        
                     });
 
+                    //$emit("piatti", this.piatti);
+
+                    console.log(this.piatti);
+
                     this.risultato = true;
-                    //console.log(risposta)
-                    // console.log(this.valoriRicercati);
-                    //console.log(this.utenti);
                 }
             )
         }

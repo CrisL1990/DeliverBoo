@@ -2098,16 +2098,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Restaurants',
@@ -2152,6 +2142,7 @@ __webpack_require__.r(__webpack_exports__);
       valoriRicercati: [],
       ristoranti: [],
       utenti: [],
+      piatti: [],
       controllo: false
     };
   },
@@ -2165,23 +2156,19 @@ __webpack_require__.r(__webpack_exports__);
           return item.user.category.includes(_this.valoriRicercati);
         });
         data2.forEach(function (element) {
-          //console.log(data2);
-          //console.log(element);
           for (var key in element) {
             if (_this.ristoranti.indexOf(element.user.restaurant_name) === -1) {
-              //console.log(element.user.restaurant_name);
               _this.ristoranti.push(element.user.restaurant_name);
 
               _this.utenti.push(element.user);
             }
           }
 
-          console.log(_this.ristoranti); // if(risposta == null){
-          // }
-        });
-        _this.risultato = true; //console.log(risposta)
-        // console.log(this.valoriRicercati);
-        //console.log(this.utenti);
+          _this.piatti.push(element);
+        }); //$emit("piatti", this.piatti);
+
+        console.log(_this.piatti);
+        _this.risultato = true;
       });
     }
   }
