@@ -1,45 +1,73 @@
 <template>
-<div>
+<div class="container">
     <h1>Ricerca ristoratori</h1>
     <nav class="navbar navbar-light bg-light">
-        <form class="form-inline">
+        <form class="form-inline w-100 d-flex justify-content-around">
             <div class="form-group row">
-                <label class="col-md-4 col-form-label text-md-right" for="category">Categoria</label>
-                <form @submit.prevent="getRestaurant" class="container d-flex flex-column">
+                <label class="col-form-label" for="category">Categoria</label>
+                <form @submit.prevent="getRestaurant" class="container">
 
-                    <div class="d-flex" v-for="categoria in categorie" :key="categoria.id">
-
+                    <div class="cat-container mx-2" v-for="categoria in categorie" :key="categoria.id">
                         <label :for="categoria.nome">
                             {{categoria.nome}}
-                            <input type="checkbox" v-model="valoriRicercati" :id="categoria.nome" :name="categoria.nome" :value="categoria.nome">
+                            <input class="mx-1" type="checkbox" v-model="valoriRicercati" :id="categoria.nome" :name="categoria.nome" :value="categoria.nome">
                         </label><br>
-
                     </div>
-
-                    <button @click="getRestaurant()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerca</button>
                     
                 </form>
             </div>
- 
         </form>
     </nav>
 
-    <div v-if="risultato">
-
-        <div v-for="ristorante in ristoranti" :key="ristorante.id">
-            <h3>{{ristorante}}</h3>
+    <div>
+        <button @click="getRestaurant()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerca</button>
+    </div>
+    
+    <!-- <div class="py-3" v-if="risultato">
+        <div v-for="utente in utenti" :key="utente.id">
+            <h3>{{utente.restaurant_name}}</h3>
+            <p>{{utente.restaurant_address}}</p>
+            <p>{{utente.email}}</p>
+            <p>{{utente.category}}</p>
+            <router-link class="nav-link" :to="{name: 'Dishes'}">Vedi piatti</router-link>
         </div>
-
-    </div> 
+    </div>  -->
+    
+    <div>
+        <div class="row row-cols-3 py-3" v-if="risultato">
+            <div class="col" v-for="utente in utenti" :key="utente.id">
+            <!-- <div class="col" v-for="utente in utenti" :key="utente.id">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{utente.restaurant_name}}</h5>
+                        <p class="card-text">{{utente.restaurant_address}}</p>
+                        <p>{{utente.email}}</p>
+                        <p>{{utente.category}}</p>
+                        <router-link class="nav-link btn btn-primary" :to="{name: 'Dishes'}">Vedi piatti</router-link>
+                    </div>
+                </div>
+            </div>     -->
+            <RestaurantCard :utenti="utente"></RestaurantCard>
+            </div>
+        </div>
+        
+    </div>
+    
+    
 
 </div>
 </template>
 
 <script>
+import RestaurantCard from '../components/RestaurantCard.vue';
 export default {
     name:'Restaurants',
-    data (){
 
+    components:{
+        RestaurantCard
+    },
+
+    data (){
         return {
             category: '',
             categorie: [
@@ -86,10 +114,11 @@ export default {
             ],
             risultato: false,
             valoriRicercati: [],
-            ristoranti: []
+            ristoranti: [],
+            utenti: [],
         }
-
     },
+
     methods:{
         getRestaurant() {
 
@@ -103,7 +132,7 @@ export default {
                     data2.forEach(element => {
 
                         //console.log(data2);
-                        console.log(element);
+                        //console.log(element);
 
                         for (let key in element) {
 
@@ -112,6 +141,7 @@ export default {
                                 //console.log(element.user.restaurant_name);
 
                                 this.ristoranti.push(element.user.restaurant_name);
+                                this.utenti.push(element.user);
                             }
                         }
                         
@@ -119,7 +149,8 @@ export default {
 
                     this.risultato = true;
 
-                    console.log(this.valoriRicercati);
+                    // console.log(this.valoriRicercati);
+                    console.log(this.utenti);
                 }
             )
         }
@@ -127,6 +158,6 @@ export default {
   }
 </script>
 
-<style>
+<style lang='scss' scoped>
 
 </style>
