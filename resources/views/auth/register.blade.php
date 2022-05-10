@@ -12,14 +12,14 @@
                         @csrf
                         <!--Inserisci nome-->
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name*') }}</label>
 
                             <div class="col-md-6">
-                                <input required id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>
+                                <input id="name" placeholder="es. Germano" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus required="true"/>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>Il nome va inserito</strong>
+                                        <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
@@ -28,11 +28,11 @@
                         <!--fine inserisci nome-->
 
                         <!--inserisci vat-->
-                         <div class="form-group row">
-                            <label for="vat" class="col-md-4 col-form-label text-md-right">{{ __('Vat Number') }}</label>
+                        <div class="form-group row">
+                            <label for="vat" class="col-md-4 col-form-label text-md-right">{{ __('Vat Number*') }}</label>
 
                             <div class="col-md-6">
-                                <input required id="vat" type="text" class="form-control @error('vat') is-invalid @enderror" name="vat" value="{{ old('vat') }}" required autocomplete="vat" autofocus>
+                                <input id="vat" placeholder="es. 86741598325" type="text" class="form-control @error('vat') is-invalid @enderror" name="vat" value="{{ old('vat') }}" required autocomplete="vat" autofocus required="true">
 
                                 @error('vat')
                                     <span class="invalid-feedback" role="alert">
@@ -45,11 +45,11 @@
 
                         <!--Inserisci mail-->
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address*') }}</label>
 
                             <div class="col-md-6">
-                                <input required id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
+                                <input required id="email" placeholder="es. germano@gmail.com" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -62,10 +62,10 @@
 
                         <!--Inserisci nome ristorante-->
                         <div class="form-group row">
-                            <label for="restaurant_name" class="col-md-4 col-form-label text-md-right">{{ __('Restaurant Name') }}</label>
+                            <label for="restaurant_name" class="col-md-4 col-form-label text-md-right">{{ __('Restaurant Name*') }}</label>
 
                             <div class="col-md-6">
-                                <input required id="restaurant_name" type="text" class="form-control @error('restaurant_name') is-invalid @enderror" name="restaurant_name" value="{{ old('restaurant_name') }}" required autocomplete="restaurant_name" autofocus>
+                                <input required id="restaurant_name" placeholder="es. Mio Ristorante" type="text" class="form-control @error('restaurant_name') is-invalid @enderror" name="restaurant_name" value="{{ old('restaurant_name') }}" required autocomplete="restaurant_name" autofocus>
 
                                 @error('restaurant_name')
                                     <span class="invalid-feedback" role="alert">
@@ -79,10 +79,10 @@
 
                         <!--Inserisci indirizzo ristorante-->
                         <div class="form-group row">
-                            <label for="restaurant_address" class="col-md-4 col-form-label text-md-right">{{ __('Restaurant Address') }}</label>
+                            <label for="restaurant_address" class="col-md-4 col-form-label text-md-right">{{ __('Restaurant Address*') }}</label>
 
                             <div class="col-md-6">
-                                <input required id="restaurant_address" type="text" class="form-control @error('restaurant_address') is-invalid @enderror" name="restaurant_address" value="{{old('restaurant_address') }}" required autocomplete="restaurant_address" autofocus>
+                                <input required id="restaurant_address" placeholder="es. via del Corso 23 " type="text" class="form-control @error('restaurant_address') is-invalid @enderror" name="restaurant_address" value="{{old('restaurant_address') }}" autocomplete="restaurant_address" autofocus>
 
                                 @error('restaurant_address')
                                     <span class="invalid-feedback" role="alert">
@@ -113,10 +113,10 @@
 
                         <!--inserisci password-->
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password*') }}</label>
 
                             <div class="col-md-6">
-                                <input required id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input required id="password" placeholder="Crea nuova password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -129,17 +129,21 @@
 
                         <!--inserisci conferma password-->
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password*') }}</label>
 
                             <div class="col-md-6">
-                                <input required id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input required id="password-confirm" placeholder="Conferma password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
                         <!--fine inserisci conferma password-->
-
+                        <div class="form-group row ">
+                            <div class="col-md-6 offset-md-1 mt-2">
+                                <h6><mark>Tutti i campi con (*) sono obbligatori</mark></h6>
+                            </div>
+                        </div>
                         <!--button-->
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 offset-md-5">
                                 <button id="bottone" type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>

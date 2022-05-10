@@ -17374,8 +17374,7 @@ var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.j
     isNumber = _require.isNumber;
 
 var bottone = document.getElementById('bottone');
-var categoria = document.getElementById('category');
-/*REGISTRAZIONE*/
+var categoria = document.getElementById('category'); // /REGISTRAZIONE/
 
 if (bottone) {
   bottone.addEventListener('click', function () {
@@ -17383,23 +17382,31 @@ if (bottone) {
     var nome = document.getElementById('name');
 
     if (nome.value.length < 5) {
-      alert('Il nome è troppo corto');
+      nome.setCustomValidity('Il nome deve essere più lungo di 5 caratteri');
+    } else {
+      nome.setCustomValidity('');
     }
     /* VAT */
 
 
     var vat = document.getElementById('vat');
 
-    if (vat.value.length != 11 && !isNumber(vat.value)) {
-      alert('Partita Iva non corretta');
+    if (vat.value.length != 11) {
+      vat.setCustomValidity('La partita iva deve contenere "11" caratteri');
+    } else if (isNaN(vat.value)) {
+      vat.setCustomValidity('La partita iva deve contenere solo caratteri numerici');
+    } else {
+      vat.setCustomValidity('');
     }
     /* EMAIL */
 
 
     var email = document.getElementById('email');
 
-    if (!email.value.includes("@") || !email.value.includes(".")) {
-      alert('Email non corretta');
+    if (validaEmail(email.value)) {
+      email.setCustomValidity("");
+    } else {
+      email.setCustomValidity("indirizzo non valido");
     }
     /* NOME RISTORANTE */
 
@@ -17407,37 +17414,59 @@ if (bottone) {
     var restaurant_name = document.getElementById('restaurant_name');
 
     if (restaurant_name.value.length < 3) {
-      alert('Il nome del ristorante è troppo corto');
+      restaurant_name.setCustomValidity('Il Nome del ristorante deve essere più lungo di 3 caratteri');
+    } else {
+      restaurant_name.setCustomValidity('');
     }
     /* INDIRIZZO RISTORANTE */
 
 
-    var restaurant_address = document.getElementById('restaurant_address');
+    var restaurant_address = document.getElementById('restaurant_address'); //    let lower_restaurant_address = restaurant_address.value.map(element => {
+    //     return element.toLowerCase();
+    //   });
+
     var indirizzi = ['via', 'piazza', 'vicolo', 'vico', 'borgo', 'corso', 'viale', 'riva', 'rio'];
     var _boolean = false;
 
     for (var i = 0; i < indirizzi.length; i++) {
-      if (mb_strtolower(restaurant_address.value.includes(indirizzi[i])) && endsWithNumber(restaurant_address.value)) {
+      if (restaurant_address.value.includes(indirizzi[i]) && endsWithNumber(restaurant_address.value)) {
         _boolean = true;
+        restaurant_address.setCustomValidity("");
       }
     }
 
     if (_boolean == false || restaurant_address.value.length <= 5) {
-      alert('L\'indirizzo del ristorante non è valido');
-    }
-    /*CATEGORIA*/
+      restaurant_address.setCustomValidity("L'indirizzo del ristorante non è valido");
+    } //VALIDAZIONE PASSWORD
 
 
-    if (categoria.value == '') {
-      alert('Scegli una categoria');
+    var psw1 = document.getElementById('password');
+    var psw2 = document.getElementById('password-confirm');
+
+    if (psw1.value != psw2.value) {
+      psw2.setCustomValidity("La password non corrisponde");
+    } else if (psw1.value.length < 8) {
+      psw1.setCustomValidity("La password deve essere più lunga di otto caratteri");
+    } else {
+      psw2.setCustomValidity("");
     }
   });
 }
+/* /Funzioni/
+
+/Funzione utilizzata nel indirizzo ristorante/ */
+
 
 function endsWithNumber(str) {
   return /[0-9]+$/.test(str);
+} // Funzione Valida Email 
+
+
+function validaEmail(str) {
+  var lastAtPos = str.lastIndexOf('@');
+  var lastDotPos = str.lastIndexOf('.');
+  return lastAtPos < lastDotPos && lastAtPos > 0 && str.indexOf('@@') == -1 && lastDotPos > 2 && str.length - lastDotPos > 2;
 }
-/*EDIT*/
 
 /***/ }),
 
