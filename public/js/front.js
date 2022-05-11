@@ -2050,6 +2050,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dishes',
@@ -2888,24 +2899,59 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container" },
+    { staticClass: "container d-flex flex-column align-items-center" },
     [
-      _vm._v("\n    LISTA DEI PIATTI\n\n    "),
-      _vm._l(_vm.risposta, function (risp) {
-        return _c("div", { key: risp.id }, [
-          _c("div", [_vm._v("Il nome del piatto è: " + _vm._s(risp.name))]),
-          _vm._v(" "),
-          _c("div", [
-            _vm._v("Gli ingredienti sono: " + _vm._s(risp.ingredients)),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _vm._v("Il prezzo del piatto è: " + _vm._s(risp.price) + " €"),
-          ]),
-        ])
-      }),
-    ],
-    2
+      _c("h4", [_vm._v("LISTA DEI PIATTI")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "d-flex flex-wrap justify-content-center" },
+        _vm._l(_vm.risposta, function (risp) {
+          return _c(
+            "div",
+            {
+              key: risp.id,
+              staticClass: "card m-1",
+              staticStyle: { width: "18rem" },
+            },
+            [
+              _c("div", { staticClass: "card-body" }, [
+                _c("h5", { staticClass: "card-title" }, [
+                  _c(
+                    "span",
+                    { staticClass: "font-weight-light text-secondary" },
+                    [_vm._v("Nome: ")]
+                  ),
+                  _c("br"),
+                  _vm._v(_vm._s(risp.name)),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c(
+                    "span",
+                    { staticClass: "font-weight-light text-secondary" },
+                    [_vm._v("Ingredienti: ")]
+                  ),
+                  _c("br"),
+                  _vm._v(_vm._s(risp.ingredients)),
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c(
+                    "span",
+                    { staticClass: "font-weight-light text-secondary" },
+                    [_vm._v("Prezzo: ")]
+                  ),
+                  _c("br"),
+                  _vm._v(_vm._s(risp.price) + "€"),
+                ]),
+              ]),
+            ]
+          )
+        }),
+        0
+      ),
+    ]
   )
 }
 var staticRenderFns = []
