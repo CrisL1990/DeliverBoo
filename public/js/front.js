@@ -1997,9 +1997,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'RestaurantCard',
   props: {
@@ -2850,15 +2847,7 @@ var render = function () {
           _vm._v(_vm._s(_vm.utenti.restaurant_address)),
         ]),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.utenti.email))]),
-        _vm._v(" "),
         _c("p", [_vm._v(_vm._s(_vm.utenti.category))]),
-        _vm._v(" "),
-        _vm._l(_vm.risp, function (risposta) {
-          return _c("div", { key: risposta.id }, [
-            _vm._v("\n            " + _vm._s(risposta.name) + "\n        "),
-          ])
-        }),
         _vm._v(" "),
         _c(
           "router-link",
@@ -2871,7 +2860,7 @@ var render = function () {
           [_vm._v("Vedi piatti")]
         ),
       ],
-      2
+      1
     ),
   ])
 }
