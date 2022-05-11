@@ -2068,17 +2068,72 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dishes',
   data: function data() {
     return {
-      risposta: []
+      risposta: [],
+      nome: "",
+      price: null,
+      carrello: [],
+      carrelloPieno: false
     };
   },
   created: function created() {
     this.risposta = this.$route.params.risposta;
     console.log(this.risposta);
+  },
+  methods: {
+    addDish: function addDish(valore) {
+      var name = valore.name;
+      var price = valore.price;
+      localStorage.setItem('name', name);
+      localStorage.setItem('price', price);
+      name = localStorage.getItem('name');
+      price = localStorage.getItem('price');
+      var ordine = {
+        'name': name,
+        'price': price
+      };
+      this.carrello.push(ordine);
+      console.log(this.carrello);
+      this.carrelloPieno = true;
+    },
+    checkQuantity: function checkQuantity(valore) {
+      if (!this.ordine.includes(valore.name)) {
+        this.ordine.quantity = 1;
+      }
+    }
   }
 });
 
@@ -2900,15 +2955,7 @@ var render = function () {
     "div",
     { staticClass: "container d-flex flex-column align-items-center" },
     [
-      _c("div", { staticClass: "card m-1" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h3", [_vm._v(_vm._s(_vm.risposta[0].user.restaurant_name))]),
-          _vm._v(" "),
-          _c("h5", [_vm._v(_vm._s(_vm.risposta[0].user.category))]),
-          _vm._v(" "),
-          _c("h6", [_vm._v(_vm._s(_vm.risposta[0].user.restaurant_address))]),
-        ]),
-      ]),
+      _vm._m(0),
       _vm._v(" "),
       _c("h5", { staticClass: "my-2" }, [_vm._v("MENÙ")]),
       _vm._v(" "),
@@ -2954,16 +3001,85 @@ var render = function () {
                   _c("br"),
                   _vm._v(_vm._s(risp.price) + "€"),
                 ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function ($event) {
+                        return _vm.addDish(risp)
+                      },
+                    },
+                  },
+                  [_vm._v("+")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-danger", attrs: { type: "button" } },
+                  [_vm._v("-")]
+                ),
               ]),
             ]
           )
         }),
         0
       ),
+      _vm._v(" "),
+      _vm.carrelloPieno
+        ? _c("div", { staticClass: "carrello" }, [
+            _c("table", { staticClass: "table" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.carrello, function (ordine, key) {
+                  return _c("tr", { key: key }, [
+                    _c("th", { attrs: { scope: "row" } }, [_vm._v("-")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(ordine.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(ordine.price))]),
+                    _vm._v(" "),
+                    _c("td", { attrs: { id: "quantity" } }),
+                  ])
+                }),
+                0
+              ),
+            ]),
+          ])
+        : _vm._e(),
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card m-1" }, [
+      _c("div", { staticClass: "card-body" }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nome")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Prezzo")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Quantità")]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
