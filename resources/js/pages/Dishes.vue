@@ -1,7 +1,17 @@
 <template>
     <div class="container d-flex flex-column align-items-center">
-        
-        <h4>LISTA DEI PIATTI</h4>
+
+        <div class="card m-1">
+            <div class="card-body">
+
+                <h3>{{risposta[0].user.restaurant_name}}</h3>
+                <h5>{{risposta[0].user.category}}</h5>
+                <h6>{{risposta[0].user.restaurant_address}}</h6>
+
+            </div>
+        </div>
+
+        <h5 class="my-2">MENÙ</h5>
 
         <div class="d-flex flex-wrap justify-content-center">
 

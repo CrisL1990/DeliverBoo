@@ -2058,6 +2058,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dishes',
@@ -2890,7 +2900,17 @@ var render = function () {
     "div",
     { staticClass: "container d-flex flex-column align-items-center" },
     [
-      _c("h4", [_vm._v("LISTA DEI PIATTI")]),
+      _c("div", { staticClass: "card m-1" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("h3", [_vm._v(_vm._s(_vm.risposta[0].user.restaurant_name))]),
+          _vm._v(" "),
+          _c("h5", [_vm._v(_vm._s(_vm.risposta[0].user.category))]),
+          _vm._v(" "),
+          _c("h6", [_vm._v(_vm._s(_vm.risposta[0].user.restaurant_address))]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("h5", { staticClass: "my-2" }, [_vm._v("MENÙ")]),
       _vm._v(" "),
       _c(
         "div",
