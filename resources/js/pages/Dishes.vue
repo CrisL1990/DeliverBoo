@@ -48,8 +48,8 @@
                         <th scope="row">-</th>
                         <td>{{ordine.name}}</td>
                         <td>{{ordine.price}}</td>
-                        <td id="quantity">
-                                
+                        <td>
+                            
                         </td>
                     </tr>
                     
@@ -72,7 +72,10 @@ export default {
             nome: "",
             price: null,
             carrello: [],
-            carrelloPieno: false
+            carrelloPieno: false,
+            quanti: 1,
+            piattiPresenti: []
+
         }
     },
 
@@ -97,20 +100,12 @@ export default {
             let ordine = {'name': name, 'price': price};
 
             this.carrello.push(ordine);
-
-            console.log(this.carrello);
+            this.piattiPresenti.push(ordine.name);
 
             this.carrelloPieno = true;
+
            
         },
-
-        checkQuantity(valore){
-
-            if (!this.ordine.includes(valore.name)) {
-
-                this.ordine.quantity = 1;
-            }
-        }
     }
 
 }

@@ -2106,7 +2106,9 @@ __webpack_require__.r(__webpack_exports__);
       nome: "",
       price: null,
       carrello: [],
-      carrelloPieno: false
+      carrelloPieno: false,
+      quanti: 1,
+      piattiPresenti: []
     };
   },
   created: function created() {
@@ -2126,13 +2128,8 @@ __webpack_require__.r(__webpack_exports__);
         'price': price
       };
       this.carrello.push(ordine);
-      console.log(this.carrello);
+      this.piattiPresenti.push(ordine.name);
       this.carrelloPieno = true;
-    },
-    checkQuantity: function checkQuantity(valore) {
-      if (!this.ordine.includes(valore.name)) {
-        this.ordine.quantity = 1;
-      }
     }
   }
 });
@@ -3043,7 +3040,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(ordine.price))]),
                     _vm._v(" "),
-                    _c("td", { attrs: { id: "quantity" } }),
+                    _c("td"),
                   ])
                 }),
                 0
@@ -3158,9 +3155,9 @@ var render = function () {
                   [
                     _c("label", { attrs: { for: categoria.nome } }, [
                       _vm._v(
-                        "\r\n                            " +
+                        "\n                            " +
                           _vm._s(categoria.nome) +
-                          "\r\n                            "
+                          "\n                            "
                       ),
                       _c("input", {
                         directives: [
@@ -19270,7 +19267,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Henry\Documents\Boolean\GitHub\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/christian/Desktop/Boolean/Esercizi/DeliverBoo/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })

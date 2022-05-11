@@ -78,11 +78,33 @@ if (bottone) {
        let psw2 = document.getElementById('password-confirm');
         if(psw1.value != psw2.value){
             psw2.setCustomValidity("La password non corrisponde");
-        }else if(psw1.value.length <= 8){
+        }else if(psw1.value.length < 8){
+            psw1.setCustomValidity("La password deve essere almeno di otto caratteri");
+        }else if(psw2.value.length < 8){
             psw1.setCustomValidity("La password deve essere almeno di otto caratteri");
         }else{
+            psw1.setCustomValidity("");
             psw2.setCustomValidity("");
         }
+
+        //VALIDAZIONE Check
+        let alertCheck= document.getElementById('alertCheck');
+        let dropdownCategory= document.getElementById('dropdown-category');
+        let checkboxes = document.querySelectorAll('input[name="category[]"]:checked');
+        console.log(checkboxes)
+        let values = [];
+        checkboxes.forEach((checkbox) => {
+            values.push(checkbox.value);
+        });
+        if(values=[""]){
+            alertCheck.classList.remove("d-none");
+            alertCheck.classList.add("d-block");
+            
+        }else{
+            return;
+        }
+       
+            
     }
 )
 }

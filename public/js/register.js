@@ -17442,10 +17442,30 @@ if (bottone) {
 
     if (psw1.value != psw2.value) {
       psw2.setCustomValidity("La password non corrisponde");
-    } else if (psw1.value.length <= 8) {
+    } else if (psw1.value.length < 8) {
+      psw1.setCustomValidity("La password deve essere almeno di otto caratteri");
+    } else if (psw2.value.length < 8) {
       psw1.setCustomValidity("La password deve essere almeno di otto caratteri");
     } else {
+      psw1.setCustomValidity("");
       psw2.setCustomValidity("");
+    } //VALIDAZIONE Check
+
+
+    var alertCheck = document.getElementById('alertCheck');
+    var dropdownCategory = document.getElementById('dropdown-category');
+    var checkboxes = document.querySelectorAll('input[name="category[]"]:checked');
+    console.log(checkboxes);
+    var values = [];
+    checkboxes.forEach(function (checkbox) {
+      values.push(checkbox.value);
+    });
+
+    if (values = [""]) {
+      alertCheck.classList.remove("d-none");
+      alertCheck.classList.add("d-block");
+    } else {
+      return;
     }
   });
 }
@@ -17474,7 +17494,7 @@ function validaEmail(str) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Henry\Documents\Boolean\GitHub\DeliverBoo\resources\js\register.js */"./resources/js/register.js");
+module.exports = __webpack_require__(/*! /Users/christian/Desktop/Boolean/Esercizi/DeliverBoo/resources/js/register.js */"./resources/js/register.js");
 
 
 /***/ })

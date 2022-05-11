@@ -76,7 +76,28 @@
 
                         </div>
                         <!--fine inserisci nome ristorante-->
+                        
+                        <!--inserisci categoria-->                        
 
+                            <div class="dropdown form-group" id="dropdown-category">
+                                <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                                  Seleziona una categoria
+                                </button>
+                                <div class="dropdown-menu" >
+                                    @foreach ($categories as $category)
+                                        <div class="custom-control custom-checkbox">
+
+                                            <label for="{{$category->name}}"> {{$category->name}}
+                                                <input {{(old('category') == $category->name) ? 'checked' : ''}} type="checkbox" id="{{$category->name}}" name="category[]" value="{{$category->name}}">
+                                            </label>
+                                            
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <h6 id="alertCheck" class="d-none">Attenzione seleziona una o più categorie!</h6>
+                              </div>
+
+                        <!--fine inserisci categoria-->
                         <!--Inserisci indirizzo ristorante-->
                         <div class="form-group row">
                             <label for="restaurant_address" class="col-md-4 col-form-label text-md-right">{{ __('Restaurant Address*') }}</label>
@@ -93,23 +114,6 @@
                         </div>
                         <!--fine inserisci indirizzo ristorante-->
 
-                        <!--inserisci categoria-->                        
-
-                            <div class="form-group row">
-                                
-                                @foreach ($categories as $category)
-                                    <div class="custom-control custom-checkbox">
-
-                                        <label for="{{$category->name}}"> {{$category->name}}
-                                            <input {{(old('category') == $category->name) ? 'checked' : ''}} type="checkbox" id="{{$category->name}}" name="category[]" value="{{$category->name}}">
-                                        </label>
-                                        
-                                    </div>
-                                @endforeach
-                               
-                            </div>
-
-                        <!--fine inserisci categoria-->
 
                         <!--inserisci password-->
                         <div class="form-group row">
