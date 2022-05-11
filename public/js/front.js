@@ -2014,14 +2014,26 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_RestaurantCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/RestaurantCard.vue */ "./resources/js/components/RestaurantCard.vue");
 //
 //
 //
 //
 //
 //
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Dishes'
+  name: 'Dishes',
+  components: {
+    RestaurantCard: _components_RestaurantCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    ricezioneDati: function ricezioneDati() {}
+  }
 });
 
 /***/ }),
@@ -2165,8 +2177,7 @@ __webpack_require__.r(__webpack_exports__);
           }
 
           _this.piatti.push(element);
-        }); //$emit("piatti", this.piatti);
-
+        });
         console.log(_this.piatti);
         _this.risultato = true;
       });
@@ -2809,6 +2820,11 @@ var render = function () {
           {
             staticClass: "nav-link btn btn-primary",
             attrs: { to: { name: "Dishes" } },
+            on: {
+              click: function ($event) {
+                return _vm.$emit("invio", "utenti")
+              },
+            },
           },
           [_vm._v("Vedi piatti")]
         ),
@@ -2839,7 +2855,14 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" })
+  return _c("div", { staticClass: "container" }, [
+    _c(
+      "div",
+      { staticClass: "d-none" },
+      [_c("RestaurantCard", { on: { invio: _vm.ricezioneDati } })],
+      1
+    ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3006,7 +3029,11 @@ var render = function () {
                 return _c(
                   "div",
                   { key: utente.id, staticClass: "col" },
-                  [_c("RestaurantCard", { attrs: { utenti: utente } })],
+                  [
+                    _c("RestaurantCard", {
+                      attrs: { utenti: utente, piatti: _vm.piatti },
+                    }),
+                  ],
                   1
                 )
               }),

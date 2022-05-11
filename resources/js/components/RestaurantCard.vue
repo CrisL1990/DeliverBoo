@@ -5,7 +5,7 @@
                 <p class="card-text">{{utenti.restaurant_address}}</p>
                 <p>{{utenti.email}}</p>
                 <p>{{utenti.category}}</p>
-                <router-link class="nav-link btn btn-primary" :to="{name: 'Dishes'}">Vedi piatti</router-link>
+                <router-link class="nav-link btn btn-primary" v-on:click="$emit('invio', 'utenti')" :to="{name: 'Dishes'}">Vedi piatti</router-link>
             </div>
         </div>
 </template>
