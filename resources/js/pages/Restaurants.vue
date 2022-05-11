@@ -26,7 +26,7 @@
     <div>
         <div class="row row-cols-3 py-3" v-if="risultato">
             <div class="col" v-for="utente in utenti" :key="utente.id">
-                <RestaurantCard :utenti="utente"></RestaurantCard>
+                <RestaurantCard :utenti="utente" :risp="risp"></RestaurantCard>
             </div>
             <div v-if="utenti.length == 0">
                 <h1>Nessun ristorante trovato</h1>
@@ -98,8 +98,8 @@ export default {
             valoriRicercati: [],
             ristoranti: [],
             utenti: [],
-            piatti: [],
-            controllo: false
+            controllo: false,
+            risp: []
         }
     },
 
@@ -118,24 +118,18 @@ export default {
                         for (let key in element) {
 
                             if(this.ristoranti.indexOf(element.user.restaurant_name) === -1) {
-
                                 this.ristoranti.push(element.user.restaurant_name);
                                 this.utenti.push(element.user);
-                                
-
                             }
                 
                         }
 
-                        this.piatti.push(element);
-                        
+                        this.risp.push(element);
+                       
                     });
-
-                    //$emit("piatti", this.piatti);
-
-                    console.log(this.piatti);
-
+                    //console.log(this.risp)
                     this.risultato = true;
+                    
                 }
             )
         }
