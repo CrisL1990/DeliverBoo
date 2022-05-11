@@ -22,9 +22,9 @@ const router = new VueRouter({
             component: Restaurants
         },
         {
-            path:'/dishes',
+            path:'/dishes/:risposta*',
             name:'Dishes',
-            component: Dishes
+            component: Dishes,
         }
     ]
 });

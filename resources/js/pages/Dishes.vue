@@ -1,29 +1,32 @@
 <template>
     <div class="container">
+        LISTA DEI PIATTI
 
-        <div class="d-none">
-            <RestaurantCard @invio="ricezioneDati"/>
+        <div v-for="risp in risposta" :key="risp.id">
+            <div>Il nome del piatto è: {{risp.name}}</div>
+            <div>Gli ingredienti sono: {{risp.ingredients}}</div>
+            <div>Il prezzo del piatto è: {{risp.price}} €</div>
         </div>
         
     </div>
 </template>
 
 <script>
-import RestaurantCard from '../components/RestaurantCard.vue';
-
+import router from '../router';
 export default {
     name: 'Dishes',
 
-    components:{
-        RestaurantCard
+    data(){
+        return{
+            risposta: []
+        }
     },
 
-    methods: {
+    created(){
+       this.risposta = this.$route.params.risposta;
+       console.log(this.risposta);
+    },
 
-        ricezioneDati(){
-
-        }
-    }
 }
 </script>
 

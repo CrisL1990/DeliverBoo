@@ -1996,10 +1996,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'RestaurantCard',
   props: {
-    'utenti': Object
+    'utenti': Object,
+    'risp': Array
+  },
+  data: function data() {
+    return {
+      filtraggio: []
+    };
+  },
+  methods: {
+    filtra: function filtra() {
+      for (var i = 0; i < this.risp.length; i++) {
+        if (this.utenti.id == this.risp[i].user_id) {
+          this.filtraggio.push(this.risp[i]);
+        }
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.filtra();
   }
 });
 
@@ -2014,7 +2036,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_RestaurantCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/RestaurantCard.vue */ "./resources/js/components/RestaurantCard.vue");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../router */ "./resources/js/router.js");
+//
+//
+//
 //
 //
 //
@@ -2028,11 +2053,14 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dishes',
-  components: {
-    RestaurantCard: _components_RestaurantCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  data: function data() {
+    return {
+      risposta: []
+    };
   },
-  methods: {
-    ricezioneDati: function ricezioneDati() {}
+  created: function created() {
+    this.risposta = this.$route.params.risposta;
+    console.log(this.risposta);
   }
 });
 
@@ -2154,8 +2182,8 @@ __webpack_require__.r(__webpack_exports__);
       valoriRicercati: [],
       ristoranti: [],
       utenti: [],
-      piatti: [],
-      controllo: false
+      controllo: false,
+      risp: []
     };
   },
   methods: {
@@ -2176,9 +2204,9 @@ __webpack_require__.r(__webpack_exports__);
             }
           }
 
-          _this.piatti.push(element);
-        });
-        console.log(_this.piatti);
+          _this.risp.push(element);
+        }); //console.log(this.risp)
+
         _this.risultato = true;
       });
     }
@@ -2815,21 +2843,24 @@ var render = function () {
         _vm._v(" "),
         _c("p", [_vm._v(_vm._s(_vm.utenti.category))]),
         _vm._v(" "),
+        _vm._l(_vm.risp, function (risposta) {
+          return _c("div", { key: risposta.id }, [
+            _vm._v("\n            " + _vm._s(risposta.name) + "\n        "),
+          ])
+        }),
+        _vm._v(" "),
         _c(
           "router-link",
           {
             staticClass: "nav-link btn btn-primary",
-            attrs: { to: { name: "Dishes" } },
-            on: {
-              click: function ($event) {
-                return _vm.$emit("invio", "utenti")
-              },
+            attrs: {
+              to: { name: "Dishes", params: { risposta: _vm.filtraggio } },
             },
           },
           [_vm._v("Vedi piatti")]
         ),
       ],
-      1
+      2
     ),
   ])
 }
@@ -2855,14 +2886,27 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c(
-      "div",
-      { staticClass: "d-none" },
-      [_c("RestaurantCard", { on: { invio: _vm.ricezioneDati } })],
-      1
-    ),
-  ])
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _vm._v("\n    LISTA DEI PIATTI\n\n    "),
+      _vm._l(_vm.risposta, function (risp) {
+        return _c("div", { key: risp.id }, [
+          _c("div", [_vm._v("Il nome del piatto è: " + _vm._s(risp.name))]),
+          _vm._v(" "),
+          _c("div", [
+            _vm._v("Gli ingredienti sono: " + _vm._s(risp.ingredients)),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _vm._v("Il prezzo del piatto è: " + _vm._s(risp.price) + " €"),
+          ]),
+        ])
+      }),
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3031,7 +3075,7 @@ var render = function () {
                   { key: utente.id, staticClass: "col" },
                   [
                     _c("RestaurantCard", {
-                      attrs: { utenti: utente, piatti: _vm.piatti },
+                      attrs: { utenti: utente, risp: _vm.risp },
                     }),
                   ],
                   1
@@ -18970,7 +19014,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'Restaurants',
     component: _pages_Restaurants__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {
-    path: '/dishes',
+    path: '/dishes/:risposta*',
     name: 'Dishes',
     component: _pages_Dishes__WEBPACK_IMPORTED_MODULE_4__["default"]
   }]
