@@ -6,7 +6,7 @@
                 <p class="card-text">{{utenti.restaurant_address}}</p>
                 <p>{{utenti.category}}</p>
 
-                <router-link class="nav-link btn btn-primary" :to="{name: 'Dishes', params:{risposta:filtraggio}}">Vedi piatti</router-link>
+                <router-link class="nav-link btn btn-primary" :to="{name: 'Dishes'}">Vedi piatti</router-link>
             </div>
         </div>
 </template>
@@ -28,7 +28,7 @@ export default {
 
     methods: {
     
-        filtra(){
+        /* filtra(){
  
             for (let i=0; i<this.risp.length; i++){
 
@@ -37,11 +37,11 @@ export default {
                     this.filtraggio.push(this.risp[i]);
                 }
             }    
-        }
+        } */
     },
 
     mounted(){
-        this.filtra();
+        /* this.filtra(); */
     }
 }
 </script>

@@ -2014,16 +2014,17 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    filtra: function filtra() {
-      for (var i = 0; i < this.risp.length; i++) {
-        if (this.utenti.id == this.risp[i].user_id) {
-          this.filtraggio.push(this.risp[i]);
-        }
-      }
-    }
+    /* filtra(){
+           for (let i=0; i<this.risp.length; i++){
+              if (this.utenti.id == this.risp[i].user_id) {
+            
+                this.filtraggio.push(this.risp[i]);
+            }
+        }    
+    } */
   },
   mounted: function mounted() {
-    this.filtra();
+    /* this.filtra(); */
   }
 });
 
@@ -2221,7 +2222,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      category: '',
       categorie: [{
         id: 0,
         nome: 'Italiano'
@@ -2255,33 +2255,17 @@ __webpack_require__.r(__webpack_exports__);
       }],
       risultato: false,
       valoriRicercati: [],
-      ristoranti: [],
-      utenti: [],
-      controllo: false,
-      risp: []
+      utenti: []
     };
   },
   methods: {
     getRestaurant: function getRestaurant() {
       var _this = this;
 
-      axios.get('api/restaurants').then(function (risposta) {
-        var dataAxios = risposta.data.results;
-        var data2 = dataAxios.filter(function (item) {
-          return item.user.category.includes(_this.valoriRicercati);
+      axios.get('api/users').then(function (risposta) {
+        _this.utenti = risposta.data.results.filter(function (item) {
+          return item.category.includes(_this.valoriRicercati);
         });
-        data2.forEach(function (element) {
-          for (var key in element) {
-            if (_this.ristoranti.indexOf(element.user.restaurant_name) === -1) {
-              _this.ristoranti.push(element.user.restaurant_name);
-
-              _this.utenti.push(element.user);
-            }
-          }
-
-          _this.risp.push(element);
-        }); //console.log(this.risp)
-
         _this.risultato = true;
       });
     }
@@ -3580,9 +3564,7 @@ var render = function () {
           "router-link",
           {
             staticClass: "nav-link btn btn-primary",
-            attrs: {
-              to: { name: "Dishes", params: { risposta: _vm.filtraggio } },
-            },
+            attrs: { to: { name: "Dishes" } },
           },
           [_vm._v("Vedi piatti")]
         ),
@@ -3906,11 +3888,7 @@ var render = function () {
                 return _c(
                   "div",
                   { key: utente.id, staticClass: "col" },
-                  [
-                    _c("RestaurantCard", {
-                      attrs: { utenti: utente, risp: _vm.risp },
-                    }),
-                  ],
+                  [_c("RestaurantCard", { attrs: { utenti: utente } })],
                   1
                 )
               }),
@@ -19950,7 +19928,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\booleanLaravel\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Henry\Documents\Boolean\GitHub\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
