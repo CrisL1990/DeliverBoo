@@ -26,7 +26,7 @@
     <div>
         <div class="row row-cols-3 py-3" v-if="risultato">
             <div class="col" v-for="utente in utenti" :key="utente.id">
-                <RestaurantCard :utenti="utente" :risp="risp"></RestaurantCard>
+                <RestaurantCard :utenti="utente"></RestaurantCard>
             </div>
             <div v-if="utenti.length == 0">
                 <h1>Nessun ristorante trovato</h1>
@@ -51,7 +51,6 @@ export default {
 
     data (){
         return {
-            category: '',
             categorie: [
                 {
                     id: 0,
@@ -96,39 +95,19 @@ export default {
             ],
             risultato: false,
             valoriRicercati: [],
-            ristoranti: [],
-            utenti: [],
-            controllo: false,
-            risp: []
+            utenti: []
         }
     },
 
     methods:{
         getRestaurant() {
 
-            axios.get('api/restaurants')            
+            axios.get('api/users')            
                 .then((risposta) => {
-                
-                    let dataAxios = risposta.data.results;
 
-                    let data2 = dataAxios.filter(item => item.user.category.includes(this.valoriRicercati));
+                    this.utenti = risposta.data.results.filter(item => item.category.includes(this.valoriRicercati));
 
-                    data2.forEach(element => {
-
-                        for (let key in element) {
-
-                            if(this.ristoranti.indexOf(element.user.restaurant_name) === -1) {
-                                this.ristoranti.push(element.user.restaurant_name);
-                                this.utenti.push(element.user);
-                            }
-                
-                        }
-
-                        this.risp.push(element);
-                       
-                    });
-                    //console.log(this.risp)
-                    this.risultato = true;
+                    this.risultato = true; 
                     
                 }
             )

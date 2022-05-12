@@ -17440,12 +17440,10 @@ if (bottone) {
     var psw1 = document.getElementById('password');
     var psw2 = document.getElementById('password-confirm');
 
-    if (psw1.value != psw2.value) {
-      psw2.setCustomValidity("La password non corrisponde");
-    } else if (psw1.value.length < 8) {
+    if (psw1.value.length <= 7 || psw2.value <= 7) {
       psw1.setCustomValidity("La password deve essere almeno di otto caratteri");
-    } else if (psw2.value.length < 8) {
-      psw1.setCustomValidity("La password deve essere almeno di otto caratteri");
+    } else if (psw1.value != psw2.value || psw2.value != psw1.value) {
+      psw1.setCustomValidity("La password non corrisponde");
     } else {
       psw1.setCustomValidity("");
       psw2.setCustomValidity("");
