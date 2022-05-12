@@ -1,4 +1,3 @@
-
 const bottone = document.getElementById('bottone');
 
 if (bottone) {
@@ -58,5 +57,6 @@ if (bottone) {
         }else{
             category.setCustomValidity('');
         }
+        
     })
 }

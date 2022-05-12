@@ -81,15 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/admin/edit.js":
-/*!************************************!*\
-  !*** ./resources/js/admin/edit.js ***!
-  \************************************/
+/***/ "./resources/js/admin/create.js":
+/*!**************************************!*\
+  !*** ./resources/js/admin/create.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -155,14 +155,14 @@ if (bottone) {
 
 /***/ }),
 
-/***/ 3:
-/*!******************************************!*\
-  !*** multi ./resources/js/admin/edit.js ***!
-  \******************************************/
+/***/ 4:
+/*!********************************************!*\
+  !*** multi ./resources/js/admin/create.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\booleanLaravel\DeliverBoo\resources\js\admin\edit.js */"./resources/js/admin/edit.js");
+module.exports = __webpack_require__(/*! C:\booleanLaravel\DeliverBoo\resources\js\admin\create.js */"./resources/js/admin/create.js");
 
 
 /***/ })

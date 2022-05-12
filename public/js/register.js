@@ -17461,11 +17461,12 @@ if (bottone) {
       values.push(checkbox.value);
     });
 
-    if (values = [""]) {
+    if (values.length == 0) {
       alertCheck.classList.remove("d-none");
       alertCheck.classList.add("d-block");
+      return false;
     } else {
-      return;
+      return true;
     }
   });
 }
@@ -17494,7 +17495,7 @@ function validaEmail(str) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/christian/Desktop/Boolean/Esercizi/DeliverBoo/resources/js/register.js */"./resources/js/register.js");
+module.exports = __webpack_require__(/*! C:\booleanLaravel\DeliverBoo\resources\js\register.js */"./resources/js/register.js");
 
 
 /***/ })

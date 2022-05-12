@@ -77,6 +77,7 @@
                     <button id="bottone" type="submit" class="btn btn-primary">Salva</button>
 
                   </form>
+                  <a href="{{ url()->previous() }}" class="btn btn-success">Torna alla pagina precedente</a>
                   @else
                   <h1>Piatto non disponibile, torna indietro</h1>
                   <a href="{{ url()->previous() }}" class="btn btn-primary">Torna indietro</a>

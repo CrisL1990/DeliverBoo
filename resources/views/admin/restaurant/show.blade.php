@@ -22,7 +22,7 @@
                     <h1>Piatto non disponibile, torna indietro</h1>
                 @endif
 
-                <a href="{{ url()->previous() }}" class="btn btn-primary">Torna indietro</a>
+                <a href="{{ url()->previous() }}" class="btn btn-success">Torna alla pagina precedente</a>
             </div>
         </div>
     </div>

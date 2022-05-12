@@ -88,21 +88,22 @@ if (bottone) {
         }
 
         //VALIDAZIONE Check
-        let alertCheck= document.getElementById('alertCheck');
-        let dropdownCategory= document.getElementById('dropdown-category');
-        let checkboxes = document.querySelectorAll('input[name="category[]"]:checked');
-        console.log(checkboxes)
-        let values = [];
-        checkboxes.forEach((checkbox) => {
-            values.push(checkbox.value);
-        });
-        if(values=[""]){
-            alertCheck.classList.remove("d-none");
-            alertCheck.classList.add("d-block");
-            
-        }else{
-            return;
-        }
+         let alertCheck= document.getElementById('alertCheck');
+         let dropdownCategory= document.getElementById('dropdown-category');
+         let checkboxes = document.querySelectorAll('input[name="category[]"]:checked');
+         console.log(checkboxes)
+
+         let values = [];
+         checkboxes.forEach((checkbox) => {
+             values.push(checkbox.value);
+         });
+         if(values.length==0){
+             alertCheck.classList.remove("d-none");
+             alertCheck.classList.add("d-block");
+             return false;
+         }else{
+             return true;
+         }
        
             
     }
@@ -125,3 +126,8 @@ function validaEmail(str) {
     var lastDotPos = str.lastIndexOf('.'); 
     return (lastAtPos < lastDotPos && lastAtPos > 0 && str.indexOf('@@') == -1 && lastDotPos > 2 && (str.length - lastDotPos) > 2);
 }
+
+
+
+
+

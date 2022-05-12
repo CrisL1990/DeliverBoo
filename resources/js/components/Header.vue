@@ -11,6 +11,11 @@
 
             </li>
         </ul>
+         <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/admin">Accesso Admin</a>
+            </li>
+        </ul>
 
     </nav>
 
@@ -25,5 +30,12 @@ export default {
 </script>
 
 <style>
-
+    .nav-link{
+        font-size: 20px;
+    }
+    .router-link-exact-active {
+        font-weight: bold;
+        text-transform: uppercase;
+        
+    }
 </style>

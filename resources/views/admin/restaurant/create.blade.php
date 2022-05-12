@@ -13,22 +13,22 @@
                 <input type="hidden" id="user_id" name="user_id" value="{{Auth::user()->id}}">
                 <div class="form-group">
                     <label for="name">Nome piatto</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+                    <input placeholder="es. Carbonara" type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
                 </div>
 
                 <div class="form-group">
                     <label for="price">Prezzo</label>
-                    <input type="number" step=".01" class="form-control" id="price" name="price" value="{{ old('price') }}">
+                    <input placeholder="es. 10" type="number" step=".01" class="form-control" id="price" name="price" value="{{ old('price') }}">
                 </div>
 
                 <div class="form-group">
                     <label for="description">Descrizione del piatto</label>
-                    <textarea class="form-control" id="description" rows="10" name="description">{{ old('description') }}</textarea>
+                    <textarea placeholder="es. La carbonara è un primo piatto tipico della tradizione romana preparato con un condimento a base di uova, guanciale e pecorino romano." class="form-control" id="description" rows="10" name="description">{{ old('description') }}</textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="ingredients">Ingredienti del piatto</label>
-                    <textarea class="form-control" id="ingredients" rows="10" name="ingredients">{{ old('ingredients') }}</textarea>
+                    <textarea placeholder="es. Spaghetti, Guanciale, Tuorlo di uova, Pecorino romano" class="form-control" id="ingredients" rows="10" name="ingredients">{{ old('ingredients') }}</textarea>
                 </div>
 
                 <div class="form-group">
@@ -69,9 +69,10 @@
                 <button id="bottone" type="submit" class="btn btn-primary">Salva</button>
 
             </form>
+            <a href="{{ url()->previous() }}" class="btn btn-success">Torna alla pagina precedente</a>
 
         </div>
     </div>
 </div>
-<script src="{{ asset('js/admin/edit.js') }}" defer></script>
+<script src="{{ asset('js/admin/create.js') }}" defer></script>
 @endsection
