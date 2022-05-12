@@ -2005,26 +2005,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'RestaurantCard',
   props: {
-    'utenti': Object,
-    'risp': Array
+    'utenti': Object
   },
   data: function data() {
     return {
-      filtraggio: []
+      slug: ""
     };
   },
   methods: {
-    /* filtra(){
-           for (let i=0; i<this.risp.length; i++){
-              if (this.utenti.id == this.risp[i].user_id) {
-            
-                this.filtraggio.push(this.risp[i]);
-            }
-        }    
-    } */
+    makeSlug: function makeSlug() {
+      this.slug = this.utenti.id;
+    }
   },
-  mounted: function mounted() {
-    /* this.filtra(); */
+  created: function created() {
+    this.makeSlug();
   }
 });
 
@@ -2039,7 +2033,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../router */ "./resources/js/router.js");
 //
 //
 //
@@ -2099,27 +2092,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-
+//import router from '../router';
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dishes',
   data: function data() {
     return {
       risposta: [],
-      nome: "",
-      price: null,
       carrello: [],
-      carrelloPieno: false,
-      quanti: 1,
-      piattiPresenti: []
+      piattiPresenti: [],
+      carrelloPieno: false
     };
-  },
-  created: function created() {
-    this.risposta = this.$route.params.risposta;
-    console.log(this.risposta);
   },
   methods: {
     addDish: function addDish(valore) {
@@ -2136,7 +2118,19 @@ __webpack_require__.r(__webpack_exports__);
       this.carrello.push(ordine);
       this.piattiPresenti.push(ordine.name);
       this.carrelloPieno = true;
+    },
+    getPost: function getPost() {
+      var _this = this;
+
+      var slug = this.$route.params.slug;
+      axios.get('/api/restaurants/' + slug).then(function (response) {
+        _this.risposta = response.data.result;
+        console.log(response);
+      });
     }
+  },
+  mounted: function mounted() {
+    this.getPost();
   }
 });
 
@@ -2222,40 +2216,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      categorie: [{
-        id: 0,
-        nome: 'Italiano'
-      }, {
-        id: 1,
-        nome: 'Giapponese'
-      }, {
-        id: 2,
-        nome: 'Indiano'
-      }, {
-        id: 3,
-        nome: 'Cinese'
-      }, {
-        id: 4,
-        nome: 'Greco'
-      }, {
-        id: 5,
-        nome: 'Messicano'
-      }, {
-        id: 6,
-        nome: 'Americano'
-      }, {
-        id: 7,
-        nome: 'Thailandese'
-      }, {
-        id: 8,
-        nome: 'Francese'
-      }, {
-        id: 9,
-        nome: 'Spagnolo'
-      }],
       risultato: false,
       valoriRicercati: [],
-      utenti: []
+      utenti: [],
+      categories: []
     };
   },
   methods: {
@@ -2268,7 +2232,17 @@ __webpack_require__.r(__webpack_exports__);
         });
         _this.risultato = true;
       });
+    },
+    getCategories: function getCategories() {
+      var _this2 = this;
+
+      axios.get('api/categories').then(function (value) {
+        _this2.categories = value.data.results;
+      });
     }
+  },
+  created: function created() {
+    this.getCategories();
   }
 });
 
@@ -3564,7 +3538,7 @@ var render = function () {
           "router-link",
           {
             staticClass: "nav-link btn btn-primary",
-            attrs: { to: { name: "Dishes" } },
+            attrs: { to: { name: "Dishes", params: { slug: _vm.slug } } },
           },
           [_vm._v("Vedi piatti")]
         ),
@@ -3686,8 +3660,6 @@ var render = function () {
                     _c("td", [_vm._v(_vm._s(ordine.name))]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(ordine.price))]),
-                    _vm._v(" "),
-                    _c("td"),
                   ])
                 }),
                 0
@@ -3718,8 +3690,6 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Nome")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Prezzo")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Quantità")]),
       ]),
     ])
   },
@@ -3795,15 +3765,15 @@ var render = function () {
                   },
                 },
               },
-              _vm._l(_vm.categorie, function (categoria) {
+              _vm._l(_vm.categories, function (categoria) {
                 return _c(
                   "div",
                   { key: categoria.id, staticClass: "cat-container mx-2" },
                   [
-                    _c("label", { attrs: { for: categoria.nome } }, [
+                    _c("label", { attrs: { for: categoria.name } }, [
                       _vm._v(
                         "\r\n                            " +
-                          _vm._s(categoria.nome) +
+                          _vm._s(categoria.name) +
                           "\r\n                            "
                       ),
                       _c("input", {
@@ -3818,13 +3788,13 @@ var render = function () {
                         staticClass: "mx-1",
                         attrs: {
                           type: "checkbox",
-                          id: categoria.nome,
-                          name: categoria.nome,
+                          id: categoria.name,
+                          name: categoria.name,
                         },
                         domProps: {
-                          value: categoria.nome,
+                          value: categoria.name,
                           checked: Array.isArray(_vm.valoriRicercati)
-                            ? _vm._i(_vm.valoriRicercati, categoria.nome) > -1
+                            ? _vm._i(_vm.valoriRicercati, categoria.name) > -1
                             : _vm.valoriRicercati,
                         },
                         on: {
@@ -3833,7 +3803,7 @@ var render = function () {
                               $$el = $event.target,
                               $$c = $$el.checked ? true : false
                             if (Array.isArray($$a)) {
-                              var $$v = categoria.nome,
+                              var $$v = categoria.name,
                                 $$i = _vm._i($$a, $$v)
                               if ($$el.checked) {
                                 $$i < 0 &&
@@ -19844,7 +19814,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'Restaurants',
     component: _pages_Restaurants__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {
-    path: '/dishes/:risposta*',
+    path: '/restaurants/:slug',
     name: 'Dishes',
     component: _pages_Dishes__WEBPACK_IMPORTED_MODULE_4__["default"]
   }]

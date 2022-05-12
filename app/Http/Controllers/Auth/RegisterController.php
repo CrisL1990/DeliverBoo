@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -69,16 +70,32 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
-        return User::create([
+    {   
+        $slug = Str::slug($data['restaurant_name']);
+
+        if (User::where('slug', '=', $slug)->first()) {
+            
+            $counter = 1;
+
+            while ( User::where('slug', '=', $slug)->first() ) {
+
+                $slug = Str::slug($data['restaurant_name']) . '-' . $counter;
+                $counter++;
+            } 
+        }
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'vat' => $data['vat'],
             'restaurant_name' => $data['restaurant_name'],
+            'slug' => $slug,
             'restaurant_address' => $data['restaurant_address'],
             'category' => implode(",", $data['category'])
         ]);
+
+        return $user;
 
     }
 

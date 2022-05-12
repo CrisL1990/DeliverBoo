@@ -39,7 +39,6 @@
                         <th scope="col">#</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Prezzo</th>
-                        <th scope="col">Quantità</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,9 +47,6 @@
                         <th scope="row">-</th>
                         <td>{{ordine.name}}</td>
                         <td>{{ordine.price}}</td>
-                        <td>
-                            
-                        </td>
                     </tr>
                     
                 </tbody>
@@ -62,26 +58,18 @@
 </template>
 
 <script>
-import router from '../router';
+//import router from '../router';
+
 export default {
     name: 'Dishes',
 
     data(){
         return{
             risposta: [],
-            nome: "",
-            price: null,
             carrello: [],
-            carrelloPieno: false,
-            quanti: 1,
-            piattiPresenti: []
-
+            piattiPresenti: [],
+            carrelloPieno: false
         }
-    },
-
-    created(){
-       this.risposta = this.$route.params.risposta;
-       console.log(this.risposta);
     },
 
     methods: {
@@ -106,8 +94,25 @@ export default {
 
            
         },
-    }
 
+        getPost() {
+
+            const slug = this.$route.params.slug;
+            
+            axios.get('/api/restaurants/' + slug)
+                .then(response => {
+
+                this.risposta = response.data.result;
+                
+                console.log(response);
+                
+            });
+        }
+    },
+
+    mounted() {
+        this.getPost();
+    }
 }
 </script>
 

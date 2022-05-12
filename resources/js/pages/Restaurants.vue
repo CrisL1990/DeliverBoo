@@ -7,10 +7,10 @@
                 <label class="col-form-label" for="category">Categoria</label>
                 <form @submit.prevent="getRestaurant" class="container">
 
-                    <div class="cat-container mx-2" v-for="categoria in categorie" :key="categoria.id">
-                        <label :for="categoria.nome">
-                            {{categoria.nome}}
-                            <input class="mx-1" type="checkbox" v-model="valoriRicercati" :id="categoria.nome" :name="categoria.nome" :value="categoria.nome">
+                    <div class="cat-container mx-2" v-for="categoria in categories" :key="categoria.id">
+                        <label :for="categoria.name">
+                            {{categoria.name}}
+                            <input class="mx-1" type="checkbox" v-model="valoriRicercati" :id="categoria.name" :name="categoria.name" :value="categoria.name">
                         </label><br>
                     </div>
                     
@@ -51,55 +51,17 @@ export default {
 
     data (){
         return {
-            categorie: [
-                {
-                    id: 0,
-                    nome: 'Italiano'
-                },
-                {
-                    id: 1,
-                    nome: 'Giapponese'
-                },
-                {
-                    id: 2,
-                    nome: 'Indiano'
-                },
-                {
-                    id: 3,
-                    nome: 'Cinese'
-                },
-                {
-                    id: 4,
-                    nome: 'Greco'
-                },
-                {
-                    id: 5,
-                    nome: 'Messicano'
-                },
-                {
-                    id: 6,
-                    nome: 'Americano'
-                },
-                {
-                    id: 7,
-                    nome: 'Thailandese'
-                },
-                {
-                    id: 8,
-                    nome: 'Francese'
-                },
-                {
-                    id: 9,
-                    nome: 'Spagnolo'
-                }
-            ],
             risultato: false,
             valoriRicercati: [],
-            utenti: []
+            utenti: [],
+            categories:[]
+           
+    
         }
     },
 
     methods:{
+       
         getRestaurant() {
 
             axios.get('api/users')            
@@ -111,8 +73,21 @@ export default {
                     
                 }
             )
-        }
-    }
+        },
+         getCategories() {
+
+             axios.get('api/categories')            
+                 .then((value) => {
+                    this.categories=value.data.results;   
+                    
+                 }
+             )
+         }
+    },
+     created(){
+          this.getCategories();
+     }
+   
   }
 </script>
 

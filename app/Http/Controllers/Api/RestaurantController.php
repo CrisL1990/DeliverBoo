@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Dish;
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -53,9 +54,16 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $dishes = Dish::where('user_id', $slug);
+
+        return response()->json(
+            [
+                'result' => $dishes,
+                'success' => true
+            ]
+        );
     }
 
     /**

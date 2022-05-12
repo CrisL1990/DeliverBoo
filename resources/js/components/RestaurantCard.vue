@@ -6,7 +6,7 @@
                 <p class="card-text">{{utenti.restaurant_address}}</p>
                 <p>{{utenti.category}}</p>
 
-                <router-link class="nav-link btn btn-primary" :to="{name: 'Dishes'}">Vedi piatti</router-link>
+                <router-link class="nav-link btn btn-primary" :to="{name: 'Dishes', params: {slug: slug}}">Vedi piatti</router-link>
             </div>
         </div>
 </template>
@@ -17,31 +17,22 @@ export default {
 
     props:{
         'utenti': Object,
-        'risp': Array
     },
 
     data(){
         return{
-            filtraggio: []
+            slug: ""
         }
     },
 
     methods: {
-    
-        /* filtra(){
- 
-            for (let i=0; i<this.risp.length; i++){
-
-                if (this.utenti.id == this.risp[i].user_id) {
-                
-                    this.filtraggio.push(this.risp[i]);
-                }
-            }    
-        } */
+        makeSlug(){
+            this.slug = this.utenti.id;
+        }
     },
 
-    mounted(){
-        /* this.filtra(); */
+    created(){
+        this.makeSlug();
     }
 }
 </script>
