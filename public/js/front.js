@@ -1912,6 +1912,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Footer'
 });
@@ -1927,8 +1966,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -2093,6 +2130,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 //import router from '../router';
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dishes',
@@ -2146,6 +2188,53 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3413,9 +3502,140 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", [
+      _c("div", { staticClass: "container  py-3" }, [
+        _c("div", { staticClass: "row row-cols-1 row-cols-md-3" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("ul", { staticClass: "w-50 rounded" }, [
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("ul", { staticClass: "w-50 rounded" }, [
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("ul", { staticClass: "w-50 rounded" }, [
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { staticClass: "text-white", attrs: { href: "" } }, [
+                  _vm._v("aaaa"),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -3439,7 +3659,20 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("header", [
     _c("nav", { staticClass: "navbar navbar-light bg-light" }, [
-      _c("ul", { staticClass: "navbar-nav mr-auto" }, [
+      _c("ul", { staticClass: "navbar-nav mr-auto ms_flex-nav" }, [
+        _c(
+          "li",
+          { staticClass: "nav-item pr-3" },
+          [
+            _c(
+              "router-link",
+              { staticClass: "nav-link", attrs: { to: { name: "Home" } } },
+              [_vm._v("Deliverboo")]
+            ),
+          ],
+          1
+        ),
+        _vm._v(" "),
         _c(
           "li",
           { staticClass: "nav-item" },
@@ -3572,79 +3805,72 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container d-flex flex-column align-items-center" },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("h5", { staticClass: "my-2" }, [_vm._v("MENÙ")]),
+  return _c("div", [
+    _c("div", { staticClass: "container d-flex justify-content-center" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c("h5", { staticClass: "my-2 text-center mt-3" }, [_vm._v("MENÙ")]),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "d-flex flex-wrap justify-content-center" },
+        {
+          staticClass:
+            "row row-cols-1 row-cols-md-4 row-cols-lg-4 row-cols-xl-3",
+        },
         _vm._l(_vm.risposta, function (risp) {
-          return _c(
-            "div",
-            {
-              key: risp.id,
-              staticClass: "card m-1",
-              staticStyle: { width: "18rem" },
-            },
-            [
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title" }, [
-                  _c(
-                    "span",
-                    { staticClass: "font-weight-light text-secondary" },
-                    [_vm._v("Nome: ")]
-                  ),
-                  _c("br"),
-                  _vm._v(_vm._s(risp.name)),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [
-                  _c(
-                    "span",
-                    { staticClass: "font-weight-light text-secondary" },
-                    [_vm._v("Ingredienti: ")]
-                  ),
-                  _c("br"),
-                  _vm._v(_vm._s(risp.ingredients)),
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _c(
-                    "span",
-                    { staticClass: "font-weight-light text-secondary" },
-                    [_vm._v("Prezzo: ")]
-                  ),
-                  _c("br"),
-                  _vm._v(_vm._s(risp.price) + "€"),
-                ]),
-                _vm._v(" "),
+          return _c("div", { key: risp.id, staticClass: "card col my-3" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("h5", { staticClass: "card-title" }, [
                 _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-success",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function ($event) {
-                        return _vm.addDish(risp)
-                      },
+                  "span",
+                  { staticClass: "font-weight-light text-secondary" },
+                  [_vm._v("Nome: ")]
+                ),
+                _c("br"),
+                _vm._v(_vm._s(risp.name)),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _c(
+                  "span",
+                  { staticClass: "font-weight-light text-secondary" },
+                  [_vm._v("Ingredienti: ")]
+                ),
+                _c("br"),
+                _vm._v(_vm._s(risp.ingredients)),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _c(
+                  "span",
+                  { staticClass: "font-weight-light text-secondary" },
+                  [_vm._v("Prezzo: ")]
+                ),
+                _c("br"),
+                _vm._v(_vm._s(risp.price) + "€"),
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "btn btn-danger", attrs: { type: "button" } },
+                [_vm._v("-")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-success",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.addDish(risp)
                     },
                   },
-                  [_vm._v("+")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  { staticClass: "btn btn-danger", attrs: { type: "button" } },
-                  [_vm._v("-")]
-                ),
-              ]),
-            ]
-          )
+                },
+                [_vm._v("+")]
+              ),
+            ]),
+          ])
         }),
         0
       ),
@@ -3652,7 +3878,7 @@ var render = function () {
       _vm.carrelloPieno
         ? _c("div", { staticClass: "carrello" }, [
             _c("table", { staticClass: "table" }, [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -3670,18 +3896,10 @@ var render = function () {
             ]),
           ])
         : _vm._e(),
-    ]
-  )
+    ]),
+  ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card m-1" }, [
-      _c("div", { staticClass: "card-body" }),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -3718,9 +3936,103 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _c("section", { staticClass: "jumbotron" }, [
+      _c("div", { staticClass: "container ms_padding-150" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-6 " }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "card text-ligth border-0 bg-transparent ms-height-100",
+              },
+              [
+                _c("div", { staticClass: "card-body" }, [
+                  _c("h2", { staticClass: "card-title" }, [
+                    _vm._v("Deliverboo"),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(
+                      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit officia adipisci quia, modi quaerat voluptate! Culpa omnis aliquam aliquid ab doloremque debitis, quo possimus repellat ipsum aperiam maiores assumenda placeat."
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger ms_btn-radius",
+                      attrs: { type: "button" },
+                    },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "text-white",
+                          attrs: { to: { name: "Restaurants" } },
+                        },
+                        [_vm._v("Vedi Ristoranti")]
+                      ),
+                    ],
+                    1
+                  ),
+                ]),
+              ]
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("h2", { staticClass: "display-4 text-center" }, [
+        _vm._v("I piatti che ami a domicilio"),
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "ms_style-p" }, [
+        _vm._v(
+          "Potrai scegliere tra una vasta gamma di ristoranti all'interno della città di roma\n            in modo da avere sempre il tuo piatto preferito a disposizione. La nostra selezione\n            consente una rapida scelta tra le varie categorie per semplificare la tua ricerca, per \n            esempio potrai scegliere tra piatti della specialità italiana, oppure di quella spagnola,\n            e se per una sera vorrai del sushi da degli autentici ristoranti giapponesi, noi siamo qui.\n        "
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "ms_dishes" }, [
+      _c("div", { staticClass: "container py-3" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12 " }, [
+            _c("h2", { staticClass: "display-4 text-center" }, [
+              _vm._v("I tuoi piatti preferiti, consegnati da noi."),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row row-cols-1 row-cols-lg-3" }, [
+          _c("div", { staticClass: "col py-3" }, [
+            _c("img", {
+              staticClass: "w-100 ms_img",
+              attrs: { src: "", alt: "" },
+            }),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -19901,7 +20213,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Henry\Documents\Boolean\GitHub\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\booleanLaravel\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

@@ -1,20 +1,23 @@
 <template>
-    <div class="container d-flex flex-column align-items-center">
+ <div>
+    <div class="container d-flex justify-content-center">
 
-        <div class="card m-1">
+        <!-- <div class="card w-50">
             <div class="card-body">
 
-                <!-- <h3>{{risposta[0].user.restaurant_name}}</h3>
+                <h3>{{risposta[0].user.restaurant_name}}</h3>
                 <h5>{{risposta[0].user.category}}</h5>
-                <h6>{{risposta[0].user.restaurant_address}}</h6> -->
+                <h6>{{risposta[0].user.restaurant_address}}</h6>
             </div>
-        </div>
+        </div> -->
+    </div>
+    
+    <div class="container">
+        <h5 class="my-2 text-center mt-3">MENÙ</h5>
 
-        <h5 class="my-2">MENÙ</h5>
+        <div class="row row-cols-1 row-cols-md-4 row-cols-lg-4 row-cols-xl-3">
 
-        <div class="d-flex flex-wrap justify-content-center">
-
-            <div v-for="risp in risposta" :key="risp.id" class="card m-1" style="width: 18rem;">
+            <div v-for="risp in risposta" :key="risp.id" class="card col my-3">
 
                 <div class="card-body">
 
@@ -22,8 +25,9 @@
                     <p class="card-text"><span class="font-weight-light text-secondary">Ingredienti: </span><br>{{risp.ingredients}}</p>
                     <p><span class="font-weight-light text-secondary">Prezzo: </span><br>{{risp.price}}€</p>
 
-                    <button @click="addDish(risp)" type="button" class="btn btn-success">+</button>
                     <button type="button" class="btn btn-danger">-</button>
+                    <button @click="addDish(risp)" type="button" class="btn btn-success">+</button>
+                    
 
                 </div>
 
@@ -55,6 +59,7 @@
         </div>
         
     </div>
+</div>
 </template>
 
 <script>
@@ -102,7 +107,7 @@ export default {
             axios.get('/api/restaurants/' + slug)
                 .then(response => {
 
-                //this.risposta = response.data.result;
+                this.risposta = response.data.result;
                 
                 console.log(response);
                 

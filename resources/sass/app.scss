@@ -6,3 +6,9 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+//css
+@import './partials/backend';
+@import './partials/front-end/header';
+@import './partials/front-end/home';
+@import './partials/front-end/footer';
