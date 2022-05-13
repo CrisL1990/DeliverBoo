@@ -2126,7 +2126,7 @@ __webpack_require__.r(__webpack_exports__);
       var slug = this.$route.params.slug;
       axios.get('/api/restaurants/' + slug).then(function (response) {
         _this.risposta = response.data.result;
-        console.log(response);
+        console.log(_this.risposta);
       });
     }
   },

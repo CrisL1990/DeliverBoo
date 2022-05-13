@@ -102,9 +102,9 @@ export default {
             axios.get('/api/restaurants/' + slug)
                 .then(response => {
 
-                //this.risposta = response.data.result;
+                this.risposta = response.data.result;
                 
-                console.log(response);
+                console.log(this.risposta);
                 
             });
         }
