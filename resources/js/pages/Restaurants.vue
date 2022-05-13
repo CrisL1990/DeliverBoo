@@ -79,7 +79,8 @@ export default {
 
             axios.get('api/categories')            
                 .then((value) => {
-                this.categories=value.data.results;   
+                this.categories=value.data.results;  
+                 
                 
                 }
             );
