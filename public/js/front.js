@@ -2123,16 +2123,12 @@ __webpack_require__.r(__webpack_exports__);
       this.carrelloPieno = true;
     },
     getPost: function getPost() {
+      var _this = this;
+
       var slug = this.$route.params.slug;
       axios.get('/api/restaurants/' + slug).then(function (response) {
-<<<<<<< HEAD
-        //this.risposta = response.data.result;
-        console.log(response);
-=======
         _this.risposta = response.data.result;
         _this.ristoratore = true;
-        console.log(_this.risposta);
->>>>>>> 823e17142a7367a913ef2bcadd577ba17cb3a963
       });
     }
   },
