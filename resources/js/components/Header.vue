@@ -6,6 +6,7 @@
 
         <ul class="navbar-nav mr-auto ms_flex-nav">
             <li class="nav-item pr-3"><router-link class="nav-link" :to="{name: 'Home'}">Deliverboo</router-link></li>
+            <li class="nav-item pr-3"><router-link class="nav-link" :to="{name: 'Orders'}">Order</router-link></li>
 
             <li class="nav-item"><router-link class="nav-link" :to="{name: 'Restaurants'}">Ristoranti</router-link></li>
         </ul>
