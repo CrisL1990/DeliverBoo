@@ -27,7 +27,7 @@ export default {
 
     methods: {
         makeSlug(){
-            this.slug = this.utenti.id;
+            this.slug = this.utenti.slug;
         }
     },
 

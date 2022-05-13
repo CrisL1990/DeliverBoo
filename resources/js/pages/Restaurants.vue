@@ -74,19 +74,24 @@ export default {
                 }
             )
         },
-         getCategories() {
 
-             axios.get('api/categories')            
-                 .then((value) => {
-                    this.categories=value.data.results;   
-                    
-                 }
-             )
-         }
+        getCategories() {
+
+            axios.get('api/categories')            
+                .then((value) => {
+                this.categories=value.data.results;   
+                
+                }
+            ).catch(function (error) {
+                console.error(error.response.data);
+            });
+        },
+
     },
-     created(){
-          this.getCategories();
-     }
+
+    created(){
+        this.getCategories();
+    }
    
   }
 </script>
