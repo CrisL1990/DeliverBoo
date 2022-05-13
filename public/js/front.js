@@ -2121,11 +2121,9 @@ __webpack_require__.r(__webpack_exports__);
       this.carrelloPieno = true;
     },
     getPost: function getPost() {
-      var _this = this;
-
       var slug = this.$route.params.slug;
       axios.get('/api/restaurants/' + slug).then(function (response) {
-        _this.risposta = response.data.result;
+        //this.risposta = response.data.result;
         console.log(response);
       });
     }
@@ -19901,7 +19899,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Henry\Documents\Boolean\GitHub\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\booleanLaravel\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
