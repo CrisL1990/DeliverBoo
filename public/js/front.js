@@ -3576,7 +3576,15 @@ var render = function () {
     "div",
     { staticClass: "container d-flex flex-column align-items-center" },
     [
-      _vm._m(0),
+      _c("div", { staticClass: "card m-1" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("h3", [_vm._v(_vm._s(_vm.risposta[0].user.restaurant_name))]),
+          _vm._v(" "),
+          _c("h5", [_vm._v(_vm._s(_vm.risposta[0].user.category))]),
+          _vm._v(" "),
+          _c("h6", [_vm._v(_vm._s(_vm.risposta[0].user.restaurant_address))]),
+        ]),
+      ]),
       _vm._v(" "),
       _c("h5", { staticClass: "my-2" }, [_vm._v("MENÙ")]),
       _vm._v(" "),
@@ -3652,7 +3660,7 @@ var render = function () {
       _vm.carrelloPieno
         ? _c("div", { staticClass: "carrello" }, [
             _c("table", { staticClass: "table" }, [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -3674,14 +3682,6 @@ var render = function () {
   )
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card m-1" }, [
-      _c("div", { staticClass: "card-body" }),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement

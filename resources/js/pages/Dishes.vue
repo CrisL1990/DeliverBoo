@@ -4,9 +4,9 @@
         <div class="card m-1">
             <div class="card-body">
 
-                <!-- <h3>{{risposta[0].user.restaurant_name}}</h3>
+                <h3>{{risposta[0].user.restaurant_name}}</h3>
                 <h5>{{risposta[0].user.category}}</h5>
-                <h6>{{risposta[0].user.restaurant_address}}</h6> -->
+                <h6>{{risposta[0].user.restaurant_address}}</h6>
             </div>
         </div>
 
