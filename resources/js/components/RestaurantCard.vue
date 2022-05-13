@@ -6,7 +6,7 @@
                 <p class="card-text">{{utenti.restaurant_address}}</p>
                 <p>{{utenti.category}}</p>
 
-                <router-link class="nav-link btn btn-primary" :to="{name: 'Dishes', params: {slug: slug}}">Vedi piatti</router-link>
+                <router-link class="nav-link btn btn-primary" :to="{name: 'Dishes', params: {slug: utenti.slug}}">Vedi piatti</router-link>
             </div>
         </div>
 </template>
@@ -19,7 +19,7 @@ export default {
         'utenti': Object,
     },
 
-    data(){
+   /*  data(){
         return{
             slug: ""
         }
@@ -33,7 +33,7 @@ export default {
 
     created(){
         this.makeSlug();
-    }
+    } */
 }
 </script>
 

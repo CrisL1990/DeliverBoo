@@ -2006,20 +2006,21 @@ __webpack_require__.r(__webpack_exports__);
   name: 'RestaurantCard',
   props: {
     'utenti': Object
-  },
-  data: function data() {
-    return {
-      slug: ""
-    };
-  },
-  methods: {
-    makeSlug: function makeSlug() {
-      this.slug = this.utenti.slug;
-    }
-  },
-  created: function created() {
-    this.makeSlug();
   }
+  /*  data(){
+       return{
+           slug: ""
+       }
+   },
+     methods: {
+       makeSlug(){
+           this.slug = this.utenti.slug;
+       }
+   },
+     created(){
+       this.makeSlug();
+   } */
+
 });
 
 /***/ }),
@@ -2238,8 +2239,6 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('api/categories').then(function (value) {
         _this2.categories = value.data.results;
-      })["catch"](function (error) {
-        console.error(error.response.data);
       });
     }
   },
@@ -3540,7 +3539,9 @@ var render = function () {
           "router-link",
           {
             staticClass: "nav-link btn btn-primary",
-            attrs: { to: { name: "Dishes", params: { slug: _vm.slug } } },
+            attrs: {
+              to: { name: "Dishes", params: { slug: _vm.utenti.slug } },
+            },
           },
           [_vm._v("Vedi piatti")]
         ),

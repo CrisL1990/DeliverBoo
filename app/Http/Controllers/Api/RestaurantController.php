@@ -56,7 +56,23 @@ class RestaurantController extends Controller
      */
     public function show($slug)
     {
-        $dishes = Dish::where('user_id', $slug);
+        return $slug;
+
+        $users = User::all();
+
+        $dishes = Dish::all();
+
+        $userID = null;
+
+        foreach($users as $user){
+
+            if ($user['slug'] == $slug) {
+
+                $userID == $user['id'];
+            }
+        };
+
+        $dishes = Dish::where('user_id', $userID)->first();
 
         return response()->json(
             [
