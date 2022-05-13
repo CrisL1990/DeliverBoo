@@ -82,9 +82,7 @@ export default {
                 this.categories=value.data.results;   
                 
                 }
-            ).catch(function (error) {
-                console.error(error.response.data);
-            });
+            );
         },
 
     },
