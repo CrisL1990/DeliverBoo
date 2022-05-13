@@ -1,12 +1,13 @@
 <template>
     <div class="container d-flex flex-column align-items-center">
 
-        <div class="card m-1">
+        <div v-if="ristoratore" class="card m-1">
             <div class="card-body">
 
-                <!-- <h3>{{risposta[0].user.restaurant_name}}</h3>
+                <h3>{{risposta[0].user.restaurant_name}}</h3>
                 <h5>{{risposta[0].user.category}}</h5>
-                <h6>{{risposta[0].user.restaurant_address}}</h6> -->
+                <h6>{{risposta[0].user.restaurant_address}}</h6>
+
             </div>
         </div>
 
@@ -68,7 +69,8 @@ export default {
             risposta: [],
             carrello: [],
             piattiPresenti: [],
-            carrelloPieno: false
+            carrelloPieno: false,
+            ristoratore: false
         }
     },
 
@@ -102,9 +104,9 @@ export default {
             axios.get('/api/restaurants/' + slug)
                 .then(response => {
 
-                //this.risposta = response.data.result;
-                
-                console.log(response);
+                this.risposta = response.data.result;
+
+                this.ristoratore = true;
                 
             });
         }

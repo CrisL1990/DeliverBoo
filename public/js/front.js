@@ -2093,6 +2093,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 //import router from '../router';
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dishes',
@@ -2101,7 +2102,8 @@ __webpack_require__.r(__webpack_exports__);
       risposta: [],
       carrello: [],
       piattiPresenti: [],
-      carrelloPieno: false
+      carrelloPieno: false,
+      ristoratore: false
     };
   },
   methods: {
@@ -2123,8 +2125,14 @@ __webpack_require__.r(__webpack_exports__);
     getPost: function getPost() {
       var slug = this.$route.params.slug;
       axios.get('/api/restaurants/' + slug).then(function (response) {
+<<<<<<< HEAD
         //this.risposta = response.data.result;
         console.log(response);
+=======
+        _this.risposta = response.data.result;
+        _this.ristoratore = true;
+        console.log(_this.risposta);
+>>>>>>> 823e17142a7367a913ef2bcadd577ba17cb3a963
       });
     }
   },
@@ -3574,7 +3582,19 @@ var render = function () {
     "div",
     { staticClass: "container d-flex flex-column align-items-center" },
     [
-      _vm._m(0),
+      _vm.ristoratore
+        ? _c("div", { staticClass: "card m-1" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("h3", [_vm._v(_vm._s(_vm.risposta[0].user.restaurant_name))]),
+              _vm._v(" "),
+              _c("h5", [_vm._v(_vm._s(_vm.risposta[0].user.category))]),
+              _vm._v(" "),
+              _c("h6", [
+                _vm._v(_vm._s(_vm.risposta[0].user.restaurant_address)),
+              ]),
+            ]),
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("h5", { staticClass: "my-2" }, [_vm._v("MENÙ")]),
       _vm._v(" "),
@@ -3650,7 +3670,7 @@ var render = function () {
       _vm.carrelloPieno
         ? _c("div", { staticClass: "carrello" }, [
             _c("table", { staticClass: "table" }, [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -3672,14 +3692,6 @@ var render = function () {
   )
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card m-1" }, [
-      _c("div", { staticClass: "card-body" }),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement

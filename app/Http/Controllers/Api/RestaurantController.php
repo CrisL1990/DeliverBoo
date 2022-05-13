@@ -58,7 +58,7 @@ class RestaurantController extends Controller
     {
         $user = User::where('slug', $slug)->first();
 
-        $dishes = Dish::where('user_id', $user['id'])->get();
+        $dishes = Dish::where('user_id', $user['id'])->with(['user'])->get();
 
         return response()->json(
             [
