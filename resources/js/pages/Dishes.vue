@@ -80,11 +80,15 @@ export default {
 
         addDish(piatto){ //funzione per prendere le info del piatto aggiunto
             
-            let oggetto = {'id': piatto.id, 'name': piatto.name, 'price': piatto.price, 'quantity': 1}
+            let oggetto = {'id': piatto.id, 'name': piatto.name, 'price': piatto.price, 'quantity': 1} //creo un oggetto dai valori derivati dall'argomento e ci aggiungo la quantità 1
 
-            this.carrello.push(oggetto); //aggiungo il piatto come oggetto all'array carrello
+            let found = this.carrello.find(product => product.id == oggetto.id) //vedo se ci sono corrispondenze di ID dentro l'array carrello con l'oggetto nuovo
 
-            console.log(this.carrello);
+            if (found) { //se c'è corrispondenza, prendo quell'oggetto e incremento la sua quantità
+                found.quantity++;
+            } else {
+                this.carrello.push(oggetto); //altrimenti aggiungo l'intero piatto come oggetto all'array carrello
+            }
 
             localStorage.setItem('carrello', JSON.stringify(this.carrello));
 
@@ -124,71 +128,7 @@ export default {
 
         updateCart(){
 
-            //console.log(this.carrello);
-
-            /* let count = this.carrello.filter(item => item.name.includes(piatto.name)); //filtro in una variabile gli elementi nel carrello che hanno lo stesso nome dell'elemento cliccato su aggiungi o elimina
-
-            let conteggio = count.length; //conto la lunghezza dell'array
-
-            let totaleItems = [];
-
-            totaleItems.push({'name': piatto.name,  //pusho in una variabile l'oggetto da filtrare successivamente
-                                'price': piatto.price, 
-                                'quantity': conteggio
-                                });
             
-            this.total.forEach(element => {
-                
-                if (element.name === piatto.name) {
-
-                    totaleItems.reduce((array, o) => {              
-
-                            if(!array.some(obj => obj.label === o.name)) {
-                                
-                                array.push(o);
-                            }
-
-                            return array;
-                        },[]);
-                } else {
-
-                    this.total.push(piatto);
-                }
-            })
-
-            let single = totaleItems.reduce((array, o) => {              
-
-                            if(!array.some(obj => obj.label === o.name)) {
-                                
-                                array.push(o);
-                            }
-
-                            return array;
-                        },[]); 
-
-            if (this.total.length > 0) { //se l'array è popolato
-
-                this.total.forEach(element => { //per ogni elemento nell'array total
-
-                    let index = this.carrello.findIndex(element => element.name === piatto.name); //prendo l'index dell'elemento con nome uguale a quello passato
-                    
-                    if (element.name === piatto.name) { //controllo se il suo nome corrisponde a quello dell'elemento nell'array single
-
-                        this.total.splice(index, 1); //se si' allora lo tolgo e ripusho quello nuovo
-                        this.total.push(piatto);
-
-                    } else { 
-
-                        this.total.push(piatto);  //se non è presente lo aggiungo soltanto senza cancellare niente
-                    }
-                });
-
-            } else {
-
-                this.total.push(piatto);
-            }
-
-            console.log(this.total); */
 
         },
 
