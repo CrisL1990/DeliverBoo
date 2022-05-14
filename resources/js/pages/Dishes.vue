@@ -82,7 +82,6 @@ export default {
         return{
             risposta: [],
             carrello: [],
-            localStorage: [],
             totale: null,
             carrelloPieno: false,
             ristoratore: false
@@ -148,8 +147,10 @@ export default {
 
             this.totale = this.carrello.reduce((valorePrecedente, oggetto) => { //uso la reduce per sovrascrivere di volta in volta il valore corrente con le aggiunte delle quantità * prezzo
 
-                            return valorePrecedente + (oggetto.price * oggetto.quantity); 
-                        },0)    //lascio 0 come fallback
+                return valorePrecedente + (oggetto.price * oggetto.quantity); 
+            },0)    //lascio 0 come fallback
+
+            this.pay();
         },
 
         pay(){
@@ -157,9 +158,10 @@ export default {
             if (typeof(Storage) !== "undefined") { //controllo il supporto browser per localStorage
                 
                 let carrello = JSON.stringify(this.carrello);
-                localStorage.setItem('carrello', carrello); 
-
-                //localStorage.setItem('totale', JSON.stringify(this.totale));
+                localStorage.setItem('carrello', carrello);
+                
+                let totale = JSON.stringify(this.totale);
+                localStorage.setItem('totale', totale);
 
             } else {
 
@@ -184,12 +186,6 @@ export default {
 
     mounted() {
         this.getPost();
-    },
-
-    created(){
-
-        let carrello = JSON.stringify(this.carrello);
-        localStorage.setItem('carrello', carrello); 
     }
 }
 </script>

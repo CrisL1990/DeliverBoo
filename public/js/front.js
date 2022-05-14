@@ -2153,7 +2153,6 @@ __webpack_require__.r(__webpack_exports__);
     return {
       risposta: [],
       carrello: [],
-      localStorage: [],
       totale: null,
       carrelloPieno: false,
       ristoratore: false
@@ -2228,13 +2227,17 @@ __webpack_require__.r(__webpack_exports__);
         //uso la reduce per sovrascrivere di volta in volta il valore corrente con le aggiunte delle quantità * prezzo
         return valorePrecedente + oggetto.price * oggetto.quantity;
       }, 0); //lascio 0 come fallback
+
+      this.pay();
     },
     pay: function pay() {
       //aggiorno su localStorage il carrello con gli ordini ed il totale da pagare, salvando il tutto come un JSON
       if (typeof Storage !== "undefined") {
         //controllo il supporto browser per localStorage
         var carrello = JSON.stringify(this.carrello);
-        localStorage.setItem('carrello', carrello); //localStorage.setItem('totale', JSON.stringify(this.totale));
+        localStorage.setItem('carrello', carrello);
+        var totale = JSON.stringify(this.totale);
+        localStorage.setItem('totale', totale);
       } else {
         alert("Il browser non supporta web storage");
       }
@@ -2254,10 +2257,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getPost();
-  },
-  created: function created() {
-    var carrello = JSON.stringify(this.carrello);
-    localStorage.setItem('carrello', carrello);
   }
 });
 
@@ -2328,18 +2327,22 @@ __webpack_require__.r(__webpack_exports__);
   name: 'Home',
   data: function data() {
     return {
-      localStorage: [],
-      ordine: {}
+      ordine: null,
+      totale: null
     };
   },
   methods: {
     getOrder: function getOrder() {
       if (typeof Storage !== "undefined") {
         try {
-          var get = localStorage.getItem('carrello');
-          var oggetto = JSON.parse(get);
-          this.ordine = oggetto;
+          var getCart = localStorage.getItem('carrello');
+          var cart = JSON.parse(getCart);
+          this.ordine = cart;
           console.log(this.ordine);
+          var getTotal = localStorage.getItem('totale');
+          var total = JSON.parse(getTotal);
+          this.totale = total;
+          console.log(this.totale);
         } catch (err) {
           console.log(err.message);
         }
