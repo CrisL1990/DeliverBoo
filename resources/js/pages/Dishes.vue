@@ -32,8 +32,6 @@
 
         </div>
 
-        <button @click="deleteCart()" type="button" class="btn btn-danger">Svuota Carrello</button>
-
         <div v-if="carrelloPieno" class="carrello">
 
             <table class="table">
@@ -50,13 +48,27 @@
                     <tr v-for="(ordine, key) in carrello" :key="key">
                         <th scope="row">-</th>
                         <td>{{ordine.name}}</td>
-                        <td>{{ordine.price}}</td>
+                        <td>{{ordine.price}}€</td>
                         <td>{{ordine.quantity}}</td>
                     </tr>
                     
                 </tbody>
             </table>
 
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Totale:</th>
+                        <th scope="col">{{totale}}€</th>
+                    </tr>
+                </thead>
+            </table>
+
+            <div class="d-flex">
+                <button @click="pay()" type="button" class="btn btn-success">Completa l'ordine</button>
+                <button @click="deleteCart()" type="button" class="btn btn-danger">Elimina</button>
+            </div>
+            
         </div>
         
     </div>
@@ -70,7 +82,7 @@ export default {
         return{
             risposta: [],
             carrello: [],
-            piattiPresenti: [],
+            totale: null,
             carrelloPieno: false,
             ristoratore: false
         }
@@ -89,8 +101,6 @@ export default {
             } else {
                 this.carrello.push(oggetto); //altrimenti aggiungo l'intero piatto come oggetto all'array carrello
             }
-
-            localStorage.setItem('carrello', JSON.stringify(this.carrello));
 
             this.updateCart();
 
@@ -123,8 +133,6 @@ export default {
 
                 this.updateCart(); /* aggiorno l'ordine */
             }
-
-            localStorage.setItem('carrello', JSON.stringify(this.carrello));
         },
 
         deleteCart(){ /* funzione per svuotare il carrello */
@@ -132,15 +140,21 @@ export default {
             this.carrello = [];
             this.carrelloPieno = false;
 
-            localStorage.setItem('carrello', JSON.stringify(this.carrello));
-
             this.updateCart();
         },
 
-        updateCart(){
+        updateCart(){ //funzione per aggiornare il totale del carrello
 
-            
+            this.totale = this.carrello.reduce((valorePrecedente, oggetto) => { //uso la reduce per sovrascrivere di volta in volta il valore corrente con le aggiunte delle quantità * prezzo
 
+                            return valorePrecedente + (oggetto.price * oggetto.quantity); 
+                        },0)    //lascio 0 come fallback
+        },
+
+        pay(){
+            //aggiorno su localStorage il carrello con gli ordini ed il totale da pagare, salvando il tutto come un JSON
+            localStorage.setItem('carrello', JSON.stringify(this.carrello)); 
+            localStorage.setItem('totale', JSON.stringify(this.totale));
         },
 
         getPost() { /* chiamata axios per recuperare lo slug del ristorante e ottenere i piatti filtrati per user_id */

@@ -2135,13 +2135,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dishes',
   data: function data() {
     return {
       risposta: [],
       carrello: [],
-      piattiPresenti: [],
+      totale: null,
       carrelloPieno: false,
       ristoratore: false
     };
@@ -2167,7 +2179,6 @@ __webpack_require__.r(__webpack_exports__);
         this.carrello.push(oggetto); //altrimenti aggiungo l'intero piatto come oggetto all'array carrello
       }
 
-      localStorage.setItem('carrello', JSON.stringify(this.carrello));
       this.updateCart();
       this.carrelloPieno = true;
     },
@@ -2203,17 +2214,25 @@ __webpack_require__.r(__webpack_exports__);
         this.updateCart();
         /* aggiorno l'ordine */
       }
-
-      localStorage.setItem('carrello', JSON.stringify(this.carrello));
     },
     deleteCart: function deleteCart() {
       /* funzione per svuotare il carrello */
       this.carrello = [];
       this.carrelloPieno = false;
-      localStorage.setItem('carrello', JSON.stringify(this.carrello));
       this.updateCart();
     },
-    updateCart: function updateCart() {},
+    updateCart: function updateCart() {
+      //funzione per aggiornare il totale del carrello
+      this.totale = this.carrello.reduce(function (valorePrecedente, oggetto) {
+        //uso la reduce per sovrascrivere di volta in volta il valore corrente con le aggiunte delle quantità * prezzo
+        return valorePrecedente + oggetto.price * oggetto.quantity;
+      }, 0); //lascio 0 come fallback
+    },
+    pay: function pay() {
+      //aggiorno su localStorage il carrello con gli ordini ed il totale da pagare, salvando il tutto come un JSON
+      localStorage.setItem('carrello', JSON.stringify(this.carrello));
+      localStorage.setItem('totale', JSON.stringify(this.totale));
+    },
     getPost: function getPost() {
       var _this = this;
 
@@ -3957,20 +3976,6 @@ var render = function () {
         0
       ),
       _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-danger",
-          attrs: { type: "button" },
-          on: {
-            click: function ($event) {
-              return _vm.deleteCart()
-            },
-          },
-        },
-        [_vm._v("Svuota Carrello")]
-      ),
-      _vm._v(" "),
       _vm.carrelloPieno
         ? _c("div", { staticClass: "carrello" }, [
             _c("table", { staticClass: "table" }, [
@@ -3984,12 +3989,54 @@ var render = function () {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(ordine.name))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(ordine.price))]),
+                    _c("td", [_vm._v(_vm._s(ordine.price) + "€")]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(ordine.quantity))]),
                   ])
                 }),
                 0
+              ),
+            ]),
+            _vm._v(" "),
+            _c("table", { staticClass: "table" }, [
+              _c("thead", [
+                _c("tr", [
+                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Totale:")]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [
+                    _vm._v(_vm._s(_vm.totale) + "€"),
+                  ]),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "d-flex" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-success",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.pay()
+                    },
+                  },
+                },
+                [_vm._v("Completa l'ordine")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-danger",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.deleteCart()
+                    },
+                  },
+                },
+                [_vm._v("Elimina")]
               ),
             ]),
           ])
