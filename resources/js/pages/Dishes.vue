@@ -65,7 +65,7 @@
             </table>
 
             <div class="d-flex">
-                <button @click="pay()" type="button" class="btn btn-success">Completa l'ordine</button>
+                <router-link class="nav-link btn btn-primary" @click="pay()" :to="{name: 'Home'}">Completa l'ordine</router-link>
                 <button @click="deleteCart()" type="button" class="btn btn-danger">Elimina</button>
             </div>
             
@@ -82,6 +82,7 @@ export default {
         return{
             risposta: [],
             carrello: [],
+            localStorage: [],
             totale: null,
             carrelloPieno: false,
             ristoratore: false
@@ -153,8 +154,17 @@ export default {
 
         pay(){
             //aggiorno su localStorage il carrello con gli ordini ed il totale da pagare, salvando il tutto come un JSON
-            localStorage.setItem('carrello', JSON.stringify(this.carrello)); 
-            localStorage.setItem('totale', JSON.stringify(this.totale));
+            if (typeof(Storage) !== "undefined") { //controllo il supporto browser per localStorage
+                
+                let carrello = JSON.stringify(this.carrello);
+                localStorage.setItem('carrello', carrello); 
+
+                //localStorage.setItem('totale', JSON.stringify(this.totale));
+
+            } else {
+
+                alert("Il browser non supporta web storage");
+            }
         },
 
         getPost() { /* chiamata axios per recuperare lo slug del ristorante e ottenere i piatti filtrati per user_id */
@@ -174,6 +184,12 @@ export default {
 
     mounted() {
         this.getPost();
+    },
+
+    created(){
+
+        let carrello = JSON.stringify(this.carrello);
+        localStorage.setItem('carrello', carrello); 
     }
 }
 </script>

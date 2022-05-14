@@ -52,7 +52,39 @@
 
 <script>
 export default {
-    name:'Home',    
+    name:'Home',  
+    
+    data(){
+        return{
+            localStorage: [],
+            ordine: {}
+        }
+    },
+
+    methods: {
+        getOrder(){
+
+            if (typeof(Storage) !== "undefined") {
+
+                try {
+                    let get = localStorage.getItem('carrello');
+                    let oggetto = JSON.parse(get);
+                    this.ordine = oggetto;
+                    console.log(this.ordine);
+
+                } catch (err) { 
+                    console.log(err.message);
+                }     
+            } else {
+                alert("Il browser non supporta web storage");
+            }
+        }
+    },
+
+    created() {
+
+        this.getOrder();        
+    }
 }
 </script>
 

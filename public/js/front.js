@@ -2153,6 +2153,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       risposta: [],
       carrello: [],
+      localStorage: [],
       totale: null,
       carrelloPieno: false,
       ristoratore: false
@@ -2230,8 +2231,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     pay: function pay() {
       //aggiorno su localStorage il carrello con gli ordini ed il totale da pagare, salvando il tutto come un JSON
-      localStorage.setItem('carrello', JSON.stringify(this.carrello));
-      localStorage.setItem('totale', JSON.stringify(this.totale));
+      if (typeof Storage !== "undefined") {
+        //controllo il supporto browser per localStorage
+        var carrello = JSON.stringify(this.carrello);
+        localStorage.setItem('carrello', carrello); //localStorage.setItem('totale', JSON.stringify(this.totale));
+      } else {
+        alert("Il browser non supporta web storage");
+      }
     },
     getPost: function getPost() {
       var _this = this;
@@ -2248,6 +2254,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getPost();
+  },
+  created: function created() {
+    var carrello = JSON.stringify(this.carrello);
+    localStorage.setItem('carrello', carrello);
   }
 });
 
@@ -2315,7 +2325,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Home'
+  name: 'Home',
+  data: function data() {
+    return {
+      localStorage: [],
+      ordine: {}
+    };
+  },
+  methods: {
+    getOrder: function getOrder() {
+      if (typeof Storage !== "undefined") {
+        try {
+          var get = localStorage.getItem('carrello');
+          var oggetto = JSON.parse(get);
+          this.ordine = oggetto;
+          console.log(this.ordine);
+        } catch (err) {
+          console.log(err.message);
+        }
+      } else {
+        alert("Il browser non supporta web storage");
+      }
+    }
+  },
+  created: function created() {
+    this.getOrder();
+  }
 });
 
 /***/ }),
@@ -4010,35 +4045,40 @@ var render = function () {
               ]),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "d-flex" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-success",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.pay()
+            _c(
+              "div",
+              { staticClass: "d-flex" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "nav-link btn btn-primary",
+                    attrs: { to: { name: "Home" } },
+                    on: {
+                      click: function ($event) {
+                        return _vm.pay()
+                      },
                     },
                   },
-                },
-                [_vm._v("Completa l'ordine")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-danger",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.deleteCart()
+                  [_vm._v("Completa l'ordine")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function ($event) {
+                        return _vm.deleteCart()
+                      },
                     },
                   },
-                },
-                [_vm._v("Elimina")]
-              ),
-            ]),
+                  [_vm._v("Elimina")]
+                ),
+              ],
+              1
+            ),
           ])
         : _vm._e(),
     ]
