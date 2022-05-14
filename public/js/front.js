@@ -2174,17 +2174,30 @@ __webpack_require__.r(__webpack_exports__);
     deleteDish: function deleteDish(piatto) {
       //funzione per eliminare un piatto dall'ordine
       if (this.carrello.length > 0) {
-        var index = this.carrello.findIndex(function (element) {
-          return element.id === piatto.id;
-        });
-        /* trovo l'indice del piatto nel carrello che ha lo stesso ID con il piatto eliminato */
+        //controllo che nel carrello ci siano prodotti
+        var found = this.carrello.find(function (product) {
+          return product.id == piatto.id;
+        }); //vedo se ci sono corrispondenze di ID dentro l'array carrello con il piatto
 
-        this.carrello.splice(index, 1);
-        /* elimino un elemento partendo dal suo indice nel carrello */
+        if (found) {
+          //se c'è corrispondenza
+          found.quantity--; //prendo quell'oggetto e decremento la sua quantità
 
-        if (this.carrello.length == 0) {
-          /* se il carrello è vuoto non lo mostro più */
-          this.carrelloPieno = false;
+          if (found.quantity == 0) {
+            //se dopo il decremento la quantità è uguale a 0
+            var index = this.carrello.findIndex(function (element) {
+              return element.id === piatto.id;
+            });
+            /* trovo l'indice del piatto nel carrello che ha lo stesso ID con il piatto da eliminare */
+
+            this.carrello.splice(index, 1);
+            /* elimino l'elemento partendo dal suo indice nel carrello */
+
+            if (this.carrello.length == 0) {
+              /* se il carrello è vuoto non lo mostro più */
+              this.carrelloPieno = false;
+            }
+          }
         }
 
         this.updateCart();

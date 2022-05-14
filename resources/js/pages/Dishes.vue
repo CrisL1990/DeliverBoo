@@ -99,16 +99,27 @@ export default {
 
         deleteDish(piatto){ //funzione per eliminare un piatto dall'ordine
 
-            if (this.carrello.length > 0) {
+            if (this.carrello.length > 0) { //controllo che nel carrello ci siano prodotti
 
-                let index = this.carrello.findIndex(element => element.id === piatto.id); /* trovo l'indice del piatto nel carrello che ha lo stesso ID con il piatto eliminato */
+                let found = this.carrello.find(product => product.id == piatto.id) //vedo se ci sono corrispondenze di ID dentro l'array carrello con il piatto
 
-                this.carrello.splice(index, 1); /* elimino un elemento partendo dal suo indice nel carrello */
- 
-                if (this.carrello.length == 0){ /* se il carrello è vuoto non lo mostro più */
+                if (found) { //se c'è corrispondenza
 
-                    this.carrelloPieno = false;
-                }
+                    found.quantity-- //prendo quell'oggetto e decremento la sua quantità
+
+                    if (found.quantity == 0){ //se dopo il decremento la quantità è uguale a 0
+
+                        let index = this.carrello.findIndex(element => element.id === piatto.id); /* trovo l'indice del piatto nel carrello che ha lo stesso ID con il piatto da eliminare */
+
+                        this.carrello.splice(index, 1); /* elimino l'elemento partendo dal suo indice nel carrello */
+        
+                        if (this.carrello.length == 0){ /* se il carrello è vuoto non lo mostro più */
+
+                            this.carrelloPieno = false;
+                        }
+                    }
+
+                }  
 
                 this.updateCart(); /* aggiorno l'ordine */
             }
