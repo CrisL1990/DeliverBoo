@@ -2131,7 +2131,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//import router from '../router';
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dishes',
   data: function data() {
@@ -2144,25 +2147,104 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    addDish: function addDish(valore) {
-      var name = valore.name;
-      var price = valore.price;
-      localStorage.setItem('name', name);
-      localStorage.setItem('price', price);
-      name = localStorage.getItem('name');
-      price = localStorage.getItem('price');
-      var ordine = {
-        'name': name,
-        'price': price
+    addDish: function addDish(piatto) {
+      //funzione per prendere le info del piatto aggiunto
+      var oggetto = {
+        'id': piatto.id,
+        'name': piatto.name,
+        'price': piatto.price,
+        'quantity': 1
       };
-      this.carrello.push(ordine);
-      this.piattiPresenti.push(ordine.name);
+      this.carrello.push(oggetto); //aggiungo il piatto come oggetto all'array carrello
+
+      console.log(this.carrello);
+      localStorage.setItem('carrello', JSON.stringify(this.carrello));
+      this.updateCart();
       this.carrelloPieno = true;
+    },
+    deleteDish: function deleteDish(piatto) {
+      //funzione per eliminare un piatto dall'ordine
+      if (this.carrello.length > 0) {
+        var index = this.carrello.findIndex(function (element) {
+          return element.id === piatto.id;
+        });
+        /* trovo l'indice del piatto nel carrello che ha lo stesso ID con il piatto eliminato */
+
+        this.carrello.splice(index, 1);
+        /* elimino un elemento partendo dal suo indice nel carrello */
+
+        if (this.carrello.length == 0) {
+          /* se il carrello è vuoto non lo mostro più */
+          this.carrelloPieno = false;
+        }
+
+        this.updateCart();
+        /* aggiorno l'ordine */
+      }
+
+      localStorage.setItem('carrello', JSON.stringify(this.carrello));
+    },
+    deleteCart: function deleteCart() {
+      /* funzione per svuotare il carrello */
+      this.carrello = [];
+      this.carrelloPieno = false;
+      localStorage.setItem('carrello', JSON.stringify(this.carrello));
+      this.updateCart();
+    },
+    updateCart: function updateCart() {//console.log(this.carrello);
+
+      /* let count = this.carrello.filter(item => item.name.includes(piatto.name)); //filtro in una variabile gli elementi nel carrello che hanno lo stesso nome dell'elemento cliccato su aggiungi o elimina
+        let conteggio = count.length; //conto la lunghezza dell'array
+        let totaleItems = [];
+        totaleItems.push({'name': piatto.name,  //pusho in una variabile l'oggetto da filtrare successivamente
+                          'price': piatto.price, 
+                          'quantity': conteggio
+                          });
+      
+      this.total.forEach(element => {
+          
+          if (element.name === piatto.name) {
+                totaleItems.reduce((array, o) => {              
+                        if(!array.some(obj => obj.label === o.name)) {
+                          
+                          array.push(o);
+                      }
+                        return array;
+                  },[]);
+          } else {
+                this.total.push(piatto);
+          }
+      })
+        let single = totaleItems.reduce((array, o) => {              
+                        if(!array.some(obj => obj.label === o.name)) {
+                          
+                          array.push(o);
+                      }
+                        return array;
+                  },[]); 
+        if (this.total.length > 0) { //se l'array è popolato
+            this.total.forEach(element => { //per ogni elemento nell'array total
+                let index = this.carrello.findIndex(element => element.name === piatto.name); //prendo l'index dell'elemento con nome uguale a quello passato
+              
+              if (element.name === piatto.name) { //controllo se il suo nome corrisponde a quello dell'elemento nell'array single
+                    this.total.splice(index, 1); //se si' allora lo tolgo e ripusho quello nuovo
+                  this.total.push(piatto);
+                } else { 
+                    this.total.push(piatto);  //se non è presente lo aggiungo soltanto senza cancellare niente
+              }
+          });
+        } else {
+            this.total.push(piatto);
+      }
+        console.log(this.total); */
     },
     getPost: function getPost() {
       var _this = this;
 
+      /* chiamata axios per recuperare lo slug del ristorante e ottenere i piatti filtrati per user_id */
       var slug = this.$route.params.slug;
+      /* prendo lo slug ricevuto dalla restaurant card tramite la show del controller */
+
       axios.get('/api/restaurants/' + slug).then(function (response) {
         _this.risposta = response.data.result;
         _this.ristoratore = true;
@@ -3787,10 +3869,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Dishes.vue?vue&type=template&id=97fb6ade&":
-/*!****************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Dishes.vue?vue&type=template&id=97fb6ade& ***!
-  \****************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Dishes.vue?vue&type=template&id=97fb6ade&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Dishes.vue?vue&type=template&id=97fb6ade&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3825,11 +3907,11 @@ var render = function () {
       _c(
         "div",
         { staticClass: "d-flex flex-wrap justify-content-center" },
-        _vm._l(_vm.risposta, function (risp) {
+        _vm._l(_vm.risposta, function (piatto) {
           return _c(
             "div",
             {
-              key: risp.id,
+              key: piatto.id,
               staticClass: "card m-1",
               staticStyle: { width: "18rem" },
             },
@@ -3842,7 +3924,7 @@ var render = function () {
                     [_vm._v("Nome: ")]
                   ),
                   _c("br"),
-                  _vm._v(_vm._s(risp.name)),
+                  _vm._v(_vm._s(piatto.name)),
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "card-text" }, [
@@ -3852,7 +3934,7 @@ var render = function () {
                     [_vm._v("Ingredienti: ")]
                   ),
                   _c("br"),
-                  _vm._v(_vm._s(risp.ingredients)),
+                  _vm._v(_vm._s(piatto.ingredients)),
                 ]),
                 _vm._v(" "),
                 _c("p", [
@@ -3862,7 +3944,7 @@ var render = function () {
                     [_vm._v("Prezzo: ")]
                   ),
                   _c("br"),
-                  _vm._v(_vm._s(risp.price) + "€"),
+                  _vm._v(_vm._s(piatto.price) + "€"),
                 ]),
                 _vm._v(" "),
                 _c(
@@ -3872,23 +3954,45 @@ var render = function () {
                     attrs: { type: "button" },
                     on: {
                       click: function ($event) {
-                        return _vm.addDish(risp)
+                        return _vm.addDish(piatto)
                       },
                     },
                   },
-                  [_vm._v("+")]
+                  [_vm._v("Aggiungi")]
                 ),
                 _vm._v(" "),
                 _c(
                   "button",
-                  { staticClass: "btn btn-danger", attrs: { type: "button" } },
-                  [_vm._v("-")]
+                  {
+                    staticClass: "btn btn-warning",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function ($event) {
+                        return _vm.deleteDish(piatto)
+                      },
+                    },
+                  },
+                  [_vm._v("Elimina")]
                 ),
               ]),
             ]
           )
         }),
         0
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-danger",
+          attrs: { type: "button" },
+          on: {
+            click: function ($event) {
+              return _vm.deleteCart()
+            },
+          },
+        },
+        [_vm._v("Svuota Carrello")]
       ),
       _vm._v(" "),
       _vm.carrelloPieno
@@ -3905,6 +4009,8 @@ var render = function () {
                     _c("td", [_vm._v(_vm._s(ordine.name))]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(ordine.price))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(ordine.quantity))]),
                   ])
                 }),
                 0
@@ -3927,6 +4033,8 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Nome")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Prezzo")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Quantità")]),
       ]),
     ])
   },
@@ -19914,7 +20022,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Dishes_vue_vue_type_template_id_97fb6ade___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Dishes.vue?vue&type=template&id=97fb6ade& */ "./resources/js/pages/Dishes.vue?vue&type=template&id=97fb6ade&");
+/* harmony import */ var _Dishes_vue_vue_type_template_id_97fb6ade_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Dishes.vue?vue&type=template&id=97fb6ade&scoped=true& */ "./resources/js/pages/Dishes.vue?vue&type=template&id=97fb6ade&scoped=true&");
 /* harmony import */ var _Dishes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Dishes.vue?vue&type=script&lang=js& */ "./resources/js/pages/Dishes.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -19926,11 +20034,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _Dishes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Dishes_vue_vue_type_template_id_97fb6ade___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Dishes_vue_vue_type_template_id_97fb6ade___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Dishes_vue_vue_type_template_id_97fb6ade_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Dishes_vue_vue_type_template_id_97fb6ade_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "97fb6ade",
   null
   
 )
@@ -19956,19 +20064,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/pages/Dishes.vue?vue&type=template&id=97fb6ade&":
-/*!**********************************************************************!*\
-  !*** ./resources/js/pages/Dishes.vue?vue&type=template&id=97fb6ade& ***!
-  \**********************************************************************/
+/***/ "./resources/js/pages/Dishes.vue?vue&type=template&id=97fb6ade&scoped=true&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/pages/Dishes.vue?vue&type=template&id=97fb6ade&scoped=true& ***!
+  \**********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dishes_vue_vue_type_template_id_97fb6ade___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Dishes.vue?vue&type=template&id=97fb6ade& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Dishes.vue?vue&type=template&id=97fb6ade&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dishes_vue_vue_type_template_id_97fb6ade___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dishes_vue_vue_type_template_id_97fb6ade_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Dishes.vue?vue&type=template&id=97fb6ade&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Dishes.vue?vue&type=template&id=97fb6ade&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dishes_vue_vue_type_template_id_97fb6ade_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dishes_vue_vue_type_template_id_97fb6ade___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dishes_vue_vue_type_template_id_97fb6ade_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
