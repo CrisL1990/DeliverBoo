@@ -85,7 +85,7 @@
                 <!-- router-link per inviare il contenuto del carrello tramite la funzione pay() con localStorage e reindirizzare alla pagina di pagamento -->
                 <!-- bottone per cancellare tutto il contenuto del carrello richiamando la funzione deleteCart() -->
                 <div class="d-flex justify-content-center"> 
-                    <router-link class="ordine btn mb-1 mx-1" @click="pay()" :to="{name: 'Order'}">Checkout</router-link>
+                    <router-link class="ordine btn mb-1 mx-1" @click="pay()" :to="{name: 'Orders'}">Checkout</router-link>
                     <button @click="deleteCart()" type="button" class="btn mx-1 mb-1 empty-cart">Svuota</button>
                 </div>
                 

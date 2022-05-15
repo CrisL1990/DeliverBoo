@@ -176,18 +176,38 @@ export default {
              orders:[],
              name:null,
              creditNumber:null,
+
+            /* inizio parte aggiunta Yuri */
+            ordine: null,
+            totale: null
+            /* fine parte aggiunta Yuri */
          }
      },
      methods:{
-        getOrder() {
+        getOrder(){
 
-            axios.get('api/orders')            
-                .then((value) => {
-                    this.orders=value.data.results;  
-                
-                }
-             );
-        },
+            if (typeof(Storage) !== "undefined") {
+
+                try {
+                    let getCart = localStorage.getItem('carrello');
+                    let cart = JSON.parse(getCart);
+                    this.ordine = cart;
+                    console.log(this.ordine);
+
+                    let getTotal = localStorage.getItem('totale');
+                    let total = JSON.parse(getTotal);
+                    this.totale = total;
+                    console.log(this.totale);
+
+
+                } catch (err) { 
+                    console.log(err.message);
+                }     
+            } else {
+                alert("Il browser non supporta web storage");
+            }
+        }
+        
         // goPay(){
         //     this.validtyName();
         //     this.validtyCreditNumber();
