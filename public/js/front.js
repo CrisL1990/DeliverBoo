@@ -4183,7 +4183,7 @@ var render = function () {
                   "router-link",
                   {
                     staticClass: "ordine btn mb-1 mx-1",
-                    attrs: { to: { name: "Home" } },
+                    attrs: { to: { name: "Order" } },
                     on: {
                       click: function ($event) {
                         return _vm.pay()
