@@ -1,6 +1,18 @@
 <template>
     <div class="container d-flex flex-column align-items-center">
 
+        <div v-if="loading" class="card m-1">
+            <div class="card-body">
+                <h1>Caricamento pagina</h1>
+            </div>
+        </div>
+
+        <!-- <Transition name="slide-right-centered">
+            <aside :key="carrelloPieno">
+
+            </aside>
+        </Transition> -->
+       
         <div v-if="ristoratore" class="card m-1">
             <div class="card-body">
 
@@ -10,8 +22,13 @@
 
             </div>
         </div>
+        <div v-if="showError" class="card m-1">
+            <div class="card-body">
+                <h1>Nessun prodotto da mostrare</h1>
+            </div>
+        </div>
 
-        <h5 class="my-2">MENÙ</h5>
+        <h5 v-if="ristoratore" class="my-2">MENÙ</h5>
 
         <div class="d-flex flex-wrap justify-content-center">
 
@@ -31,45 +48,46 @@
             </div>
 
         </div>
+       
+  
+        <Transition name="slide-left-centered">
+            <div v-show="carrelloPieno" class="carrello">
 
-        <div v-if="carrelloPieno" class="carrello">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Prezzo</th>
+                            <th scope="col">Quantità</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Prezzo</th>
-                        <th scope="col">Quantità</th>
-                    </tr>
-                </thead>
-                <tbody>
+                        <tr v-for="(ordine, key) in carrello" :key="key">
+                            <td>{{ordine.name}}</td>
+                            <td>{{ordine.price}}€</td>
+                            <td>{{ordine.quantity}}</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
 
-                    <tr v-for="(ordine, key) in carrello" :key="key">
-                        <th scope="row">-</th>
-                        <td>{{ordine.name}}</td>
-                        <td>{{ordine.price}}€</td>
-                        <td>{{ordine.quantity}}</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Totale:</th>
+                            <th scope="col">{{totale}}€</th>
+                        </tr>
+                    </thead>
+                </table>
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Totale:</th>
-                        <th scope="col">{{totale}}€</th>
-                    </tr>
-                </thead>
-            </table>
-
-            <div class="d-flex">
-                <router-link class="nav-link btn btn-primary" @click="pay()" :to="{name: 'Home'}">Completa l'ordine</router-link>
-                <button @click="deleteCart()" type="button" class="btn btn-danger">Elimina</button>
+                <div class="d-flex justify-content-center">
+                    <router-link class="ordine btn mb-1 mx-1" @click="pay()" :to="{name: 'Home'}">Checkout</router-link>
+                    <button @click="deleteCart()" type="button" class="btn mx-1 mb-1 empty-cart">Svuota</button>
+                </div>
+                
             </div>
-            
-        </div>
+        </Transition>
         
     </div>
 </template>
@@ -84,7 +102,10 @@ export default {
             carrello: [],
             totale: null,
             carrelloPieno: false,
-            ristoratore: false
+            ristoratore: false,
+            showError: false,
+            loading: true,
+            xValue: 0            
         }
     },
 
@@ -177,21 +198,63 @@ export default {
                 .then(response => {
 
                 this.risposta = response.data.result;
-
-                this.ristoratore = true;
                 
+                if (this.risposta.length > 0) { //controllo che il ristorante abbia dei piatti nel menù
+
+                    this.loading = false;
+                    this.ristoratore = true;
+                } else {
+                    this.loading = false;
+                    this.showError = true;
+                }          
             });
         }
     },
 
     mounted() {
         this.getPost();
+
     }
 }
 </script>
 
 <style lang="scss" scoped>
+.container {
+    position: relative;
+    .carrello {
+        position: fixed;
+        left: 10px;
+        top: 10%;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+    /* Transizione per carrello checkout */
+    .slide-left-centered-enter,
+    .slide-left-centered-leave-to {
+        transition: transform 1000ms ease; 
+        transform: translateX(-100%);
+    }
 
+    .slide-left-centered-enter-active {
+        transition: all 1s ease;
+    }
+
+    .slide-left-centered-leave-active {
+        transition: all 1s ease-out;
+    }
+
+    /* Bottoni */
+    .ordine {
+        background-color: rgb(64, 162, 81);
+        color: white;
+        border-radius: 5px;
+    }
+    .empty-cart {
+        background-color: rgb(247, 202, 0);
+        border-radius: 5px;
+    }
+}
 
 </style>
 

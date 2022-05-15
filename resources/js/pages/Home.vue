@@ -70,12 +70,10 @@ export default {
                     let getCart = localStorage.getItem('carrello');
                     let cart = JSON.parse(getCart);
                     this.ordine = cart;
-                    console.log(this.ordine);
 
                     let getTotal = localStorage.getItem('totale');
                     let total = JSON.parse(getTotal);
                     this.totale = total;
-                    console.log(this.totale);
 
                 } catch (err) { 
                     console.log(err.message);
