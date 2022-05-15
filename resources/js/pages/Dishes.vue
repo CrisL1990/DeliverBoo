@@ -104,8 +104,7 @@ export default {
             carrelloPieno: false,
             ristoratore: false,
             showError: false,
-            loading: true,
-            xValue: 0            
+            loading: true,            
         }
     },
 

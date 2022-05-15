@@ -2175,8 +2175,7 @@ __webpack_require__.r(__webpack_exports__);
       carrelloPieno: false,
       ristoratore: false,
       showError: false,
-      loading: true,
-      xValue: 0
+      loading: true
     };
   },
   methods: {
