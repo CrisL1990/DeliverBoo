@@ -52,7 +52,48 @@
 
 <script>
 export default {
-    name:'Home',    
+    name:'Home',  
+    
+    /* Inizio parte da tagliare e incollare sulla pagina Order */
+    data(){
+        return{
+            ordine: null,
+            totale: null,
+        }
+    },
+
+    methods: {
+        getOrder(){
+
+            if (typeof(Storage) !== "undefined") {
+
+                try {
+                    let getCart = localStorage.getItem('carrello');
+                    let cart = JSON.parse(getCart);
+                    this.ordine = cart;
+                    console.log(this.ordine);
+
+                    let getTotal = localStorage.getItem('totale');
+                    let total = JSON.parse(getTotal);
+                    this.totale = total;
+                    console.log(this.total);
+
+
+                } catch (err) { 
+                    console.log(err.message);
+                }     
+            } else {
+                alert("Il browser non supporta web storage");
+            }
+        }
+    },
+
+    created() {
+
+        this.getOrder();        
+    }
+    /* Fine parte da tagliare e incollare sulla pagina Order */
+
 }
 </script>
 
