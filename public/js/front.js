@@ -2369,6 +2369,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
+
+  /* Inizio parte da tagliare e incollare sulla pagina Order */
   data: function data() {
     return {
       ordine: null,
@@ -2382,9 +2384,11 @@ __webpack_require__.r(__webpack_exports__);
           var getCart = localStorage.getItem('carrello');
           var cart = JSON.parse(getCart);
           this.ordine = cart;
+          console.log(this.ordine);
           var getTotal = localStorage.getItem('totale');
           var total = JSON.parse(getTotal);
           this.totale = total;
+          console.log(this.total);
         } catch (err) {
           console.log(err.message);
         }
@@ -2396,6 +2400,8 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.getOrder();
   }
+  /* Fine parte da tagliare e incollare sulla pagina Order */
+
 });
 
 /***/ }),

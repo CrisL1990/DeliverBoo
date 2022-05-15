@@ -54,6 +54,7 @@
 export default {
     name:'Home',  
     
+    /* Inizio parte da tagliare e incollare sulla pagina Order */
     data(){
         return{
             ordine: null,
@@ -70,10 +71,13 @@ export default {
                     let getCart = localStorage.getItem('carrello');
                     let cart = JSON.parse(getCart);
                     this.ordine = cart;
+                    console.log(this.ordine);
 
                     let getTotal = localStorage.getItem('totale');
                     let total = JSON.parse(getTotal);
                     this.totale = total;
+                    console.log(this.total);
+
 
                 } catch (err) { 
                     console.log(err.message);
@@ -88,6 +92,8 @@ export default {
 
         this.getOrder();        
     }
+    /* Fine parte da tagliare e incollare sulla pagina Order */
+
 }
 </script>
 
