@@ -2165,13 +2165,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dishes',
   data: function data() {
     return {
+      /* valori da riempire */
       risposta: [],
       carrello: [],
       totale: null,
+
+      /* booleani per visualizzare contenuti in pagina */
       carrelloPieno: false,
       ristoratore: false,
       showError: false,
@@ -2199,8 +2205,10 @@ __webpack_require__.r(__webpack_exports__);
         this.carrello.push(oggetto); //altrimenti aggiungo l'intero piatto come oggetto all'array carrello
       }
 
-      this.updateCart();
+      this.updateCart(); //aggiorno il carrello
+
       this.carrelloPieno = true;
+      /* visualizzo il carrello */
     },
     deleteDish: function deleteDish(piatto) {
       //funzione per eliminare un piatto dall'ordine
@@ -2226,7 +2234,7 @@ __webpack_require__.r(__webpack_exports__);
 
             if (this.carrello.length == 0) {
               /* se il carrello è vuoto non lo mostro più */
-              this.carrelloPieno = false;
+              this.carrelloPieno = false; //nascondo il carrello
             }
           }
         }
@@ -2237,9 +2245,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     deleteCart: function deleteCart() {
       /* funzione per svuotare il carrello */
-      this.carrello = [];
-      this.carrelloPieno = false;
-      this.updateCart();
+      this.carrello = []; //svuoto il carrello riportandolo ad un array vuoto
+
+      this.carrelloPieno = false; //lo nascondo
+
+      this.updateCart(); //aggiorno il carrello con prezzo a 0
     },
     updateCart: function updateCart() {
       //funzione per aggiornare il totale del carrello
@@ -2248,18 +2258,21 @@ __webpack_require__.r(__webpack_exports__);
         return valorePrecedente + oggetto.price * oggetto.quantity;
       }, 0); //lascio 0 come fallback
 
-      this.pay();
+      this.pay(); //aggiorno le localStorage con i nuovi valori
     },
     pay: function pay() {
       //aggiorno su localStorage il carrello con gli ordini ed il totale da pagare, salvando il tutto come un JSON
       if (typeof Storage !== "undefined") {
         //controllo il supporto browser per localStorage
-        var carrello = JSON.stringify(this.carrello);
-        localStorage.setItem('carrello', carrello);
-        var totale = JSON.stringify(this.totale);
-        localStorage.setItem('totale', totale);
+        var carrello = JSON.stringify(this.carrello); //rendo JSON il contenuto del carrello
+
+        localStorage.setItem('carrello', carrello); //lo inserisco in una variabile localStorage di nome 'carrello'
+
+        var totale = JSON.stringify(this.totale); //rendo JSON il totale
+
+        localStorage.setItem('totale', totale); //lo inserisco in una variabile localStorage di nome 'totale'
       } else {
-        alert("Il browser non supporta web storage");
+        alert("Il browser non supporta web storage"); //mostro all'utente un messaggio di errore
       }
     },
     getPost: function getPost() {
@@ -2269,22 +2282,25 @@ __webpack_require__.r(__webpack_exports__);
       var slug = this.$route.params.slug;
       /* prendo lo slug ricevuto dalla restaurant card tramite la show del controller */
 
-      axios.get('/api/restaurants/' + slug).then(function (response) {
-        _this.risposta = response.data.result;
+      axios.get('/api/restaurants/' + slug) //aggiungo lo slug all'URL per visualizzare il nome del ristorante
+      .then(function (response) {
+        _this.risposta = response.data.result; //salvo la risposta dentro una variabile
 
         if (_this.risposta.length > 0) {
           //controllo che il ristorante abbia dei piatti nel menù
-          _this.loading = false;
-          _this.ristoratore = true;
+          _this.loading = false; //cancello il messaggio di caricamento
+
+          _this.ristoratore = true; //mostro i piatti
         } else {
-          _this.loading = false;
-          _this.showError = true;
+          _this.loading = false; //cancello il messaggio di caricamento
+
+          _this.showError = true; //mostro un messaggio per specificare che il menù è vuoto
         }
       });
     }
   },
   mounted: function mounted() {
-    this.getPost();
+    this.getPost(); //faccio partire la chiamata axios al mounted della pagina
   }
 });
 
@@ -2524,7 +2540,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-97fb6ade] {\n  position: relative;\n  /* Transizione per carrello checkout */\n  /* Bottoni */\n}\n.container .carrello[data-v-97fb6ade] {\n  position: fixed;\n  left: 10px;\n  top: 10%;\n  background-color: white;\n  border: 1px solid black;\n  border-radius: 10px;\n}\n.container .slide-left-centered-enter[data-v-97fb6ade],\n.container .slide-left-centered-leave-to[data-v-97fb6ade] {\n  transition: transform 1000ms ease;\n  transform: translateX(-100%);\n}\n.container .slide-left-centered-enter-active[data-v-97fb6ade] {\n  transition: all 1s ease;\n}\n.container .slide-left-centered-leave-active[data-v-97fb6ade] {\n  transition: all 1s ease-out;\n}\n.container .ordine[data-v-97fb6ade] {\n  background-color: rgb(64, 162, 81);\n  color: white;\n  border-radius: 5px;\n}\n.container .empty-cart[data-v-97fb6ade] {\n  background-color: rgb(247, 202, 0);\n  border-radius: 5px;\n}", ""]);
+exports.push([module.i, ".container[data-v-97fb6ade] {\n  position: relative;\n  /* Transizione per carrello checkout */\n  /* VUEjs richiede il name della Transizione e l'append dei nomi dei ganci nella classe da richiamare */\n  /* https://vuejs.org/guide/built-ins/transition.html */\n  /* Bottoni */\n}\n.container .carrello[data-v-97fb6ade] {\n  position: fixed;\n  left: 10px;\n  top: 10%;\n  background-color: white;\n  border: 1px solid black;\n  border-radius: 10px;\n}\n.container .slide-left-centered-enter[data-v-97fb6ade],\n.container .slide-left-centered-leave-to[data-v-97fb6ade] {\n  transition: transform 1000ms ease;\n  transform: translateX(-100%);\n}\n.container .slide-left-centered-enter-active[data-v-97fb6ade] {\n  transition: all 1s ease;\n}\n.container .slide-left-centered-leave-active[data-v-97fb6ade] {\n  transition: all 1s ease-out;\n}\n.container .ordine[data-v-97fb6ade] {\n  background-color: rgb(64, 162, 81);\n  color: white;\n  border-radius: 5px;\n}\n.container .empty-cart[data-v-97fb6ade] {\n  background-color: rgb(247, 202, 0);\n  border-radius: 5px;\n}", ""]);
 
 // exports
 
@@ -4114,19 +4130,20 @@ var render = function () {
             staticClass: "carrello",
           },
           [
-            _c("table", { staticClass: "table" }, [
-              _c("thead", [
-                _c("tr", [
-                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Nome")]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Prezzo")]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Quantità")]),
+            _c(
+              "table",
+              { staticClass: "table" },
+              [
+                _c("thead", [
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("Nome")]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("Prezzo")]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("Quantità")]),
+                  ]),
                 ]),
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
+                _vm._v(" "),
                 _vm._l(_vm.carrello, function (ordine, key) {
                   return _c("tr", { key: key }, [
                     _c("td", [_vm._v(_vm._s(ordine.name))]),
@@ -4136,9 +4153,9 @@ var render = function () {
                     _c("td", [_vm._v(_vm._s(ordine.quantity))]),
                   ])
                 }),
-                0
-              ),
-            ]),
+              ],
+              2
+            ),
             _vm._v(" "),
             _c("table", { staticClass: "table" }, [
               _c("thead", [
