@@ -2178,8 +2178,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addDish: function addDish(piatto) {
       //funzione per prendere le info del piatto aggiunto
-      console.log(this.carrello);
-
       if (this.carrello.length > 0) {
         //se il carrello ha già dei piatti ricevuti tramite localStorage
         if (this.carrello[0].user_id == piatto.user_id) {
@@ -2195,11 +2193,12 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     checkQuantity: function checkQuantity(piatto) {
+      console.log(piatto);
       var oggetto = {
         'id': piatto.id,
         'name': piatto.name,
         'price': piatto.price,
-        'user_id': piatto.user.id,
+        'user_id': piatto.user_id,
         'quantity': 1
       }; //creo un oggetto dai valori derivati dall'argomento e ci aggiungo la quantità 1
 

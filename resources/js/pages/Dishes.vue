@@ -124,8 +124,6 @@ export default {
     methods: {
 
         addDish(piatto){ //funzione per prendere le info del piatto aggiunto
-            
-            console.log(this.carrello);
 
             if (this.carrello.length > 0) { //se il carrello ha già dei piatti ricevuti tramite localStorage
 
@@ -146,7 +144,10 @@ export default {
         },
 
         checkQuantity(piatto){
-            let oggetto = {'id': piatto.id, 'name': piatto.name, 'price': piatto.price, 'user_id': piatto.user.id, 'quantity': 1} //creo un oggetto dai valori derivati dall'argomento e ci aggiungo la quantità 1
+
+            console.log(piatto);
+
+            let oggetto = {'id': piatto.id, 'name': piatto.name, 'price': piatto.price, 'user_id': piatto.user_id, 'quantity': 1} //creo un oggetto dai valori derivati dall'argomento e ci aggiungo la quantità 1
 
             let found = this.carrello.find(product => product.id == oggetto.id) //vedo se ci sono corrispondenze di ID dentro l'array carrello con l'oggetto nuovo
 
