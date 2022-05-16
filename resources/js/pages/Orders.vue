@@ -19,7 +19,7 @@
     </div>
      <!-- Credenziali  -->
    <div class="container">
-       <form >
+       <form method="POST" @submit.prevent="handleSubmit">
 
             <div class="row">
                 <div class="col-sm-6">
@@ -36,7 +36,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label for="name">Nome proprietario*</label>
-                                            <input required class="form-control" id="name" type="text"  placeholder="Inserisci il tuo nome">
+                                            <input v-model="nome" required class="form-control" id="name" type="text"  placeholder="Inserisci il tuo nome">
                                         </div>
                                     </div>
                                 </div>
@@ -45,8 +45,8 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="name">Inserisci il tuo indirizzo*</label>
-                                            <input required class="form-control" id="name" type="text"  placeholder="es. via Del Corso 23">
+                                            <label for="customer_address">Inserisci il tuo indirizzo*</label>
+                                            <input v-model="indirizzo" required class="form-control" id="customer_address" type="text"  placeholder="es. via Del Corso 23">
                                         </div>
                                     </div>
                                 </div>
@@ -55,8 +55,8 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="name">Inserisci il tuo numero di telefono*</label>
-                                            <input required class="form-control" id="name" type="text"  placeholder="000 111111">
+                                            <label for="customer_telephone">Inserisci il tuo numero di telefono*</label>
+                                            <input v-model="tel" required class="form-control" id="customer_telephone" type="text"  placeholder="000 111111">
                                         </div>
                                     </div>
                                 </div>
@@ -65,8 +65,8 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="name">Inserisci la tua mail*</label>
-                                            <input required class="form-control" id="name" type="text"  placeholder="000 111111">
+                                            <label for="customer_email">Inserisci la tua mail*</label>
+                                            <input v-model="email" required class="form-control" id="customer_email" type="text"  placeholder="000 111111">
                                         </div>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
                                                     <div class="form-group">
                                                         <label for="ccnumber">Numero Carta di Credito*</label>
                                                         <div class="input-group">
-                                                            <input required class="form-control" type="text" v-model="creditNumber" placeholder="0000 0000 0000 0000" autocomplete="email">
+                                                            <input required class="form-control" type="text" placeholder="0000 0000 0000 0000" autocomplete="email">
                                                             <div class="input-group-append">
                                                                 <span class="input-group-text">
                                                                     <i class="mdi mdi-credit-card"></i>
@@ -149,7 +149,7 @@
                                         <div class="card-footer">
                                             <!-- Pulsante per continuare -->
                         
-                                            <router-link @click="goPay()" :to="{name: 'PaidOrder'}"  class="btn btn-sm btn-success float-right" type="submit">
+                                            <router-link :to="{name: 'PaidOrder'}"  class="btn btn-sm btn-success float-right" type="submit">
                                             <i class="mdi mdi-gamepad-circle"></i> Continua</router-link>
                                             <!-- Pulsante per resettare dati -->
                                             <button class="btn btn-sm btn-danger" type="reset">
@@ -176,7 +176,12 @@ export default {
      data(){
          return{
             ordine: null,
-            totale: null
+            totale: null,
+            nome: "",
+            indirizzo: "",
+            tel: "",
+            email:""
+
          }
      },
      methods:{
@@ -204,33 +209,24 @@ export default {
             }
         },
         
-        goPay(){
-           
-        },
+        handleSubmit() {
+            this.submitting = true;
+            axios
+                .post("/admin/orders", {
+                    'name': this.name,
+                    'indirizzo': this.indirizzo,
+                    'tel': this.tel,
+                    'email': this.email,
+                    // 'ordine': this.ordine,
+                    // 'totale': this.totale
+                })
+                .then((response) => {
+                    console.log(response.data)
+                });
+    },
 
-        //Validazione nome
-        // validtyName(){
-        //     if (this.name.length < 5) {
-              
-        //         this.name.setCustomValidity('Il nome deve essere più lungo di 5 caratteri');
-        //     }else{
-        //         this.name.setCustomValidity('');
-        //     }
-        // },
 
-         //Validazione numero della carta di credito
-        // validtyCreditNumber(){
-        //      if (this.creditNumber.length != 12) {
-
-        //     this.creditNumber.setCustomValidity('Il numero della carta di credito deve contenere "12" caratteri');
-            
-        // }else if(isNaN(this.creditNumber)){
-        //     this.creditNumber.setCustomValidity('Il numero della carta di credito deve contenere solo caratteri numerici');
-        // }
-        // else{
-        //     this.creditNumber.setCustomValidity('');
-        // }
-        //}
+        
 
        
      },

@@ -43,9 +43,15 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        
+        $order = new Order();
+       
+        $order->save();
+        return response()->json([
+            'order' => 'New order created'
+        ]);
     }
 
     /**
@@ -56,7 +62,11 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $order = new Order();
+        $order->fill($data);
+        $order->save();
     }
 
     /**
