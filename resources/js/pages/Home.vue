@@ -8,7 +8,7 @@
                         <div class="card text-ligth border-0 bg-transparent ms-height-100">
                             <div class="card-body">
                               <h2 class="card-title">Deliverboo</h2>      
-                              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit officia adipisci quia, modi quaerat voluptate! Culpa omnis aliquam aliquid ab doloremque debitis, quo possimus repellat ipsum aperiam maiores assumenda placeat.</p>
+                              <p class="card-text">I tuoi ristoranti preferiti sono su Deliverboo. Dai un'occhiata e ordina subito! Dai più famosi ai più amati della tua zona. Ordina subito i piatti che ami! I Migliori Ristoranti. Siamo Aperti. Ritiro Disponibile. Ordina Online. Piatti Sani e Deliziosi. Tutto Per Il Gusto.</p>
                               <button type="button" class="btn btn-danger ms_btn-radius"><router-link class="text-white" :to="{name: 'Restaurants'}">Vedi Ristoranti</router-link></button>
                             </div>
                          </div>
@@ -20,7 +20,7 @@
         <!-- inizio incipit -->
         <div class="container">
             <h2 class="display-4 text-center">I piatti che ami a domicilio</h2>
-            <p class="ms_style-p">Potrai scegliere tra una vasta gamma di ristoranti all'interno della città di roma
+            <p class="ms_style-p py-5">Potrai scegliere tra una vasta gamma di ristoranti all'interno della città di roma
                 in modo da avere sempre il tuo piatto preferito a disposizione. La nostra selezione
                 consente una rapida scelta tra le varie categorie per semplificare la tua ricerca, per 
                 esempio potrai scegliere tra piatti della specialità italiana, oppure di quella spagnola,
@@ -116,6 +116,11 @@ export default {
 }
 </script>
 
-<style >
-
+<style scoped lang="scss">
+.jumbotron{
+    
+    background-image: url("/images/jumbotron.jpeg");
+    background-size: cover;
+    background-position: center;
+}
 </style>

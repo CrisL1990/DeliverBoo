@@ -1,3 +1,30 @@
 .ms_flex-nav{
     flex-direction: row!important;
 }
+
+.ms-bg-grey {
+    background-color: #2e3333;
+}
+
+.ms-color {
+    color: #ffff!important;
+}
+
+.ms-fs-md {
+    font-size: 14px!important;
+}
+
+.ms-mt {
+  margin-top: 4.9px;
+}
+
+.ms-color-hover:hover {
+ color: #e3342f!important;
+ transition: 1s;
+}
+
+.ms-fs-hover:hover {
+    font-size: 14.5px!important;
+    transition: 0.5s;
+    
+}

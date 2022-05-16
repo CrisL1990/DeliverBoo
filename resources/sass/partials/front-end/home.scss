@@ -1,5 +1,5 @@
-.jumbotron{
-    background-color: #a9a6ae;  
+.jumbotron{ 
+    position: relative;
 }
 
 .ms_p-jumbotron{
@@ -26,4 +26,8 @@
     font-size: 20px;
     font-weight: bold;
 }
+.ps-absolute {
+    position: absolute;
+}
+
 /*fine dishes */
