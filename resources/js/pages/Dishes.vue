@@ -22,6 +22,7 @@
 
             </div>
         </div>
+        
         <div v-if="showError" class="card m-1"> <!-- messaggio per ristorante senza piatti nel menù -->
             <div class="card-body">
                 <h1>Nessun prodotto da mostrare</h1>

@@ -60,6 +60,16 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Inserisci il tuo contatto telefonico -->
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="name">Inserisci la tua mail*</label>
+                                            <input required class="form-control" id="name" type="text"  placeholder="000 111111">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -165,14 +175,8 @@ export default {
 
      data(){
          return{
-             orders:[],
-             name:null,
-             creditNumber:null,
-
-            /* inizio parte aggiunta Yuri */
             ordine: null,
             totale: null
-            /* fine parte aggiunta Yuri */
          }
      },
      methods:{
@@ -203,26 +207,7 @@ export default {
         goPay(){
            
         },
-        sendForm() {
-            this.sendingInProgress = true;
-            axios.post('/api/contacts', {
-                'name': this.name,
-                'email': this.email,
-                'message': this.message
-            }).then(response => {
-                this.sendingInProgress = false;
-                if (response.data.errors) {
-                    this.errors = response.data.errors;
-                    this.success = false;
-                } else {
-                this.success = true;
-                this.name = '';
-                this.email = '';
-                this.message = '';
-                this.errors = {};
-                }
-            });
-        }
+
         //Validazione nome
         // validtyName(){
         //     if (this.name.length < 5) {

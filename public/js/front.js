@@ -2152,6 +2152,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dishes',
   data: function data() {
@@ -2569,19 +2570,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Orders',
   data: function data() {
     return {
-      orders: [],
-      name: null,
-      creditNumber: null,
-
-      /* inizio parte aggiunta Yuri */
       ordine: null,
       totale: null
-      /* fine parte aggiunta Yuri */
-
     };
   },
   methods: {
@@ -2603,30 +2607,7 @@ __webpack_require__.r(__webpack_exports__);
         alert("Il browser non supporta web storage");
       }
     },
-    goPay: function goPay() {},
-    sendForm: function sendForm() {
-      var _this = this;
-
-      this.sendingInProgress = true;
-      axios.post('/api/contacts', {
-        'name': this.name,
-        'email': this.email,
-        'message': this.message
-      }).then(function (response) {
-        _this.sendingInProgress = false;
-
-        if (response.data.errors) {
-          _this.errors = response.data.errors;
-          _this.success = false;
-        } else {
-          _this.success = true;
-          _this.name = '';
-          _this.email = '';
-          _this.message = '';
-          _this.errors = {};
-        }
-      });
-    } //Validazione nome
+    goPay: function goPay() {} //Validazione nome
     // validtyName(){
     //     if (this.name.length < 5) {
     //         this.name.setCustomValidity('Il nome deve essere più lungo di 5 caratteri');
@@ -4876,6 +4857,26 @@ var staticRenderFns = [
             _c("div", { staticClass: "form-group" }, [
               _c("label", { attrs: { for: "name" } }, [
                 _vm._v("Inserisci il tuo numero di telefono*"),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  required: "",
+                  id: "name",
+                  type: "text",
+                  placeholder: "000 111111",
+                },
+              }),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-sm-12" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "name" } }, [
+                _vm._v("Inserisci la tua mail*"),
               ]),
               _vm._v(" "),
               _c("input", {
