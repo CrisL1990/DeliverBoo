@@ -2638,6 +2638,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Orders',
   data: function data() {
@@ -4776,39 +4782,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "container" }, [
-      _vm.success
-        ? _c("div", { staticClass: "alert alert-success" }, [
-            _vm._v("\r\n            Email inviata con successo!!\r\n        "),
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "card" },
-        [
-          _vm._v("\r\n             Riepilogo dell'ordine\r\n             "),
-          _vm._m(0),
-          _vm._v(" "),
-          _vm._l(_vm.ordine, function (ordine) {
-            return _c("div", { key: ordine.id, staticClass: "card-body" }, [
-              _c("h3", [_vm._v("Nome: " + _vm._s(ordine.name))]),
-              _vm._v(" "),
-              _c("h3", [_vm._v(" Totale piatti: " + _vm._s(ordine.quantity))]),
-              _vm._v(" "),
-              _c("h3", [_vm._v("Prezzo: " + _vm._s(ordine.price) + "€")]),
-            ])
-          }),
-          _vm._v(" "),
-          _c("h1", { attrs: { "v-bind": _vm.totale } }, [
-            _vm._v("Totale: " + _vm._s(_vm.totale) + "€"),
-          ]),
-        ],
-        2
-      ),
-    ]),
-    _vm._v(" "),
+  return _c("div", { staticClass: "d-flex" }, [
     _c("div", { staticClass: "container" }, [
       _c(
         "form",
@@ -4823,9 +4797,9 @@ var render = function () {
         },
         [
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-sm-6" }, [
+            _c("div", { staticClass: "col-10" }, [
               _c("div", { staticClass: "card" }, [
-                _vm._m(1),
+                _vm._m(0),
                 _vm._v(" "),
                 _c("div", { staticClass: "card-body" }, [
                   _c("div", { staticClass: "container" }, [
@@ -5093,9 +5067,9 @@ var render = function () {
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col" }, [
                       _c("div", { staticClass: "card" }, [
-                        _vm._m(2),
+                        _vm._m(1),
                         _vm._v(" "),
-                        _vm._m(3),
+                        _vm._m(2),
                         _vm._v(" "),
                         _c("div", { staticClass: "card-footer" }, [
                           _c(
@@ -5119,7 +5093,7 @@ var render = function () {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(4),
+                          _vm._m(3),
                         ]),
                       ]),
                     ]),
@@ -5131,17 +5105,51 @@ var render = function () {
         ]
       ),
     ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-8" }, [
+          _c(
+            "div",
+            { staticClass: "card" },
+            [
+              _vm._v(
+                "\r\n                    Riepilogo dell'ordine\r\n                    "
+              ),
+              _vm._m(4),
+              _vm._v(" "),
+              _vm._l(_vm.ordine, function (ordine) {
+                return _c("div", { key: ordine.id, staticClass: "card-body" }, [
+                  _c("h3", [_vm._v("Nome: " + _vm._s(ordine.name))]),
+                  _vm._v(" "),
+                  _c("h3", [
+                    _vm._v(" Totale piatti: " + _vm._s(ordine.quantity)),
+                  ]),
+                  _vm._v(" "),
+                  _c("h3", [_vm._v("Prezzo: " + _vm._s(ordine.price) + "€")]),
+                ])
+              }),
+              _vm._v(" "),
+              _c("h1", { attrs: { "v-bind": _vm.totale } }, [
+                _vm._v("Totale: " + _vm._s(_vm.totale) + "€"),
+              ]),
+            ],
+            2
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _vm.success
+        ? _c("div", { staticClass: "alert alert-success col-8" }, [
+            _vm._v(
+              "\r\n            Ordine avvenuto con successo!!\r\n        "
+            ),
+          ])
+        : _vm._e(),
+    ]),
   ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h1", [_vm._v("Riepilogo ordine:")]),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -5285,6 +5293,14 @@ var staticRenderFns = [
       { staticClass: "btn btn-sm btn-danger", attrs: { type: "reset" } },
       [_c("i", { staticClass: "mdi mdi-lock-reset" }), _vm._v(" Resetta")]
     )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h1", [_vm._v("Riepilogo ordine:")]),
+    ])
   },
 ]
 render._withStripped = true
