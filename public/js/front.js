@@ -2033,12 +2033,12 @@ __webpack_require__.r(__webpack_exports__);
            slug: ""
        }
    },
-    methods: {
+     methods: {
        makeSlug(){
            this.slug = this.utenti.slug;
        }
    },
-    created(){
+     created(){
        this.makeSlug();
    } */
 
@@ -2613,15 +2613,15 @@ __webpack_require__.r(__webpack_exports__);
     },
     handleSubmit: function handleSubmit() {
       this.submitting = true;
-      axios.post("api/orders", {
-        name: this.name,
-        indirizzo: this.indirizzo,
-        tel: this.tel,
-        email: this.email,
-        ordine: this.ordine,
-        totale: this.totale
+      axios.post("/admin/orders", {
+        'name': this.name,
+        'indirizzo': this.indirizzo,
+        'tel': this.tel,
+        'email': this.email // 'ordine': this.ordine,
+        // 'totale': this.totale
+
       }).then(function (response) {
-        console.log('ciao');
+        console.log(response.data);
       });
     }
   },
@@ -4662,7 +4662,7 @@ var render = function () {
         "div",
         { staticClass: "card" },
         [
-          _vm._v("\n             Riepilogo dell'ordine\n             "),
+          _vm._v("\r\n             Riepilogo dell'ordine\r\n             "),
           _vm._m(0),
           _vm._v(" "),
           _vm._l(_vm.ordine, function (ordine) {
@@ -5106,7 +5106,9 @@ var render = function () {
         ])
       }),
       _vm._v(" "),
-      _c("h1", [_vm._v("\n        articolo acquistato con successo\n    ")]),
+      _c("h1", [
+        _vm._v("\r\n        articolo acquistato con successo\r\n    "),
+      ]),
     ],
     2
   )
@@ -5166,9 +5168,9 @@ var render = function () {
                   [
                     _c("label", { attrs: { for: categoria.name } }, [
                       _vm._v(
-                        "\n                            " +
+                        "\r\n                            " +
                           _vm._s(categoria.name) +
-                          "\n                            "
+                          "\r\n                            "
                       ),
                       _c("input", {
                         directives: [
@@ -21478,7 +21480,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/christian/Desktop/Boolean/Esercizi/DeliverBoo/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Henry\Documents\Boolean\GitHub\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
