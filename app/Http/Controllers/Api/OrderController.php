@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
@@ -64,14 +65,35 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        $order = new Order();
-        $order->fill($data);
-        $order->save();
-
-        return response()->json([
-            'submitting'=>true
+        $validator=Validator::make($data,[
+            'customer_name'=>'required',
+            'customer_email'=>'required|email',
+            'customer_address'=>'required',
+            'customer_telephone'=>'required',
+            
         ]);
+        
+        if($validator->fails()){
+            return response()->json(
+                [
+                'success'=>false,
+                'errors'=>$validator->errors()
+                ]
+            );
+        }else{
+            $order = new Order();
+            $order->fill($data);
+            $order->save();
+            return response()->json(
+                [
+                'success'=>true
+                ]
+            );
+        }
+
+
+
+        
     }
 
     /**

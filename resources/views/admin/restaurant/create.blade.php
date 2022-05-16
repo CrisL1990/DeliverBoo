@@ -66,10 +66,10 @@
                     </select>
                 </div>
 
-                <button id="bottone" type="submit" class="btn btn-primary">Salva</button>
+                <button id="bottone" type="submit" class="btn btn-success">Salva</button>
 
             </form>
-            <a href="{{ url()->previous() }}" class="btn btn-success">Torna alla pagina precedente</a>
+            <a href="{{ url()->previous() }}" class="btn mt-2 btn-primary">Torna alla pagina precedente</a>
 
         </div>
     </div>
