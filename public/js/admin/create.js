@@ -162,7 +162,7 @@ if (bottone) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\booleanLaravel\DeliverBoo\resources\js\admin\create.js */"./resources/js/admin/create.js");
+module.exports = __webpack_require__(/*! C:\Users\Lenovo\OneDrive\Desktop\Deliveboo\DeliverBoo\resources\js\admin\create.js */"./resources/js/admin/create.js");
 
 
 /***/ })

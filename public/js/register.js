@@ -17493,7 +17493,7 @@ function validaEmail(str) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\booleanLaravel\DeliverBoo\resources\js\register.js */"./resources/js/register.js");
+module.exports = __webpack_require__(/*! C:\Users\Lenovo\OneDrive\Desktop\Deliveboo\DeliverBoo\resources\js\register.js */"./resources/js/register.js");
 
 
 /***/ })
