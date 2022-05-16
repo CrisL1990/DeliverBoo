@@ -2197,7 +2197,6 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     checkQuantity: function checkQuantity(piatto) {
-      console.log(piatto);
       var oggetto = {
         'id': piatto.id,
         'name': piatto.name,
@@ -2229,6 +2228,8 @@ __webpack_require__.r(__webpack_exports__);
         var found = this.carrello.find(function (product) {
           return product.id == piatto.id;
         }); //vedo se ci sono corrispondenze di ID dentro l'array carrello con il piatto
+
+        this.carrelloPieno = true;
 
         if (found) {
           //se c'è corrispondenza

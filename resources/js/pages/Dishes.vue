@@ -171,6 +171,8 @@ export default {
 
                 let found = this.carrello.find(product => product.id == piatto.id) //vedo se ci sono corrispondenze di ID dentro l'array carrello con il piatto
 
+                this.carrelloPieno = true;
+
                 if (found) { //se c'è corrispondenza
 
                     found.quantity-- //prendo quell'oggetto e decremento la sua quantità
