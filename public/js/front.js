@@ -2178,6 +2178,10 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addDish: function addDish(piatto) {
       //funzione per prendere le info del piatto aggiunto
+      if (this.carrello == null) {
+        this.carrello = [];
+      }
+
       if (this.carrello.length > 0) {
         //se il carrello ha già dei piatti ricevuti tramite localStorage
         if (this.carrello[0].user_id == piatto.user_id) {
@@ -21716,7 +21720,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Lenovo\OneDrive\Desktop\Deliveboo\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Henry\Documents\Boolean\GitHub\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

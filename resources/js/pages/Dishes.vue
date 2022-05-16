@@ -125,6 +125,11 @@ export default {
 
         addDish(piatto){ //funzione per prendere le info del piatto aggiunto
 
+            if (this.carrello == null) {
+
+                this.carrello = [];
+            }
+            
             if (this.carrello.length > 0) { //se il carrello ha già dei piatti ricevuti tramite localStorage
 
                 if (this.carrello[0].user_id == piatto.user_id){ //controllo che il piatto che sto aggiungendo nel carrello sia dello stesso ristorante che ha gli altri piatti presenti
