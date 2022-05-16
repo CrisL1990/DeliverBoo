@@ -22,7 +22,7 @@
 
             </div>
         </div>
-        
+
         <div v-if="showError" class="card m-1"> <!-- messaggio per ristorante senza piatti nel menù -->
             <div class="card-body">
                 <h1>Nessun prodotto da mostrare</h1>
@@ -43,7 +43,7 @@
                     <p><span class="font-weight-light text-secondary">Prezzo: </span><br>{{piatto.price}}€</p>
 
                     <button @click="addDish(piatto)" type="button" class="btn btn-success">Aggiungi</button>
-                    <button @click="deleteDish(piatto)" type="button" class="btn btn-warning">Elimina</button>
+                    <button @click="deleteDish(piatto)" type="button" class="btn btn-warning">Rimuovi</button>
 
                 </div>
 
@@ -68,7 +68,13 @@
                         <tr v-for="(ordine, key) in carrello" :key="key">
                             <td>{{ordine.name}}</td>
                             <td>{{ordine.price}}€</td>
-                            <td>{{ordine.quantity}}</td>
+                            <td class="d-flex align-items-center justify-content-between">
+                                {{ordine.quantity}} 
+                                <div class="d-flex align-items-center">
+                                    <div class="mx-1 ml-4 noselect" id="btnDeleteCart" @click="deleteDish(ordine)">-</div>
+                                    <div class="noselect" id="btnAddCart" @click="addDish(ordine)">+</div>
+                                </div>
+                            </td>
                         </tr>
                         
                     </tbody>
@@ -214,6 +220,28 @@ export default {
                     this.showError = true; //mostro un messaggio per specificare che il menù è vuoto
                 }          
             });
+
+            this.refreshCart();
+        },
+
+        refreshCart(){ /* funzione per avere la persistenza del carrello al refresh della pagina */
+            if (typeof(Storage) !== "undefined") {
+
+                try {
+                    let getCart = localStorage.getItem('carrello');
+                    let cart = JSON.parse(getCart);
+                    this.carrello = cart;
+
+                    let getTotal = localStorage.getItem('totale');
+                    let total = JSON.parse(getTotal);
+                    this.totale = total;
+
+                } catch (err) { 
+                    console.log(err.message);
+                }     
+            } else {
+                alert("Il browser non supporta web storage");
+            }
         }
     },
 
@@ -234,6 +262,30 @@ export default {
         background-color: white;
         border: 1px solid black;
         border-radius: 10px;
+
+        #btnDeleteCart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 15px;
+            width: 15px;
+            background-color: rgb(233, 70, 25);
+            border-radius: 50%;
+            cursor: pointer;
+            color: white;
+        }
+
+        #btnAddCart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 15px;
+            width: 15px;
+            background-color: rgb(64, 162, 81);
+            border-radius: 50%;
+            cursor: pointer;
+            color: white;
+        }
     }
     /* Transizione per carrello checkout */
     /* VUEjs richiede il name della Transizione e l'append dei nomi dei ganci nella classe da richiamare */
@@ -261,6 +313,16 @@ export default {
     .empty-cart {
         background-color: rgb(247, 202, 0);
         border-radius: 5px;
+    }
+
+    .noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
     }
 }
 
