@@ -63,7 +63,7 @@
                         </tr>
                     </thead>
                         <!-- <tbody> contenuti piatti -->
-
+                    <tbody>
                         <tr v-for="(ordine, key) in carrello" :key="key">
                             <td>{{ordine.name}}</td>
                             <td>{{ordine.price}}€</td>

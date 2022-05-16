@@ -1,19 +1,20 @@
 <template>
 <div>
-     <div class="container" v-for="order in orders" :key="order.id">
+     <div class="container">
         <div class="card">
              Riepilogo dell'ordine
              <div class="card-header">
                 <h1>Riepilogo ordine:</h1>
             </div>
-             Contenuto ordine
-             <div class="card-body">
-                <h3>Nome: {{order.customer_name}}</h3>
-                <h3>Indirizzo: {{order.customer_address}}</h3>
-                <h3> Contatto telefonico: {{order.customer_telephone}}</h3>
-                <h3>Ordinato il giorno: {{order.date}}</h3>
-                <h3>Totale speso:{{order.total}}</h3>
+             
+            <div class="card-body" v-for="ordine in ordine" :key="ordine.id">
+               
+                <h3>Nome: {{ordine.name}}</h3>
+                <h3> Totale piatti: {{ordine.quantity}}</h3>
+                <h3>Prezzo: {{ordine.price}}€</h3>
+                
             </div>
+            <h1 :v-bind="totale">Totale: {{totale}}€</h1>
         </div>
     </div>
      <!-- Credenziali  -->
@@ -35,7 +36,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label for="name">Nome proprietario*</label>
-                                            <input class="form-control" id="name" type="text" v-model="name" placeholder="Inserisci il tuo nome">
+                                            <input required class="form-control" id="name" type="text"  placeholder="Inserisci il tuo nome">
                                         </div>
                                     </div>
                                 </div>
@@ -45,7 +46,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label for="name">Inserisci il tuo indirizzo*</label>
-                                            <input class="form-control" id="name" type="text" v-model="name" placeholder="es. via Del Corso 23">
+                                            <input required class="form-control" id="name" type="text"  placeholder="es. via Del Corso 23">
                                         </div>
                                     </div>
                                 </div>
@@ -55,7 +56,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label for="name">Inserisci il tuo numero di telefono*</label>
-                                            <input class="form-control" id="name" type="text" v-model="name" placeholder="000 111111">
+                                            <input required class="form-control" id="name" type="text"  placeholder="000 111111">
                                         </div>
                                     </div>
                                 </div>
@@ -74,23 +75,13 @@
                                         </div>
                                         <div class="card-body">
 
-                                            <!-- Inserisci il tuo nome -->
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="form-group">
-                                                        <label for="name">Nome proprietario*</label>
-                                                        <input class="form-control" id="name" type="text" v-model="name" placeholder="Inserisci il tuo nome">
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                             <!-- Inserisci numero carta di credito -->
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label for="ccnumber">Numero Carta di Credito*</label>
                                                         <div class="input-group">
-                                                            <input class="form-control" type="text" v-model="creditNumber" placeholder="0000 0000 0000 0000" autocomplete="email">
+                                                            <input required class="form-control" type="text" v-model="creditNumber" placeholder="0000 0000 0000 0000" autocomplete="email">
                                                             <div class="input-group-append">
                                                                 <span class="input-group-text">
                                                                     <i class="mdi mdi-credit-card"></i>
@@ -104,7 +95,7 @@
                                             <div class="row">
                                                 <div class="form-group col-sm-4">
                                                     <label for="ccmonth">Mese*</label>
-                                                    <select class="form-control" id="ccmonth">
+                                                    <select required class="form-control" id="ccmonth">
                                                         <option>1</option>
                                                         <option>2</option>
                                                         <option>3</option>
@@ -121,7 +112,7 @@
                                                 </div>
                                                 <div class="form-group col-sm-4">
                                                     <label for="ccyear">Anno*</label>
-                                                    <select class="form-control" id="ccyear">
+                                                    <select required class="form-control" id="ccyear">
                                                         <option>2022</option>
                                                         <option>2023</option>
                                                         <option>2024</option>
@@ -139,7 +130,7 @@
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="cvv">CVV/CVC*</label>
-                                                        <input class="form-control" id="cvv" type="text" placeholder="123">
+                                                        <input required class="form-control" id="cvv" type="text" placeholder="123">
                                                     </div>
                                                 </div>
                                             </div>
@@ -147,11 +138,12 @@
                                         </div>
                                         <div class="card-footer">
                                             <!-- Pulsante per continuare -->
-                                            <button class="btn btn-sm btn-success float-right" type="submit" @click="goPay()">
-                                            <i class="mdi mdi-gamepad-circle"></i> Continue</button>
+                        
+                                            <router-link @click="goPay()" :to="{name: 'PaidOrder'}"  class="btn btn-sm btn-success float-right" type="submit">
+                                            <i class="mdi mdi-gamepad-circle"></i> Continua</router-link>
                                             <!-- Pulsante per resettare dati -->
                                             <button class="btn btn-sm btn-danger" type="reset">
-                                            <i class="mdi mdi-lock-reset"></i> Reset</button>
+                                            <i class="mdi mdi-lock-reset"></i> Resetta</button>
                                         </div>
                                     </div>
                                 </div>
@@ -206,13 +198,32 @@ export default {
             } else {
                 alert("Il browser non supporta web storage");
             }
-        }
+        },
         
-        // goPay(){
-        //     this.validtyName();
-        //     this.validtyCreditNumber();
-        // },
-        // //Validazione nome
+        goPay(){
+           
+        },
+        sendForm() {
+            this.sendingInProgress = true;
+            axios.post('/api/contacts', {
+                'name': this.name,
+                'email': this.email,
+                'message': this.message
+            }).then(response => {
+                this.sendingInProgress = false;
+                if (response.data.errors) {
+                    this.errors = response.data.errors;
+                    this.success = false;
+                } else {
+                this.success = true;
+                this.name = '';
+                this.email = '';
+                this.message = '';
+                this.errors = {};
+                }
+            });
+        }
+        //Validazione nome
         // validtyName(){
         //     if (this.name.length < 5) {
               

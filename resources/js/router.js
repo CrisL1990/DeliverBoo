@@ -6,7 +6,8 @@ Vue.use(VueRouter);
 import Home from './pages/Home';
 import Restaurants from './pages/Restaurants';
 import Dishes from './pages/Dishes';
-import Orders from './pages/Orders'
+import Orders from './pages/Orders';
+import PaidOrder from './pages/PaidOrder';
 
 const router = new VueRouter({
     mode: "history",
@@ -31,6 +32,11 @@ const router = new VueRouter({
             path:'/orders',
             name:'Orders',
             component: Orders,
+        },
+        {
+            path:'/paidOrder',
+            name:'PaidOrder',
+            component: PaidOrder,
         }
     ]
 });

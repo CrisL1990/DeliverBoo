@@ -10988,19 +10988,11 @@ a.text-dark:focus {
 }
 
 .jumbotron {
-  height: 600px;
-  min-height: 600px;
-  background-size: cover;
-  background-position: center;
-  color: white;
+  background-color: #a9a6ae;
 }
 
-.ms_padding-150 {
-  padding-top: 150px;
-}
-
-.ms_height-100 {
-  height: 100%;
+.ms_p-jumbotron {
+  font-size: 20px;
 }
 
 .ms_btn-radius {
@@ -11027,6 +11019,11 @@ a.text-dark:focus {
   height: 200px;
 }
 
+.ms_p-home {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 /*fine dishes */
 
 footer {
@@ -11039,10 +11036,20 @@ ul {
 
 ul li {
   list-style: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
 }
 
 ul li a {
   text-decoration: none;
   font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.ms_router-link {
+  font-size: 13px;
 }
 

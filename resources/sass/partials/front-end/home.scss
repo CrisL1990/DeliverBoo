@@ -1,18 +1,9 @@
 .jumbotron{
-
-    height: 600px;
-    min-height: 600px;
-    background-size: cover;
-    background-position: center;
-    color: white;
+    background-color: #a9a6ae;  
 }
 
-.ms_padding-150{
-    padding-top: 150px;
-}
-
-.ms_height-100{
-    height: 100% ;
+.ms_p-jumbotron{
+    font-size: 20px;
 }
 
 .ms_btn-radius{
@@ -30,5 +21,9 @@
 }
 .ms_img{
     height: 200px;
+}
+.ms_p-home{
+    font-size: 20px;
+    font-weight: bold;
 }
 /*fine dishes */
