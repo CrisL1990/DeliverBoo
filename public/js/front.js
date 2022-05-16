@@ -2654,16 +2654,19 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     handleSubmit: function handleSubmit() {
+      var _this = this;
+
       this.submitting = true;
-      axios.post("/admin/orders", {
-        'name': this.name,
-        'indirizzo': this.indirizzo,
-        'tel': this.tel,
-        'email': this.email // 'ordine': this.ordine,
+      axios.post("/api/orders", {
+        'customer_name': this.nome,
+        'customer_address': this.indirizzo,
+        'customer_telephone': this.tel,
+        'customer_email': this.email // 'ordine': this.ordine,
         // 'totale': this.totale
 
       }).then(function (response) {
-        console.log(response.data);
+        _this.submitting = false;
+        console.log(response);
       });
     }
   },
@@ -4794,7 +4797,7 @@ var render = function () {
                     _c("div", { staticClass: "row" }, [
                       _c("div", { staticClass: "col-sm-12" }, [
                         _c("div", { staticClass: "form-group" }, [
-                          _c("label", { attrs: { for: "name" } }, [
+                          _c("label", { attrs: { for: "customer_name" } }, [
                             _vm._v("Nome proprietario*"),
                           ]),
                           _vm._v(" "),
@@ -4810,7 +4813,7 @@ var render = function () {
                             staticClass: "form-control",
                             attrs: {
                               required: "",
-                              id: "name",
+                              id: "customer_name",
                               type: "text",
                               placeholder: "Inserisci il tuo nome",
                             },
@@ -4943,44 +4946,7 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "container" }, [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col" }, [
-                      _c("div", { staticClass: "card" }, [
-                        _vm._m(2),
-                        _vm._v(" "),
-                        _vm._m(3),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "card-footer" },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass:
-                                  "btn btn-sm btn-success float-right",
-                                attrs: {
-                                  to: { name: "PaidOrder" },
-                                  type: "submit",
-                                },
-                              },
-                              [
-                                _c("i", {
-                                  staticClass: "mdi mdi-gamepad-circle",
-                                }),
-                                _vm._v(" Continua"),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _vm._m(4),
-                          ],
-                          1
-                        ),
-                      ]),
-                    ]),
-                  ]),
-                ]),
+                _vm._m(2),
               ]),
             ]),
           ]),
@@ -5012,147 +4978,169 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("strong", [_vm._v("Credit Card")]),
-      _vm._v(" "),
-      _c("small", [_vm._v("enter your card details")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-body" }, [
+    return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-12" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "ccnumber" } }, [
-              _vm._v("Numero Carta di Credito*"),
+        _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _c("strong", [_vm._v("Credit Card")]),
+              _vm._v(" "),
+              _c("small", [_vm._v("enter your card details")]),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "input-group" }, [
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  required: "",
-                  type: "text",
-                  placeholder: "0000 0000 0000 0000",
-                  autocomplete: "email",
-                },
-              }),
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-sm-12" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "ccnumber" } }, [
+                      _vm._v("Numero Carta di Credito*"),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "input-group" }, [
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: {
+                          required: "",
+                          type: "text",
+                          placeholder: "0000 0000 0000 0000",
+                          autocomplete: "email",
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "input-group-append" }, [
+                        _c("span", { staticClass: "input-group-text" }, [
+                          _c("i", { staticClass: "mdi mdi-credit-card" }),
+                        ]),
+                      ]),
+                    ]),
+                  ]),
+                ]),
+              ]),
               _vm._v(" "),
-              _c("div", { staticClass: "input-group-append" }, [
-                _c("span", { staticClass: "input-group-text" }, [
-                  _c("i", { staticClass: "mdi mdi-credit-card" }),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "form-group col-sm-4" }, [
+                  _c("label", { attrs: { for: "ccmonth" } }, [_vm._v("Mese*")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      staticClass: "form-control",
+                      attrs: { required: "", id: "ccmonth" },
+                    },
+                    [
+                      _c("option", [_vm._v("1")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("2")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("3")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("4")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("5")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("6")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("7")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("8")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("9")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("10")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("11")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("12")]),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group col-sm-4" }, [
+                  _c("label", { attrs: { for: "ccyear" } }, [_vm._v("Anno*")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      staticClass: "form-control",
+                      attrs: { required: "", id: "ccyear" },
+                    },
+                    [
+                      _c("option", [_vm._v("2022")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("2023")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("2024")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("2025")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("2026")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("2027")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("2028")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("2029")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("2030")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("2031")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("2032")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("2033")]),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-4" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "cvv" } }, [
+                      _vm._v("CVV/CVC*"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        required: "",
+                        id: "cvv",
+                        type: "text",
+                        placeholder: "123",
+                      },
+                    }),
+                  ]),
                 ]),
               ]),
             ]),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "form-group col-sm-4" }, [
-          _c("label", { attrs: { for: "ccmonth" } }, [_vm._v("Mese*")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              staticClass: "form-control",
-              attrs: { required: "", id: "ccmonth" },
-            },
-            [
-              _c("option", [_vm._v("1")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("2")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("3")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("4")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("5")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("6")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("7")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("8")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("9")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("10")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("11")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("12")]),
-            ]
-          ),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-sm-4" }, [
-          _c("label", { attrs: { for: "ccyear" } }, [_vm._v("Anno*")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              staticClass: "form-control",
-              attrs: { required: "", id: "ccyear" },
-            },
-            [
-              _c("option", [_vm._v("2022")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("2023")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("2024")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("2025")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("2026")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("2027")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("2028")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("2029")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("2030")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("2031")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("2032")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("2033")]),
-            ]
-          ),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-4" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "cvv" } }, [_vm._v("CVV/CVC*")]),
             _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: {
-                required: "",
-                id: "cvv",
-                type: "text",
-                placeholder: "123",
-              },
-            }),
+            _c("div", { staticClass: "card-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-sm btn-success float-right",
+                  attrs: { type: "submit" },
+                },
+                [
+                  _c("i", { staticClass: "mdi mdi-gamepad-circle" }),
+                  _vm._v(" Continua"),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-sm btn-danger",
+                  attrs: { type: "reset" },
+                },
+                [
+                  _c("i", { staticClass: "mdi mdi-lock-reset" }),
+                  _vm._v(" Resetta"),
+                ]
+              ),
+            ]),
           ]),
         ]),
       ]),
     ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      { staticClass: "btn btn-sm btn-danger", attrs: { type: "reset" } },
-      [_c("i", { staticClass: "mdi mdi-lock-reset" }), _vm._v(" Resetta")]
-    )
   },
 ]
 render._withStripped = true
@@ -21568,7 +21556,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Henry\Documents\Boolean\GitHub\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\booleanLaravel\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

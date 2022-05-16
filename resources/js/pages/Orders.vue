@@ -35,8 +35,8 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="name">Nome proprietario*</label>
-                                            <input v-model="nome" required class="form-control" id="name" type="text"  placeholder="Inserisci il tuo nome">
+                                            <label for="customer_name">Nome proprietario*</label>
+                                            <input v-model="nome" required class="form-control" id="customer_name" type="text"  placeholder="Inserisci il tuo nome">
                                         </div>
                                     </div>
                                 </div>
@@ -149,8 +149,8 @@
                                         <div class="card-footer">
                                             <!-- Pulsante per continuare -->
                         
-                                            <router-link :to="{name: 'PaidOrder'}"  class="btn btn-sm btn-success float-right" type="submit">
-                                            <i class="mdi mdi-gamepad-circle"></i> Continua</router-link>
+                                            <button class="btn btn-sm btn-success float-right" type="submit">
+                                            <i class="mdi mdi-gamepad-circle"></i> Continua</button>
                                             <!-- Pulsante per resettare dati -->
                                             <button class="btn btn-sm btn-danger" type="reset">
                                             <i class="mdi mdi-lock-reset"></i> Resetta</button>
@@ -212,16 +212,17 @@ export default {
         handleSubmit() {
             this.submitting = true;
             axios
-                .post("/admin/orders", {
-                    'name': this.name,
-                    'indirizzo': this.indirizzo,
-                    'tel': this.tel,
-                    'email': this.email,
+                .post("/api/orders", {
+                    'customer_name': this.nome,
+                    'customer_address': this.indirizzo,
+                    'customer_telephone': this.tel,
+                    'customer_email': this.email,
                     // 'ordine': this.ordine,
                     // 'totale': this.totale
                 })
                 .then((response) => {
-                    console.log(response.data)
+                    this.submitting = false;
+                    console.log(response)
                 });
     },
 

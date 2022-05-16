@@ -46,8 +46,9 @@ class OrderController extends Controller
     public function create(Request $request)
     {
         
+        $data = $request->all();
         $order = new Order();
-       
+        $order->fill($data);
         $order->save();
         return response()->json([
             'order' => 'New order created'
@@ -67,6 +68,10 @@ class OrderController extends Controller
         $order = new Order();
         $order->fill($data);
         $order->save();
+
+        return response()->json([
+            'submitting'=>true
+        ]);
     }
 
     /**
