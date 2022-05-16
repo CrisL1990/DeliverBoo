@@ -1,32 +1,12 @@
 <template>
-<div>
-     <div class="container">
-        <div v-if="success" class="alert alert-success">
-            Email inviata con successo!!
-        </div>
-
-        <div class="card">
-             Riepilogo dell'ordine
-             <div class="card-header">
-                <h1>Riepilogo ordine:</h1>
-            </div>
-             
-            <div class="card-body" v-for="ordine in ordine" :key="ordine.id">
-               
-                <h3>Nome: {{ordine.name}}</h3>
-                <h3> Totale piatti: {{ordine.quantity}}</h3>
-                <h3>Prezzo: {{ordine.price}}€</h3>
-                
-            </div>
-            <h1 :v-bind="totale">Totale: {{totale}}€</h1>
-        </div>
-    </div>
+<div class="d-flex">
+    
      <!-- Credenziali  -->
    <div class="container">
        <form method="POST" @submit.prevent="handleSubmit">
 
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-10">
                     <div class="card">
                         
                         <div class="card-header">
@@ -179,6 +159,32 @@
                 </div>
             </div>
         </form>
+    </div>
+    <!-- Riepilogo ordine -->
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                 <div class="card">
+                    Riepilogo dell'ordine
+                    <div class="card-header">
+                        <h1>Riepilogo ordine:</h1>
+                    </div>
+                    
+                    <div class="card-body" v-for="ordine in ordine" :key="ordine.id">
+                    
+                        <h3>Nome: {{ordine.name}}</h3>
+                        <h3> Totale piatti: {{ordine.quantity}}</h3>
+                        <h3>Prezzo: {{ordine.price}}€</h3>
+                        
+                    </div>
+                    <h1 :v-bind="totale">Totale: {{totale}}€</h1>
+                </div>
+            </div>
+        </div>
+        <div v-if="success" class="alert alert-success col-8">
+            Ordine avvenuto con successo!!
+        </div>
+
     </div>
 
 
