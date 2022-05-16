@@ -2178,10 +2178,28 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addDish: function addDish(piatto) {
       //funzione per prendere le info del piatto aggiunto
+      console.log(this.carrello);
+
+      if (this.carrello.length > 0) {
+        //se il carrello ha già dei piatti ricevuti tramite localStorage
+        if (this.carrello[0].user_id == piatto.user_id) {
+          //controllo che il piatto che sto aggiungendo nel carrello sia dello stesso ristorante che ha gli altri piatti presenti
+          this.checkQuantity(piatto); //se si lo aggiungo
+        } else {
+          this.carrello = []; //altrimenti prima svuoto il carrello
+
+          this.checkQuantity(piatto); //e poi ricreo l'ordine
+        }
+      } else {
+        this.checkQuantity(piatto); //se già non ci sono piatti presenti lo aggiungo normalmente
+      }
+    },
+    checkQuantity: function checkQuantity(piatto) {
       var oggetto = {
         'id': piatto.id,
         'name': piatto.name,
         'price': piatto.price,
+        'user_id': piatto.user.id,
         'quantity': 1
       }; //creo un oggetto dai valori derivati dall'argomento e ci aggiungo la quantità 1
 
@@ -2287,8 +2305,9 @@ __webpack_require__.r(__webpack_exports__);
 
           _this.showError = true; //mostro un messaggio per specificare che il menù è vuoto
         }
+
+        _this.refreshCart();
       });
-      this.refreshCart();
     },
     refreshCart: function refreshCart() {
       /* funzione per avere la persistenza del carrello al refresh della pagina */
@@ -2848,7 +2867,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-97fb6ade] {\n  position: relative;\n  /* Transizione per carrello checkout */\n  /* VUEjs richiede il name della Transizione e l'append dei nomi dei ganci nella classe da richiamare */\n  /* https://vuejs.org/guide/built-ins/transition.html */\n  /* Bottoni */\n}\n.container .carrello[data-v-97fb6ade] {\n  position: fixed;\n  left: 10px;\n  top: 10%;\n  background-color: white;\n  border: 1px solid black;\n  border-radius: 10px;\n}\n.container .carrello #btnDeleteCart[data-v-97fb6ade] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 15px;\n  width: 15px;\n  background-color: rgb(233, 70, 25);\n  border-radius: 50%;\n  cursor: pointer;\n  color: white;\n}\n.container .carrello #btnAddCart[data-v-97fb6ade] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 15px;\n  width: 15px;\n  background-color: rgb(64, 162, 81);\n  border-radius: 50%;\n  cursor: pointer;\n  color: white;\n}\n.container .slide-left-centered-enter[data-v-97fb6ade],\n.container .slide-left-centered-leave-to[data-v-97fb6ade] {\n  transition: transform 1000ms ease;\n  transform: translateX(-100%);\n}\n.container .slide-left-centered-enter-active[data-v-97fb6ade] {\n  transition: all 1s ease;\n}\n.container .slide-left-centered-leave-active[data-v-97fb6ade] {\n  transition: all 1s ease-out;\n}\n.container .ordine[data-v-97fb6ade] {\n  background-color: rgb(64, 162, 81);\n  color: white;\n  border-radius: 5px;\n}\n.container .empty-cart[data-v-97fb6ade] {\n  background-color: rgb(247, 202, 0);\n  border-radius: 5px;\n}\n.container .noselect[data-v-97fb6ade] {\n  -webkit-touch-callout: none;\n  /* iOS Safari */\n  -webkit-user-select: none;\n  /* Safari */\n  /* Konqueror HTML */\n  -moz-user-select: none;\n  /* Old versions of Firefox */\n  -ms-user-select: none;\n  /* Internet Explorer/Edge */\n  user-select: none;\n  /* Non-prefixed version, currently\n   supported by Chrome, Edge, Opera and Firefox */\n}", ""]);
+exports.push([module.i, ".container[data-v-97fb6ade] {\n  position: relative;\n  /* Transizione per carrello checkout */\n  /* VUEjs richiede il name della Transizione e l'append dei nomi dei ganci nella classe da richiamare */\n  /* https://vuejs.org/guide/built-ins/transition.html */\n  /* Bottoni */\n}\n.container .carrello[data-v-97fb6ade] {\n  position: fixed;\n  left: 10px;\n  top: 10%;\n  background-color: white;\n  border: 1px solid black;\n  border-radius: 10px;\n}\n.container .carrello #btnDeleteCart[data-v-97fb6ade] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 15px;\n  width: 15px;\n  background-color: rgb(233, 70, 25);\n  border-radius: 50%;\n  cursor: pointer;\n  color: white;\n}\n.container .carrello #btnAddCart[data-v-97fb6ade] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 15px;\n  width: 15px;\n  background-color: rgb(64, 162, 81);\n  border-radius: 50%;\n  cursor: pointer;\n  color: white;\n}\n.container .slide-left-centered-enter[data-v-97fb6ade],\n.container .slide-left-centered-leave-to[data-v-97fb6ade] {\n  transition: transform 1000ms ease;\n  transform: translateX(-100%);\n}\n.container .slide-left-centered-enter-active[data-v-97fb6ade] {\n  transition: all 1s ease;\n}\n.container .slide-left-centered-leave-active[data-v-97fb6ade] {\n  transition: all 1s ease-out;\n}\n.container .ordine[data-v-97fb6ade] {\n  background-color: rgb(64, 162, 81);\n  color: white;\n  border-radius: 5px;\n}\n.container .empty-cart[data-v-97fb6ade] {\n  background-color: rgb(247, 202, 0);\n  border-radius: 5px;\n}\n.container .noselect[data-v-97fb6ade] {\n  -webkit-touch-callout: none;\n  /* iOS Safari */\n  -webkit-user-select: none;\n  /* Safari */\n  /* Konqueror HTML */\n  -moz-user-select: none;\n  /* Old versions of Firefox */\n  -ms-user-select: none;\n  /* Internet Explorer/Edge */\n  user-select: none;\n  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */\n}", ""]);
 
 // exports
 

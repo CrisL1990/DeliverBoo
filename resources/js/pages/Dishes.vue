@@ -125,7 +125,28 @@ export default {
 
         addDish(piatto){ //funzione per prendere le info del piatto aggiunto
             
-            let oggetto = {'id': piatto.id, 'name': piatto.name, 'price': piatto.price, 'quantity': 1} //creo un oggetto dai valori derivati dall'argomento e ci aggiungo la quantità 1
+            console.log(this.carrello);
+
+            if (this.carrello.length > 0) { //se il carrello ha già dei piatti ricevuti tramite localStorage
+
+                if (this.carrello[0].user_id == piatto.user_id){ //controllo che il piatto che sto aggiungendo nel carrello sia dello stesso ristorante che ha gli altri piatti presenti
+
+                    this.checkQuantity(piatto); //se si lo aggiungo
+
+                } else {
+
+                    this.carrello = []; //altrimenti prima svuoto il carrello
+                    this.checkQuantity(piatto); //e poi ricreo l'ordine
+                }
+
+            } else {
+
+                this.checkQuantity(piatto); //se già non ci sono piatti presenti lo aggiungo normalmente
+            }        
+        },
+
+        checkQuantity(piatto){
+            let oggetto = {'id': piatto.id, 'name': piatto.name, 'price': piatto.price, 'user_id': piatto.user.id, 'quantity': 1} //creo un oggetto dai valori derivati dall'argomento e ci aggiungo la quantità 1
 
             let found = this.carrello.find(product => product.id == oggetto.id) //vedo se ci sono corrispondenze di ID dentro l'array carrello con l'oggetto nuovo
 
@@ -219,12 +240,14 @@ export default {
                     this.loading = false; //cancello il messaggio di caricamento
                     this.showError = true; //mostro un messaggio per specificare che il menù è vuoto
                 }          
+
+                this.refreshCart();
             });
 
-            this.refreshCart();
         },
 
         refreshCart(){ /* funzione per avere la persistenza del carrello al refresh della pagina */
+
             if (typeof(Storage) !== "undefined") {
 
                 try {
@@ -242,6 +265,7 @@ export default {
             } else {
                 alert("Il browser non supporta web storage");
             }
+            
         }
     },
 
