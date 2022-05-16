@@ -2628,7 +2628,11 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       ordine: null,
-      totale: null
+      totale: null,
+      nome: "",
+      indirizzo: "",
+      tel: "",
+      email: ""
     };
   },
   methods: {
@@ -2650,26 +2654,19 @@ __webpack_require__.r(__webpack_exports__);
         alert("Il browser non supporta web storage");
       }
     },
-    goPay: function goPay() {} //Validazione nome
-    // validtyName(){
-    //     if (this.name.length < 5) {
-    //         this.name.setCustomValidity('Il nome deve essere più lungo di 5 caratteri');
-    //     }else{
-    //         this.name.setCustomValidity('');
-    //     }
-    // },
-    //Validazione numero della carta di credito
-    // validtyCreditNumber(){
-    //      if (this.creditNumber.length != 12) {
-    //     this.creditNumber.setCustomValidity('Il numero della carta di credito deve contenere "12" caratteri');
-    // }else if(isNaN(this.creditNumber)){
-    //     this.creditNumber.setCustomValidity('Il numero della carta di credito deve contenere solo caratteri numerici');
-    // }
-    // else{
-    //     this.creditNumber.setCustomValidity('');
-    // }
-    //}
+    handleSubmit: function handleSubmit() {
+      this.submitting = true;
+      axios.post("/admin/orders", {
+        'name': this.name,
+        'indirizzo': this.indirizzo,
+        'tel': this.tel,
+        'email': this.email // 'ordine': this.ordine,
+        // 'totale': this.totale
 
+      }).then(function (response) {
+        console.log(response.data);
+      });
+    }
   },
   created: function created() {
     this.getOrder();
@@ -4776,103 +4773,220 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "container" }, [
-      _c("form", [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("div", { staticClass: "card" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _vm._m(2),
-              _vm._v(" "),
-              _c("div", { staticClass: "container" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col" }, [
-                    _c("div", { staticClass: "card" }, [
-                      _vm._m(3),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-sm-12" }, [
-                            _c("div", { staticClass: "form-group" }, [
-                              _c("label", { attrs: { for: "ccnumber" } }, [
-                                _vm._v("Numero Carta di Credito*"),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "input-group" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.creditNumber,
-                                      expression: "creditNumber",
-                                    },
-                                  ],
-                                  staticClass: "form-control",
-                                  attrs: {
-                                    required: "",
-                                    type: "text",
-                                    placeholder: "0000 0000 0000 0000",
-                                    autocomplete: "email",
-                                  },
-                                  domProps: { value: _vm.creditNumber },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.creditNumber = $event.target.value
-                                    },
-                                  },
-                                }),
-                                _vm._v(" "),
-                                _vm._m(4),
-                              ]),
-                            ]),
+      _c(
+        "form",
+        {
+          attrs: { method: "POST" },
+          on: {
+            submit: function ($event) {
+              $event.preventDefault()
+              return _vm.handleSubmit.apply(null, arguments)
+            },
+          },
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-6" }, [
+              _c("div", { staticClass: "card" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("div", { staticClass: "container" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-sm-12" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "name" } }, [
+                            _vm._v("Nome proprietario*"),
                           ]),
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(5),
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "card-footer" },
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "btn btn-sm btn-success float-right",
-                              attrs: {
-                                to: { name: "PaidOrder" },
-                                type: "submit",
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.nome,
+                                expression: "nome",
                               },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.goPay()
-                                },
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              required: "",
+                              id: "name",
+                              type: "text",
+                              placeholder: "Inserisci il tuo nome",
+                            },
+                            domProps: { value: _vm.nome },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.nome = $event.target.value
                               },
                             },
-                            [
-                              _c("i", {
-                                staticClass: "mdi mdi-gamepad-circle",
-                              }),
-                              _vm._v(" Continua"),
-                            ]
+                          }),
+                        ]),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-sm-12" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "customer_address" } }, [
+                            _vm._v("Inserisci il tuo indirizzo*"),
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.indirizzo,
+                                expression: "indirizzo",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              required: "",
+                              id: "customer_address",
+                              type: "text",
+                              placeholder: "es. via Del Corso 23",
+                            },
+                            domProps: { value: _vm.indirizzo },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.indirizzo = $event.target.value
+                              },
+                            },
+                          }),
+                        ]),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-sm-12" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "customer_telephone" } },
+                            [_vm._v("Inserisci il tuo numero di telefono*")]
                           ),
                           _vm._v(" "),
-                          _vm._m(6),
-                        ],
-                        1
-                      ),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.tel,
+                                expression: "tel",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              required: "",
+                              id: "customer_telephone",
+                              type: "text",
+                              placeholder: "000 111111",
+                            },
+                            domProps: { value: _vm.tel },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.tel = $event.target.value
+                              },
+                            },
+                          }),
+                        ]),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-sm-12" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", { attrs: { for: "customer_email" } }, [
+                            _vm._v("Inserisci la tua mail*"),
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.email,
+                                expression: "email",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              required: "",
+                              id: "customer_email",
+                              type: "text",
+                              placeholder: "000 111111",
+                            },
+                            domProps: { value: _vm.email },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.email = $event.target.value
+                              },
+                            },
+                          }),
+                        ]),
+                      ]),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "container" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col" }, [
+                      _c("div", { staticClass: "card" }, [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "card-footer" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass:
+                                  "btn btn-sm btn-success float-right",
+                                attrs: {
+                                  to: { name: "PaidOrder" },
+                                  type: "submit",
+                                },
+                              },
+                              [
+                                _c("i", {
+                                  staticClass: "mdi mdi-gamepad-circle",
+                                }),
+                                _vm._v(" Continua"),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm._m(4),
+                          ],
+                          1
+                        ),
+                      ]),
                     ]),
                   ]),
                 ]),
               ]),
             ]),
           ]),
-        ]),
-      ]),
+        ]
+      ),
     ]),
   ])
 }
@@ -4899,94 +5013,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-body" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-sm-12" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "name" } }, [
-                _vm._v("Nome proprietario*"),
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  required: "",
-                  id: "name",
-                  type: "text",
-                  placeholder: "Inserisci il tuo nome",
-                },
-              }),
-            ]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-sm-12" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "name" } }, [
-                _vm._v("Inserisci il tuo indirizzo*"),
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  required: "",
-                  id: "name",
-                  type: "text",
-                  placeholder: "es. via Del Corso 23",
-                },
-              }),
-            ]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-sm-12" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "name" } }, [
-                _vm._v("Inserisci il tuo numero di telefono*"),
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  required: "",
-                  id: "name",
-                  type: "text",
-                  placeholder: "000 111111",
-                },
-              }),
-            ]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-sm-12" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "name" } }, [
-                _vm._v("Inserisci la tua mail*"),
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  required: "",
-                  id: "name",
-                  type: "text",
-                  placeholder: "000 111111",
-                },
-              }),
-            ]),
-          ]),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c("strong", [_vm._v("Credit Card")]),
       _vm._v(" "),
@@ -4997,104 +5023,124 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group-append" }, [
-      _c("span", { staticClass: "input-group-text" }, [
-        _c("i", { staticClass: "mdi mdi-credit-card" }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "form-group col-sm-4" }, [
-        _c("label", { attrs: { for: "ccmonth" } }, [_vm._v("Mese*")]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            staticClass: "form-control",
-            attrs: { required: "", id: "ccmonth" },
-          },
-          [
-            _c("option", [_vm._v("1")]),
+    return _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm-12" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "ccnumber" } }, [
+              _vm._v("Numero Carta di Credito*"),
+            ]),
             _vm._v(" "),
-            _c("option", [_vm._v("2")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("3")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("4")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("5")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("6")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("7")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("8")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("9")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("10")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("11")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("12")]),
-          ]
-        ),
+            _c("div", { staticClass: "input-group" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  required: "",
+                  type: "text",
+                  placeholder: "0000 0000 0000 0000",
+                  autocomplete: "email",
+                },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group-append" }, [
+                _c("span", { staticClass: "input-group-text" }, [
+                  _c("i", { staticClass: "mdi mdi-credit-card" }),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "form-group col-sm-4" }, [
-        _c("label", { attrs: { for: "ccyear" } }, [_vm._v("Anno*")]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            staticClass: "form-control",
-            attrs: { required: "", id: "ccyear" },
-          },
-          [
-            _c("option", [_vm._v("2022")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("2023")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("2024")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("2025")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("2026")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("2027")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("2028")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("2029")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("2030")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("2031")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("2032")]),
-            _vm._v(" "),
-            _c("option", [_vm._v("2033")]),
-          ]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-4" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "cvv" } }, [_vm._v("CVV/CVC*")]),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "form-group col-sm-4" }, [
+          _c("label", { attrs: { for: "ccmonth" } }, [_vm._v("Mese*")]),
           _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: {
-              required: "",
-              id: "cvv",
-              type: "text",
-              placeholder: "123",
+          _c(
+            "select",
+            {
+              staticClass: "form-control",
+              attrs: { required: "", id: "ccmonth" },
             },
-          }),
+            [
+              _c("option", [_vm._v("1")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("2")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("3")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("4")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("5")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("6")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("7")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("8")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("9")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("10")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("11")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("12")]),
+            ]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-sm-4" }, [
+          _c("label", { attrs: { for: "ccyear" } }, [_vm._v("Anno*")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              staticClass: "form-control",
+              attrs: { required: "", id: "ccyear" },
+            },
+            [
+              _c("option", [_vm._v("2022")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("2023")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("2024")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("2025")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("2026")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("2027")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("2028")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("2029")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("2030")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("2031")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("2032")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("2033")]),
+            ]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-4" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "cvv" } }, [_vm._v("CVV/CVC*")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: {
+                required: "",
+                id: "cvv",
+                type: "text",
+                placeholder: "123",
+              },
+            }),
+          ]),
         ]),
       ]),
     ])

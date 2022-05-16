@@ -24,6 +24,8 @@ Route::middleware('auth')
 
     Route::resource('restaurants', 'RestaurantController');
 
+    Route::post('/orders', 'OrderController@store');
+
 });
 
 Route::get('{any?}', function() {
