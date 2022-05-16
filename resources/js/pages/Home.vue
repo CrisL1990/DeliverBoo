@@ -37,9 +37,10 @@
                     </div>
                 </div>
                 <!-- fare ciclo per immagini e piccolo paragrafo sotto -->
-                <div class="row row-cols-1 row-cols-lg-3">
-                    <div class="col py-3">
-                        <img class="w-100 ms_img" src="" alt="">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                    <div class="col py-3" v-for='(card, index) in cards' :key="index">
+                        <img class="w-100 ms_img rounded" :src='card.thumb' alt="">
+                        <p class="pt-3 ms_p-home">{{card.paragrafh}}</p>
                     </div>
                 </div>
             </div>
@@ -52,11 +53,69 @@
 
 <script>
 export default {
-    name:'Home'
+    name:'Home',
+      data (){
+
+    return{
+        cards: [
+        {
+            "thumb": "images/hamburger.jpg",
+            "paragrafh": "I tuoi hamburger preferiti",
+        },
+        {
+            "thumb": "images/sushi.jpg",
+            "paragrafh": "Il sushi migliore",
+        },
+        {
+            "thumb": "images/pizza.jpg",
+            "paragrafh": "Le migliori pizze",
+        },
+        {
+            "thumb": "images/poke.jpg",
+            "paragrafh": "I tuoi poke",
+        },
+        {
+            "thumb": "images/piadina.jpg",
+            "paragrafh": "La piadineria",
+        },
+        {
+            "thumb": "images/gelato.jpg",
+            "paragrafh": "Il tuo gelato",
+        },
+        {
+            "thumb": "images/pasta.jpg",
+            "paragrafh": "I migliori piatti di pasta",
+        },
+        {
+            "thumb": "images/bistecca.jpg",
+            "paragrafh": "Le migliori bistecche",
+        },
+        {
+            "thumb": "images/street-food.jpg",
+            "paragrafh": "Street Food Napoletano",
+        },
+        {
+            "thumb": "images/noodles.jpg",
+            "paragrafh": "I noodles",
+        },
+        {
+            "thumb": "images/vegano.jpg",
+            "paragrafh": "I migliori piatti vegetariani",
+        },
+        {
+            "thumb": "images/senza-glutine.jpg",
+            "paragrafh": "I migliori piatti senza glutine",
+        }
+        ]
+      }
+
+  }
+
+
 
 }
 </script>
 
-<style>
+<style >
 
 </style>
