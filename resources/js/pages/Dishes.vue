@@ -150,8 +150,6 @@ export default {
 
         checkQuantity(piatto){
 
-            console.log(piatto);
-
             let oggetto = {'id': piatto.id, 'name': piatto.name, 'price': piatto.price, 'user_id': piatto.user_id, 'quantity': 1} //creo un oggetto dai valori derivati dall'argomento e ci aggiungo la quantità 1
 
             let found = this.carrello.find(product => product.id == oggetto.id) //vedo se ci sono corrispondenze di ID dentro l'array carrello con l'oggetto nuovo
