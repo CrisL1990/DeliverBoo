@@ -1,0 +1,39 @@
+#tabella {
+    height: 80vh;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    #tabella-table {
+        position: relative;
+
+        #thead {
+            position: sticky;
+            left: 0;
+            top: 0;
+            background-color: rgb(248, 250, 252);
+            
+            tr {
+                border-bottom: 1px solid rgb(222, 226, 230);
+            }
+        }
+    
+        #tbody {
+            height: 100%;
+            width: 100vw;
+            overflow-y: scroll;
+
+            .dropdown-menu {
+                max-height: 20vh;
+                overflow-y: auto;
+
+                .break-cart-items {
+
+                    height: 1px;
+                    width: 100%;
+                    background-color: rgb(165, 165, 165, 0.5);
+                }
+            }
+        }
+    }
+}

@@ -11079,3 +11079,43 @@ ul li a {
   font-size: 13px;
 }
 
+#tabella {
+  height: 80vh;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#tabella #tabella-table {
+  position: relative;
+}
+
+#tabella #tabella-table #thead {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  top: 0;
+  background-color: rgb(248, 250, 252);
+}
+
+#tabella #tabella-table #thead tr {
+  border-bottom: 1px solid rgb(222, 226, 230);
+}
+
+#tabella #tabella-table #tbody {
+  height: 100%;
+  width: 100vw;
+  overflow-y: scroll;
+}
+
+#tabella #tabella-table #tbody .dropdown-menu {
+  max-height: 20vh;
+  overflow-y: auto;
+}
+
+#tabella #tabella-table #tbody .dropdown-menu .break-cart-items {
+  height: 1px;
+  width: 100%;
+  background-color: rgba(165, 165, 165, 0.5);
+}
+
