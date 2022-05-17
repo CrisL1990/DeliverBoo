@@ -198,6 +198,7 @@ export default {
      data(){
          return{
             ordine: null,
+            cart: null,
             totale: null,
             nome: "",
             indirizzo: "",
@@ -220,12 +221,11 @@ export default {
                     let cart = JSON.parse(getCart);
                     this.ordine = cart;
                     console.log(this.ordine);
+                    this.cart = JSON.stringify(this.ordine);
 
                     let getTotal = localStorage.getItem('totale');
                     let total = JSON.parse(getTotal);
                     this.totale = total;
-                    console.log(this.totale);
-
 
                 } catch (err) { 
                     console.log(err.message);
@@ -243,8 +243,9 @@ export default {
                     'customer_address': this.indirizzo,
                     'customer_telephone': this.tel,
                     'customer_email': this.email,
-                    // 'ordine': this.ordine,
-                    // 'totale': this.totale
+                    'user_id': this.ordine[0].user_id,
+                    'cart': this.cart,
+                    'total': this.totale
                 })
                 .then((response) => {
                   
