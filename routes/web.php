@@ -22,9 +22,9 @@ Route::middleware('auth')
 
     Route::get('/', 'HomeController@index')->name('home');
 
-    Route::resource('restaurants', 'RestaurantController');
+    Route::resource('orders', 'OrderController');
 
-    Route::post('/orders', 'OrderController@store');
+    Route::resource('restaurants', 'RestaurantController');
 
 });
 
