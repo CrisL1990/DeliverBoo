@@ -97,15 +97,15 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.order-box{
-   
-    background-repeat: no-repeat;
+.restaurants-bg{
+    
+    background-image: url("/images/sfondo-restaurants.jpg");
     background-repeat: no-repeat;
     background-position:center;
     -moz-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
      
 }
 </style>

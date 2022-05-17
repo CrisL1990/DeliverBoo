@@ -2974,7 +2974,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".order-box[data-v-ccd76a46] {\n  background-repeat: no-repeat;\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  height: 100vh;\n}", ""]);
+exports.push([module.i, ".restaurants-bg[data-v-ccd76a46] {\n  background-image: url(\"/images/sfondo-restaurants.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  min-height: 100vh;\n}", ""]);
 
 // exports
 
@@ -4483,7 +4483,7 @@ var staticRenderFns = [
         _c(
           "a",
           {
-            staticClass: "nav-link ms-bg-grey ms-color ms-mf-md ms-fs-hover",
+            staticClass: "nav-link ms-bg-grey ms-color ms-mf-md",
             attrs: { href: "/admin" },
           },
           [_vm._v("Accesso Admin")]
