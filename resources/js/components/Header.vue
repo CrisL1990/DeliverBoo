@@ -29,6 +29,9 @@ export default {
 </script>
 
 <style>
+    header{
+        height: 60px;
+    }
     .nav-link{
         font-size: 20px;
     }
