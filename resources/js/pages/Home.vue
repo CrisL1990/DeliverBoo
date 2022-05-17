@@ -116,6 +116,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped lang="scss">
+.jumbotron{  
+    background-image: url("/images/jumbotron.jpeg");
+    background-size: cover;
+    background-position: center;
+}
 </style>
