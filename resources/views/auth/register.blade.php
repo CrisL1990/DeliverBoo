@@ -163,7 +163,9 @@
     </div>
 </div>
 
-<script src="{{ asset('js/register.js') }}" defer></script>
+<script src="{{ asset('js/register.js') }}" defer>
+
+</script>
 
 @endsection
 
