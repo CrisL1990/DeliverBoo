@@ -1,48 +1,4 @@
 <template>
-<<<<<<< HEAD
-<div class="order-box">
-
-    <div class="container">
-        <h1>Ricerca ristoratori</h1>
-        <nav class="navbar navbar-light bg-light">
-            <form class="form-inline w-100 d-flex justify-content-around">
-                <div class="form-group row">
-                    <label class="col-form-label" for="category">Categoria</label>
-                    <form @submit.prevent="getRestaurant" class="container">
-
-                        <div class="cat-container mx-2" v-for="categoria in categories" :key="categoria.id">
-                            <label :for="categoria.name">
-                                {{categoria.name}}
-                                <input class="mx-1" type="checkbox" v-model="valoriRicercati" :id="categoria.name" :name="categoria.name" :value="categoria.name">
-                            </label><br>
-                        </div>
-                        
-                    </form>
-                </div>
-            </form>
-        </nav>
-
-        <div>
-            <button @click="getRestaurant()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerca</button>
-        </div>
-        
-        <div>
-            <div class="row row-cols-3 py-3" v-if="risultato">
-                <div class="col" v-for="utente in utenti" :key="utente.id">
-                    <RestaurantCard :utenti="utente"></RestaurantCard>
-                </div>
-                <div v-if="utenti.length == 0">
-                    <h1>Nessun ristorante trovato</h1>
-                </div>
-            </div>
-            
-        </div>
-        
-        
-
-    </div>
-</div>
-=======
     <div class="restaurants-bg">
         <div class="container container-restaurants">
             <h1 class="pt-4 mb-3 text-light">Ricerca ristoratori</h1>
@@ -83,7 +39,6 @@
         </div>
     </div>
 
->>>>>>> modifiche-front-ristoranti
 </template>
 
 <script>
