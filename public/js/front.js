@@ -2660,6 +2660,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       ordine: null,
+      cart: null,
       totale: null,
       nome: "",
       indirizzo: "",
@@ -2680,10 +2681,10 @@ __webpack_require__.r(__webpack_exports__);
           var cart = JSON.parse(getCart);
           this.ordine = cart;
           console.log(this.ordine);
+          this.cart = JSON.stringify(this.ordine);
           var getTotal = localStorage.getItem('totale');
           var total = JSON.parse(getTotal);
           this.totale = total;
-          console.log(this.totale);
         } catch (err) {
           console.log(err.message);
         }
@@ -2699,9 +2700,10 @@ __webpack_require__.r(__webpack_exports__);
         'customer_name': this.nome,
         'customer_address': this.indirizzo,
         'customer_telephone': this.tel,
-        'customer_email': this.email // 'ordine': this.ordine,
-        // 'totale': this.totale
-
+        'customer_email': this.email,
+        'user_id': this.ordine[0].user_id,
+        'cart': this.cart,
+        'total': this.totale
       }).then(function (response) {
         _this.sendingInProgress = true;
 
