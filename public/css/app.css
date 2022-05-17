@@ -10983,6 +10983,14 @@ a.text-dark:focus {
   filter: drop-shadow(0 0 0.75rem rgb(39, 7, 168));
 }
 
+.deliverboo {
+  color: rgb(0, 161, 147);
+}
+
+.deliverboo:hover {
+  text-decoration: underline;
+}
+
 .ms_flex-nav {
   flex-direction: row !important;
 }
