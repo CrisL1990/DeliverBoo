@@ -19,7 +19,7 @@
                         <th class="ms_azioni" scope="col">Azioni</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tabella">
                         @foreach ($dishes as $dish)
                         @if ($userId== $dish->user_id)
                             <tr>
