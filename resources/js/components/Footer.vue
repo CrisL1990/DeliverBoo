@@ -31,5 +31,7 @@ export default {
 </script>
 
 <style>
-
+footer{
+    height: 200px;
+}
 </style>
