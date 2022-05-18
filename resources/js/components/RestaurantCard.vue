@@ -39,9 +39,9 @@ export default {
 
 <style scoped lang='scss'>
 
-.ms_bg-card{
-    background-color: rgb(255,157, 0,)!important;
-    border: 5px solid rgb(255,157, 0,)!important;
+.card{
+    background-color: rgba(255,157, 0, 0.8)!important;
+    border: none!important;
 }
 
 </style>
