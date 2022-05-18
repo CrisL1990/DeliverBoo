@@ -9,11 +9,21 @@
                         <label class="col-form-label" for="category">Categoria</label>
                         <form @submit.prevent="getRestaurant" class="container my-bg-categories">
 
-                            <div class="cat-container mx-2 col-2" v-for="categoria in categories" :key="categoria.id">
-                                <label :for="categoria.name">
-                                    {{categoria.name}}
-                                    <input class="mx-1" type="checkbox" v-model="valoriRicercati" :id="categoria.name" :name="categoria.name" :value="categoria.name">
-                                </label><br>
+                            <div class="cat-container mx-2 col-2">
+
+                                <ul class="ks-cboxtags">
+
+                                    <li v-for="categoria in categories" :key="categoria.id">
+
+                                        <input class="mx-1" type="checkbox" v-model="valoriRicercati" :id="categoria.name" :name="categoria.name" :value="categoria.name">
+                                        <label class="" :for="categoria.name">
+                                            {{categoria.name}}
+                                        </label>
+                
+                                    </li>
+
+                                </ul>
+
                             </div>
                             
                         </form>
@@ -36,7 +46,9 @@
                 </div>
                 
             </div>
+            
         </div>
+        
     </div>
 
 </template>
@@ -105,7 +117,61 @@ export default {
     -moz-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover;
-    min-height: 100vh;
-     
+    min-height: 100vh;     
+    .cat-container {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 13px;
+
+        ul.ks-cboxtags {
+            list-style: none;
+            padding: 20px;
+            display: flex;
+            background-color: rgba(255, 255, 255, 0);;
+        }
+        ul.ks-cboxtags li{
+        display: inline;
+        margin: 0 5px;
+        }
+        ul.ks-cboxtags li label{
+            background-color: rgba(255, 255, 255, .9);
+            border: 2px solid rgba(139, 139, 139, .3);
+            color: #adadad;
+            border-radius: 25px;
+            white-space: nowrap;
+            margin: 3px 0px;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            transition: all .2s;
+        }
+
+        ul.ks-cboxtags li label {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+            border: 2px solid #1bdbf8;
+            background-color: #12bbd4;
+            color: #fff;
+            transition: all .2s;
+        }
+
+        ul.ks-cboxtags li input[type="checkbox"] {
+        display: absolute;
+        }
+        ul.ks-cboxtags li input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        }
+        ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+        border: 2px solid #e9a1ff;
+        }
+    }
 }
+
+
 </style>
