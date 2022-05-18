@@ -1,12 +1,12 @@
 <template>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
+        <div class="card" style="width: 100%">
+            <div class="card-body ms_bg-card">
 
                 <h5 class="card-title">{{utenti.restaurant_name}}</h5>
                 <p class="card-text">{{utenti.restaurant_address}}</p>
                 <p>{{utenti.category}}</p>
 
-                <router-link class="nav-link btn btn-primary" :to="{name: 'Dishes', params: {slug: utenti.slug}}">Vedi piatti</router-link>
+                <router-link class="nav-link btn btn-danger" :to="{name: 'Dishes', params: {slug: utenti.slug}}">Vedi piatti</router-link>
             </div>
         </div>
 </template>
@@ -37,6 +37,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang='scss'>
+
+.ms_bg-card{
+    background-color: rgb(255,157, 0,)!important;
+    border: 5px solid rgb(255,157, 0,)!important;
+}
 
 </style>

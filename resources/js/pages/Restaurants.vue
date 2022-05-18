@@ -1,6 +1,6 @@
 <template>
-    <div class="restaurants-bg">
-        <div class="container container-restaurants">
+    <div class="restaurants-bg ">
+        <div class="container">
             <h1 class="pt-4 mb-3 text-light">Ricerca ristoratori</h1>
             <h5 class="text-light">Seleziona una o più categorie disponibili:</h5>
             <nav class="navbar navbar-light">
@@ -32,19 +32,18 @@
             </nav>
 
             <div>
-                <button @click="getRestaurant()" class="btn my-2 my-sm-0 btn-danger" type="submit">Cerca</button>
+                <button @click="getRestaurant()" class="btn my-2 my-sm-0 btn-danger ms_btn-restaurants" type="submit">Cerca</button>
             </div>
             
             <div>
-                <div class="row row-cols-3 py-3" v-if="risultato">
-                    <div class="col" v-for="utente in utenti" :key="utente.id">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5" v-if="risultato">
+                    <div class="col mx-2 my-3 " v-for="utente in utenti" :key="utente.id">
                         <RestaurantCard :utenti="utente"></RestaurantCard>
                     </div>
                     <div v-if="utenti.length == 0">
                         <h1>Nessun ristorante trovato</h1>
                     </div>
-                </div>
-                
+                </div>        
             </div>
             
         </div>
@@ -174,4 +173,7 @@ export default {
 }
 
 
+.ms_btn-restaurants{
+    padding: 12px 50px!important;
+}
 </style>
