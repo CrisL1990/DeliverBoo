@@ -2641,14 +2641,16 @@ __webpack_require__.r(__webpack_exports__);
       hostedFieldInstance: false,
       nonce: "",
       error: "",
-      amount: 10
+      rinvio: true
     };
   },
   methods: {
     payWithCreditCard: function payWithCreditCard() {
       var _this = this;
 
-      if (this.hostedFieldInstance) {
+      this.handleSubmit();
+
+      if (this.hostedFieldInstance && this.success == true) {
         this.error = "";
         this.nonce = "";
         this.hostedFieldInstance.tokenize().then(function (payload) {
