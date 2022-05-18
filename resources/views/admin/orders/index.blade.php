@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div id="tabella" class="col-md-12">
+            <div id="tabellaOrdini" class="col-md-12">
 
                 <table id="tabella-table" class="table">
                     <thead id="thead">
