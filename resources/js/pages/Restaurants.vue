@@ -126,6 +126,7 @@ export default {
             list-style: none;
             padding: 20px;
             display: flex;
+            background-color: rgba(255, 255, 255, 0);;
         }
         ul.ks-cboxtags li{
         display: inline;
