@@ -24,6 +24,8 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "braintree-web": "^3.85.3",
+        "paypal-checkout": "^4.0.336",
         "vue-router": "^3.5.3"
     }
 }
