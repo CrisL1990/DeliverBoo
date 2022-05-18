@@ -5717,11 +5717,10 @@ var render = function () {
           { staticClass: "form-inline w-100 d-flex justify-content-around" },
           [
             _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                { staticClass: "col-form-label", attrs: { for: "category" } },
-                [_vm._v("Categoria")]
-              ),
+              _c("label", {
+                staticClass: "col-form-label",
+                attrs: { for: "category" },
+              }),
               _vm._v(" "),
               _c(
                 "form",

@@ -6,7 +6,7 @@
             <nav class="navbar navbar-light">
                 <form class="form-inline w-100 d-flex justify-content-around">
                     <div class="form-group row">
-                        <label class="col-form-label" for="category">Categoria</label>
+                        <label class="col-form-label" for="category"></label>
                         <form @submit.prevent="getRestaurant" class="container my-bg-categories">
 
                             <div class="cat-container mx-2 col-2">
