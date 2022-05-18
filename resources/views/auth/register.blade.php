@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
 
-                <div class="card-body">
+                <div id="registerDiv" class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <!--Inserisci nome-->
@@ -96,8 +96,8 @@
                         <!--inserisci categoria-->                        
 
                         <div class="dropdown form-group row offset-4" id="dropdown-category">
-                            <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-                              Seleziona una categoria*
+                            <button class="btn btn-light dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                              Select a category*
                             </button>
                             <div class="dropdown-menu" >
                                 @foreach ($categories as $category)
