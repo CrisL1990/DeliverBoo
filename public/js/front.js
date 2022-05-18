@@ -2931,7 +2931,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".ms_bg-card[data-v-272b0098] {\n  background-color: rgb(255, 157, 0) !important;\n  border: 5px solid rgb(255, 157, 0) !important;\n}", ""]);
+exports.push([module.i, ".card[data-v-272b0098] {\n  background-color: rgba(255, 157, 0, 0.8) !important;\n  border: none !important;\n}", ""]);
 
 // exports
 
@@ -2950,7 +2950,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-97fb6ade] {\n  position: relative;\n  /* Transizione per carrello checkout */\n  /* VUEjs richiede il name della Transizione e l'append dei nomi dei ganci nella classe da richiamare */\n  /* https://vuejs.org/guide/built-ins/transition.html */\n  /* Bottoni */\n}\n.container .carrello[data-v-97fb6ade] {\n  position: fixed;\n  left: 10px;\n  top: 10%;\n  background-color: white;\n  border: 1px solid black;\n  border-radius: 10px;\n}\n.container .carrello #btnDeleteCart[data-v-97fb6ade] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 15px;\n  width: 15px;\n  background-color: rgb(233, 70, 25);\n  border-radius: 50%;\n  cursor: pointer;\n  color: white;\n}\n.container .carrello #btnAddCart[data-v-97fb6ade] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 15px;\n  width: 15px;\n  background-color: rgb(64, 162, 81);\n  border-radius: 50%;\n  cursor: pointer;\n  color: white;\n}\n.container .slide-left-centered-enter[data-v-97fb6ade],\n.container .slide-left-centered-leave-to[data-v-97fb6ade] {\n  transition: transform 1000ms ease;\n  transform: translateX(-100%);\n}\n.container .slide-left-centered-enter-active[data-v-97fb6ade] {\n  transition: all 1s ease;\n}\n.container .slide-left-centered-leave-active[data-v-97fb6ade] {\n  transition: all 1s ease-out;\n}\n.container .ordine[data-v-97fb6ade] {\n  background-color: rgb(64, 162, 81);\n  color: white;\n  border-radius: 5px;\n}\n.container .empty-cart[data-v-97fb6ade] {\n  background-color: rgb(247, 202, 0);\n  border-radius: 5px;\n}\n.container .noselect[data-v-97fb6ade] {\n  -webkit-touch-callout: none;\n  /* iOS Safari */\n  -webkit-user-select: none;\n  /* Safari */\n  /* Konqueror HTML */\n  -moz-user-select: none;\n  /* Old versions of Firefox */\n  -ms-user-select: none;\n  /* Internet Explorer/Edge */\n  user-select: none;\n  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */\n}\n.ms_bg-card[data-v-97fb6ade] {\n  background-color: rgb(255, 157, 0) !important;\n  border: 5px solid rgb(255, 157, 0) !important;\n}\n.ms_background-dishes[data-v-97fb6ade] {\n  background-image: url(\"/images/sfondo-restaurants.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n}", ""]);
+exports.push([module.i, ".container[data-v-97fb6ade] {\n  position: relative;\n  /* Transizione per carrello checkout */\n  /* VUEjs richiede il name della Transizione e l'append dei nomi dei ganci nella classe da richiamare */\n  /* https://vuejs.org/guide/built-ins/transition.html */\n  /* Bottoni */\n}\n.container .carrello[data-v-97fb6ade] {\n  position: fixed;\n  left: 10px;\n  top: 10%;\n  background-color: white;\n  border: 1px solid black;\n  border-radius: 10px;\n}\n.container .carrello #btnDeleteCart[data-v-97fb6ade] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 15px;\n  width: 15px;\n  background-color: rgb(233, 70, 25);\n  border-radius: 50%;\n  cursor: pointer;\n  color: white;\n}\n.container .carrello #btnAddCart[data-v-97fb6ade] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 15px;\n  width: 15px;\n  background-color: rgb(64, 162, 81);\n  border-radius: 50%;\n  cursor: pointer;\n  color: white;\n}\n.container .slide-left-centered-enter[data-v-97fb6ade],\n.container .slide-left-centered-leave-to[data-v-97fb6ade] {\n  transition: transform 1000ms ease;\n  transform: translateX(-100%);\n}\n.container .slide-left-centered-enter-active[data-v-97fb6ade] {\n  transition: all 1s ease;\n}\n.container .slide-left-centered-leave-active[data-v-97fb6ade] {\n  transition: all 1s ease-out;\n}\n.container .ordine[data-v-97fb6ade] {\n  background-color: rgb(64, 162, 81);\n  color: white;\n  border-radius: 5px;\n}\n.container .empty-cart[data-v-97fb6ade] {\n  background-color: rgb(247, 202, 0);\n  border-radius: 5px;\n}\n.container .noselect[data-v-97fb6ade] {\n  -webkit-touch-callout: none;\n  /* iOS Safari */\n  -webkit-user-select: none;\n  /* Safari */\n  /* Konqueror HTML */\n  -moz-user-select: none;\n  /* Old versions of Firefox */\n  -ms-user-select: none;\n  /* Internet Explorer/Edge */\n  user-select: none;\n  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */\n}\n.card[data-v-97fb6ade] {\n  background-color: rgba(255, 157, 0, 0.8) !important;\n  border: none !important;\n}\n.ms_background-dishes[data-v-97fb6ade] {\n  background-image: url(\"/images/sfondo-restaurants.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n}", ""]);
 
 // exports
 
@@ -3008,25 +3008,6 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, ".restaurants-bg[data-v-ccd76a46] {\n  background-image: url(\"/images/sfondo-restaurants.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  min-height: 100vh;\n}\n.restaurants-bg .cat-container[data-v-ccd76a46] {\n  font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n  font-size: 13px;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags[data-v-ccd76a46] {\n  list-style: none;\n  padding: 20px;\n  display: flex;\n  background-color: rgba(255, 255, 255, 0);\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li[data-v-ccd76a46] {\n  display: inline;\n  margin: 0 5px;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li label[data-v-ccd76a46] {\n  background-color: rgba(255, 255, 255, 0.9);\n  border: 2px solid rgba(139, 139, 139, 0.3);\n  color: #adadad;\n  border-radius: 25px;\n  white-space: nowrap;\n  margin: 3px 0px;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -webkit-tap-highlight-color: transparent;\n  transition: all 0.2s;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li label[data-v-ccd76a46] {\n  padding: 8px 12px;\n  cursor: pointer;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox]:checked + label[data-v-ccd76a46] {\n  border: 2px solid #1bdbf8;\n  background-color: #12bbd4;\n  color: #fff;\n  transition: all 0.2s;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox][data-v-ccd76a46] {\n  display: absolute;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox][data-v-ccd76a46] {\n  position: absolute;\n  opacity: 0;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox]:focus + label[data-v-ccd76a46] {\n  border: 2px solid #e9a1ff;\n}\n.ms_btn-restaurants[data-v-ccd76a46] {\n  padding: 12px 50px !important;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Footer.vue?vue&type=style&index=0&lang=css&":
-/*!************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Footer.vue?vue&type=style&index=0&lang=css& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\nfooter{\r\n    height: 200px;\n}\r\n", ""]);
 
 // exports
 
@@ -3680,36 +3661,6 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./Restaurants.vue?vue&type=style&index=0&id=ccd76a46&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Restaurants.vue?vue&type=style&index=0&id=ccd76a46&lang=scss&scoped=true&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Footer.vue?vue&type=style&index=0&lang=css&":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Footer.vue?vue&type=style&index=0&lang=css& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Footer.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Footer.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -4416,7 +4367,21 @@ var render = function () {
                 1
               ),
               _vm._v(" "),
-              _c("li", { staticClass: "text-white" }, [_vm._v("Chi-siamo")]),
+              _c(
+                "li",
+                { staticClass: "text-white" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "text-white ms_router-link",
+                      attrs: { to: { name: "Home" } },
+                    },
+                    [_vm._v(" Home")]
+                  ),
+                ],
+                1
+              ),
               _vm._v(" "),
               _c("li", { staticClass: "text-white" }, [_vm._v("Contatti")]),
             ]),
@@ -4662,7 +4627,7 @@ var render = function () {
           : _vm._e(),
         _vm._v(" "),
         _vm.ristoratore
-          ? _c("div", { staticClass: "card my-4" }, [
+          ? _c("div", { staticClass: "card my-4 w-75 text-center" }, [
               _c("div", { staticClass: "card-body ms_bg-card" }, [
                 _c("h3", [
                   _vm._v(_vm._s(_vm.risposta[0].user.restaurant_name)),
@@ -21239,9 +21204,7 @@ module.exports = g;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Footer_vue_vue_type_template_id_61a7c374___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Footer.vue?vue&type=template&id=61a7c374& */ "./resources/js/components/Footer.vue?vue&type=template&id=61a7c374&");
 /* harmony import */ var _Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Footer.vue?vue&type=script&lang=js& */ "./resources/js/components/Footer.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Footer_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Footer.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/Footer.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -21249,7 +21212,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Footer_vue_vue_type_template_id_61a7c374___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Footer_vue_vue_type_template_id_61a7c374___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -21278,22 +21241,6 @@ component.options.__file = "resources/js/components/Footer.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Footer.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Footer.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/Footer.vue?vue&type=style&index=0&lang=css&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/components/Footer.vue?vue&type=style&index=0&lang=css& ***!
-  \*****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Footer.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Footer.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
 
 /***/ }),
 

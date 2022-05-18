@@ -14,7 +14,7 @@
             </aside>
         </Transition> -->
        
-        <div v-if="ristoratore" class="card my-4"> <!-- info del ristoratore, non visualizzato se non ci sono piatti da mostrare -->
+        <div v-if="ristoratore" class="card my-4 w-75 text-center"> <!-- info del ristoratore, non visualizzato se non ci sono piatti da mostrare -->
             <div class="card-body ms_bg-card">
 
                 <h3>{{risposta[0].user.restaurant_name}}</h3>
@@ -359,9 +359,9 @@ export default {
 }
 
 //card style
-.ms_bg-card{
-    background-color: rgb(255,157, 0,)!important;
-    border: 5px solid rgb(255,157, 0,)!important;
+.card{
+    background-color: rgba(255,157, 0, 0.8)!important;
+    border: none!important;
 }
 //background dishes
 .ms_background-dishes{
