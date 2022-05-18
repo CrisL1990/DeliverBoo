@@ -5,7 +5,7 @@
             <div class="col">
                 <ul class="w-75 rounded p-3">
                     <li><router-link class="text-white ms_router-link" :to="{name: 'Restaurants'}">Ristoranti</router-link></li>
-                    <li class="text-white" >Chi-siamo</li>
+                    <li class="text-white" ><router-link class="text-white ms_router-link" :to="{name: 'Home'}"> Home</router-link></li>
                     <li class="text-white" >Contatti</li>
                 </ul>
             </div>
@@ -31,7 +31,4 @@ export default {
 </script>
 
 <style>
-footer{
-    height: 200px;
-}
 </style>
