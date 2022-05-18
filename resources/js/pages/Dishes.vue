@@ -1,5 +1,6 @@
 <template>
-    <div class="container d-flex flex-column align-items-center">
+    <div class="ms_background-dishes">
+        <div class="container d-flex flex-column align-items-center">
 
         <div v-if="loading" class="card m-1"> <!-- if pre-caricamento pagina, si disattiva (false) quando avviene la chiamata axios -->
             <div class="card-body">
@@ -13,8 +14,8 @@
             </aside>
         </Transition> -->
        
-        <div v-if="ristoratore" class="card m-1"> <!-- info del ristoratore, non visualizzato se non ci sono piatti da mostrare -->
-            <div class="card-body">
+        <div v-if="ristoratore" class="card my-4"> <!-- info del ristoratore, non visualizzato se non ci sono piatti da mostrare -->
+            <div class="card-body ms_bg-card">
 
                 <h3>{{risposta[0].user.restaurant_name}}</h3>
                 <h5>{{risposta[0].user.category}}</h5>
@@ -36,14 +37,14 @@
             <!-- ciclo for per mostrare le card di ogni piatto, con nome, ingredienti, prezzo e tasto aggiungi/elimina -->
             <div v-for="piatto in risposta" :key="piatto.id" class="card m-1" style="width: 18rem;">
 
-                <div class="card-body">
+                <div class="card-body ms_bg-card">
 
                     <h5 class="card-title"><span class="font-weight-light text-secondary">Nome: </span><br>{{piatto.name}}</h5>
                     <p class="card-text"><span class="font-weight-light text-secondary">Ingredienti: </span><br>{{piatto.ingredients}}</p>
                     <p><span class="font-weight-light text-secondary">Prezzo: </span><br>{{piatto.price}}€</p>
 
                     <button @click="addDish(piatto)" type="button" class="btn btn-success">Aggiungi</button>
-                    <button @click="deleteDish(piatto)" type="button" class="btn btn-warning">Rimuovi</button>
+                    <button @click="deleteDish(piatto)" type="button" class="btn btn-danger">Rimuovi</button>
 
                 </div>
 
@@ -99,6 +100,8 @@
             </div>
         </Transition>
         
+    </div>
+
     </div>
 </template>
 
@@ -353,6 +356,19 @@ export default {
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
     }
+}
+
+//card style
+.ms_bg-card{
+    background-color: rgb(255,157, 0,)!important;
+    border: 5px solid rgb(255,157, 0,)!important;
+}
+//background dishes
+.ms_background-dishes{
+    background-image: url("/images/sfondo-restaurants.jpg");
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;    
 }
 
 </style>

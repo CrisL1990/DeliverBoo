@@ -11060,10 +11060,6 @@ a.text-dark:focus {
 
 /*fine dishes */
 
-.container-restaurants {
-  height: calc(100vh - 234.4px);
-}
-
 label.col-form-label {
   display: none !important;
 }
@@ -11076,6 +11072,9 @@ label.col-form-label {
 
 footer {
   background-color: #2e3333;
+  height: 250px !important;
+  display: flex;
+  align-items: center;
 }
 
 ul {
