@@ -76,7 +76,7 @@
                             </div>
                         
                                 <!-- Card carta di credito -->
-                            <div class="col-6 offset-3">
+                            <div class="col-8 offset-2">
                                 <div class="card bg-light">
                                     <div class="card-header">Payment Information</div>
                                     <div class="card-body">
@@ -90,8 +90,8 @@
                                             <div class="form-group">
                                                 <label for="amount">Amount</label>
                                                 <div class="input-group">
-                                                    <div class="input-group-prepend"><span class="input-group-text">$</span></div>
-                                                    <input type="number" id="amount" v-model="amount" class="form-control" placeholder="Enter Amount">
+                                                    <div class="input-group-prepend"><span class="input-group-text">€</span></div>
+                                                    <div id="amount" class="form-control">{{totale}}</div>
                                                 </div>
                                             </div>
                                             <hr />

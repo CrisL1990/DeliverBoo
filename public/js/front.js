@@ -56761,7 +56761,7 @@ var render = function () {
                         ]),
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-6 offset-3" }, [
+                      _c("div", { staticClass: "col-8 offset-2" }, [
                         _c("div", { staticClass: "card bg-light" }, [
                           _c("div", { staticClass: "card-header" }, [
                             _vm._v("Payment Information"),
@@ -56803,31 +56803,14 @@ var render = function () {
                                 _c("div", { staticClass: "input-group" }, [
                                   _vm._m(1),
                                   _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.amount,
-                                        expression: "amount",
-                                      },
-                                    ],
-                                    staticClass: "form-control",
-                                    attrs: {
-                                      type: "number",
-                                      id: "amount",
-                                      placeholder: "Enter Amount",
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "form-control",
+                                      attrs: { id: "amount" },
                                     },
-                                    domProps: { value: _vm.amount },
-                                    on: {
-                                      input: function ($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.amount = $event.target.value
-                                      },
-                                    },
-                                  }),
+                                    [_vm._v(_vm._s(_vm.totale))]
+                                  ),
                                 ]),
                               ]),
                               _vm._v(" "),
@@ -56933,7 +56916,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "input-group-prepend" }, [
-      _c("span", { staticClass: "input-group-text" }, [_vm._v("$")]),
+      _c("span", { staticClass: "input-group-text" }, [_vm._v("€")]),
     ])
   },
   function () {
