@@ -95,8 +95,8 @@
 
                         <!--inserisci categoria-->                        
 
-                        <div class="dropdown form-group row offset-4" id="dropdown-category">
-                            <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                        <div class="dropdown form-group row justify-content-center" id="dropdown-category">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
                               Seleziona una categoria*
                             </button>
                             <div class="dropdown-menu" >

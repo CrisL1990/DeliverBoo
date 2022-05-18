@@ -2843,6 +2843,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Restaurants',
@@ -3007,7 +3011,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".restaurants-bg[data-v-ccd76a46] {\n  background-image: url(\"/images/sfondo-restaurants.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  min-height: 100vh;\n}\n.restaurants-bg .cat-container[data-v-ccd76a46] {\n  font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n  font-size: 13px;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags[data-v-ccd76a46] {\n  list-style: none;\n  padding: 20px;\n  display: flex;\n  background-color: rgba(255, 255, 255, 0);\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li[data-v-ccd76a46] {\n  display: inline;\n  margin: 0 5px;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li label[data-v-ccd76a46] {\n  background-color: rgba(255, 255, 255, 0.9);\n  border: 2px solid rgba(139, 139, 139, 0.3);\n  color: #adadad;\n  border-radius: 25px;\n  white-space: nowrap;\n  margin: 3px 0px;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -webkit-tap-highlight-color: transparent;\n  transition: all 0.2s;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li label[data-v-ccd76a46] {\n  padding: 8px 12px;\n  cursor: pointer;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox]:checked + label[data-v-ccd76a46] {\n  border: 2px solid #1bdbf8;\n  background-color: #12bbd4;\n  color: #fff;\n  transition: all 0.2s;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox][data-v-ccd76a46] {\n  display: absolute;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox][data-v-ccd76a46] {\n  position: absolute;\n  opacity: 0;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox]:focus + label[data-v-ccd76a46] {\n  border: 2px solid #e9a1ff;\n}\n.ms_btn-restaurants[data-v-ccd76a46] {\n  padding: 12px 50px !important;\n}", ""]);
+exports.push([module.i, ".restaurants-bg[data-v-ccd76a46] {\n  background-image: url(\"/images/sfondo-restaurants.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  min-height: 100vh;\n}\n.restaurants-bg .cat-container[data-v-ccd76a46] {\n  font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n  font-size: 13px;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags[data-v-ccd76a46] {\n  list-style: none;\n  padding: 20px;\n  display: flex;\n  background-color: rgba(255, 255, 255, 0);\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li[data-v-ccd76a46] {\n  display: inline;\n  margin: 0 15px;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li label[data-v-ccd76a46] {\n  background-color: rgba(255, 255, 255, 0.9);\n  border: 2px solid rgba(139, 139, 139, 0.3);\n  color: #adadad;\n  border-radius: 25px;\n  white-space: nowrap;\n  margin: 3px 0px;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -webkit-tap-highlight-color: transparent;\n  transition: all 0.2s;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li label[data-v-ccd76a46] {\n  padding: 8px 12px;\n  cursor: pointer;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox]:checked + label[data-v-ccd76a46] {\n  border: 2px solid #1bdbf8;\n  background-color: #12bbd4;\n  color: #fff;\n  transition: all 0.2s;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox][data-v-ccd76a46] {\n  display: absolute;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox][data-v-ccd76a46] {\n  position: absolute;\n  opacity: 0;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox]:focus + label[data-v-ccd76a46] {\n  border: 2px solid #e9a1ff;\n}\n.ms_btn-restaurants[data-v-ccd76a46] {\n  padding: 12px 50px !important;\n}", ""]);
 
 // exports
 
@@ -5699,69 +5703,91 @@ var render = function () {
                   },
                 },
                 [
-                  _c("div", { staticClass: "cat-container mx-2 col-2" }, [
-                    _c(
-                      "ul",
-                      { staticClass: "ks-cboxtags" },
-                      _vm._l(_vm.categories, function (categoria) {
-                        return _c("li", { key: categoria.id }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.valoriRicercati,
-                                expression: "valoriRicercati",
-                              },
-                            ],
-                            staticClass: "mx-1",
-                            attrs: {
-                              type: "checkbox",
-                              id: categoria.name,
-                              name: categoria.name,
-                            },
-                            domProps: {
-                              value: categoria.name,
-                              checked: Array.isArray(_vm.valoriRicercati)
-                                ? _vm._i(_vm.valoriRicercati, categoria.name) >
-                                  -1
-                                : _vm.valoriRicercati,
-                            },
-                            on: {
-                              change: function ($event) {
-                                var $$a = _vm.valoriRicercati,
-                                  $$el = $event.target,
-                                  $$c = $$el.checked ? true : false
-                                if (Array.isArray($$a)) {
-                                  var $$v = categoria.name,
-                                    $$i = _vm._i($$a, $$v)
-                                  if ($$el.checked) {
-                                    $$i < 0 &&
-                                      (_vm.valoriRicercati = $$a.concat([$$v]))
-                                  } else {
-                                    $$i > -1 &&
-                                      (_vm.valoriRicercati = $$a
-                                        .slice(0, $$i)
-                                        .concat($$a.slice($$i + 1)))
-                                  }
-                                } else {
-                                  _vm.valoriRicercati = $$c
-                                }
-                              },
-                            },
+                  _c("div", { staticClass: "cat-container" }, [
+                    _c("ul", { staticClass: "ks-cboxtags w-100" }, [
+                      _c("div", { staticClass: "container" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "row row-cols-1 row-cols-md-4 row-cols-lg-6",
+                          },
+                          _vm._l(_vm.categories, function (categoria) {
+                            return _c(
+                              "li",
+                              { key: categoria.id, staticClass: "w-100" },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.valoriRicercati,
+                                      expression: "valoriRicercati",
+                                    },
+                                  ],
+                                  staticClass: "mx-1 w-100 ",
+                                  attrs: {
+                                    type: "checkbox",
+                                    id: categoria.name,
+                                    name: categoria.name,
+                                  },
+                                  domProps: {
+                                    value: categoria.name,
+                                    checked: Array.isArray(_vm.valoriRicercati)
+                                      ? _vm._i(
+                                          _vm.valoriRicercati,
+                                          categoria.name
+                                        ) > -1
+                                      : _vm.valoriRicercati,
+                                  },
+                                  on: {
+                                    change: function ($event) {
+                                      var $$a = _vm.valoriRicercati,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = categoria.name,
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            (_vm.valoriRicercati = $$a.concat([
+                                              $$v,
+                                            ]))
+                                        } else {
+                                          $$i > -1 &&
+                                            (_vm.valoriRicercati = $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1)))
+                                        }
+                                      } else {
+                                        _vm.valoriRicercati = $$c
+                                      }
+                                    },
+                                  },
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "w-100 text-center",
+                                    attrs: { for: categoria.name },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                                " +
+                                        _vm._s(categoria.name) +
+                                        "\n                                            "
+                                    ),
+                                  ]
+                                ),
+                              ]
+                            )
                           }),
-                          _vm._v(" "),
-                          _c("label", { attrs: { for: categoria.name } }, [
-                            _vm._v(
-                              "\n                                        " +
-                                _vm._s(categoria.name) +
-                                "\n                                    "
-                            ),
-                          ]),
-                        ])
-                      }),
-                      0
-                    ),
+                          0
+                        ),
+                      ]),
+                    ]),
                   ]),
                 ]
               ),
@@ -22098,7 +22124,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Henry\Documents\Boolean\GitHub\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Roberto\Desktop\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
