@@ -57,4 +57,96 @@
             </div>
         </div>
     </div>
+
+    {{-- Statistiche --}}
+    {{-- Visualizzazione del grafico --}}
+    <div class="container">
+        <div>
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <?php
+    //ciclo per visualizzare il giorno di arrivo degli ordini
+    $giorno= array();
+    foreach ($data as $item){
+        
+        $created_at=$item->created_at;
+        array_push($giorno,  $created_at);
+    };  
+
+    $strGiorno=implode(" ",$giorno);
+
+    //ciclo per vedere il totale dell'ordine
+    $totale= array();
+    foreach ($data as $item){
+
+        $total=$item->total;
+        if($item->created_at=$item->total){
+            
+        }
+        array_push($totale,  $total);
+    };   
+    $strTotal=implode(" ",$totale);
+
+    ?>
+
+
+    <script>
+        //recupero la variabile dei giorni da php e la importo in js
+        let created_at = '<?= $strGiorno?>';
+    
+        //ciclo l'array per tenere traccia solo dei giorni e non delle ore
+    let giorni=created_at.split(" ");
+        let chartGiorni=[];
+    for(i=0; i<giorni.length;i++){
+            if([i] % 2==0){
+
+                chartGiorni.push(giorni[i]);
+            }
+        }
+
+        
+        //Uso la reverse per inserire i giorni in modo crescente
+        chartGiorni.reverse()
+        
+        console.log(chartGiorni)
+        
+        //recupero la variabile del totale da php e la importo in js
+        let total='<?=$strTotal?>';
+
+        let totale=total.split(" ");
+        totale.reverse()
+        console.log(totale)
+    
+        
+        
+    
+        //regole per stilizzazione del grafico
+        const data = {
+        labels: chartGiorni,
+        datasets: [{
+            label: 'Grafico Ordini Giornalieri',
+            backgroundColor: 'rgb(255,0, 0)',
+            borderColor: 'rgb(255,0, 0)',
+            data: totale,
+        }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {}
+        };
+
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+
+    </script>
 @endsection
