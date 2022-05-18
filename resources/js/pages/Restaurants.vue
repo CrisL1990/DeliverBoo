@@ -9,18 +9,22 @@
                         <label class="col-form-label" for="category"></label>
                         <form @submit.prevent="getRestaurant" class="container my-bg-categories">
 
-                            <div class="cat-container mx-2 col-2">
+                            <div class="cat-container">
 
-                                <ul class="ks-cboxtags">
+                                <ul class="ks-cboxtags w-100">
+                                    <div class="container">
+                                        <div class="row row-cols-1 row-cols-md-4 row-cols-lg-6">
+                                            <li class="w-100" v-for="categoria in categories" :key="categoria.id">
 
-                                    <li v-for="categoria in categories" :key="categoria.id">
-
-                                        <input class="mx-1" type="checkbox" v-model="valoriRicercati" :id="categoria.name" :name="categoria.name" :value="categoria.name">
-                                        <label class="" :for="categoria.name">
-                                            {{categoria.name}}
-                                        </label>
+                                                <input class="mx-1 w-100 " type="checkbox" v-model="valoriRicercati" :id="categoria.name" :name="categoria.name" :value="categoria.name">
+                                                <label class="w-100 text-center" :for="categoria.name">
+                                                    {{categoria.name}}
+                                                </label>
                 
-                                    </li>
+                                            </li>
+                                        </div>
+
+                                    </div>
 
                                 </ul>
 
@@ -129,7 +133,7 @@ export default {
         }
         ul.ks-cboxtags li{
         display: inline;
-        margin: 0 5px;
+        margin: 0 15px;
         }
         ul.ks-cboxtags li label{
             background-color: rgba(255, 255, 255, .9);
