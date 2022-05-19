@@ -32,7 +32,7 @@
                                 <td>{{$item->created_at}}</td>
 
                                 <td class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Visualizza l'ordine
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -62,7 +62,9 @@
     {{-- Visualizzazione del grafico --}}
     <div class="container">
         <div>
+            Prezzi €
             <canvas id="myChart"></canvas>
+            Data Ordine
         </div>
     </div>
 
@@ -106,7 +108,7 @@
     for(i=0; i<giorni.length;i++){
             if([i] % 2==0){
 
-                chartGiorni.push(giorni[i]);
+                chartGiorni.push('Giorno '+ giorni[i]);
             }
         }
 
@@ -128,11 +130,11 @@
     
         //regole per stilizzazione del grafico
         const data = {
-        labels: chartGiorni,
+        labels:chartGiorni,
         datasets: [{
-            label: 'Grafico Ordini Giornalieri',
-            backgroundColor: 'rgb(255,0, 0)',
-            borderColor: 'rgb(255,0, 0)',
+            label: 'Prezzo ordine €',
+            backgroundColor: 'rgb(2, 117, 216)',
+            borderColor: 'rgb(2, 117, 216)',
             data: totale,
         }]
         };
