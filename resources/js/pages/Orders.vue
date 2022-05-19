@@ -1,9 +1,9 @@
 <template>
 <div class=" order-box">
-   <div focus v-if="success" class="alert alert-success  pt-5 ">
-            Grazie per averci scelto!!<br>
-            Il tuo ordine é avvenuto con successo!!<br>
-            Clicca il link per tornare alla<router-link class="ordine  mb-1 mx-1" :to="{name: 'Home'}"> Home</router-link>
+   <div focus v-if="success" class="text-center alert alert-success confirmPayment pt-5 ">
+            Grazie per averci scelto<br>
+            Il tuo ordine é avvenuto con successo<br>
+            Clicca il link per tornare alla<router-link class="ordine  mb-1 mx-1" :to="{name: 'Home'}">Home</router-link>
     </div>
      <!-- Credenziali  -->
     <div  v-if="unsuccess" class="d-block d-flex">
@@ -189,20 +189,26 @@ export default {
 
             this.handleSubmit();
 
-            if(this.hostedFieldInstance && this.success == true)
-            {
+            if(this.hostedFieldInstance){
                 this.error = "";
                 this.nonce = "";
+
                 this.hostedFieldInstance.tokenize().then(payload => {
                     console.log(payload);
                     this.nonce = payload.nonce;
-                },
-                )
-                .catch(err => {
+                },).catch(err => {
                     console.error(err);
                     this.error = err.message;
-                })
+                    this.unsuccess = true
+                    this.success = false
+                });
+
+                this.unsuccess=false;
+                this.success = true;
                 
+            } else {
+                this.unsuccess = true
+                this.success = false
             }
         },
 
@@ -251,8 +257,6 @@ export default {
                     this.success = false;
                    
                 } else {
-                   this.unsuccess=false;
-                    this.success = true;
                     this.nome = '';
                     this.tel= "",
                     this.email = '';
@@ -355,6 +359,13 @@ export default {
 </script>
 
 <style  lang='scss' scoped>
+
+.confirmPayment {
+
+    transform: translateY(120%);
+    height: 150px;
+    opacity: 0.9;
+}
 .order-box{
     background-image: url("/images/backgrpund-order.jpg");
     background-repeat: no-repeat;
