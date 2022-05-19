@@ -1,12 +1,14 @@
 <template>
-        <div class="card" style="width: 100%">
+        <div class="card" style="width: 18rem;">
             <div class="card-body ms_bg-card">
 
-                <h5 class="card-title">{{utenti.restaurant_name}}</h5>
+                    <h5 class="card-title">{{utenti.restaurant_name}}</h5>
                 <p class="card-text">{{utenti.restaurant_address}}</p>
                 <p>{{utenti.category}}</p>
 
                 <router-link class="nav-link btn btn-danger" :to="{name: 'Dishes', params: {slug: utenti.slug}}">Vedi piatti</router-link>
+
+                
             </div>
         </div>
 </template>

@@ -5,6 +5,7 @@
     <nav class="navbar navbar-light ms-bg-grey">
 
         <ul class="navbar-nav mr-auto ms_flex-nav ms-bg-grey">
+
             <li class="nav-item pr-3"><router-link class="nav-link ms-color ms-color-hover" :to="{name: 'Home'}">Deliverboo</router-link></li>
     
             <li class="nav-item "><router-link class="nav-link ms-color ms-fs-md ms-mt ms-fs-hover" :to="{name: 'Restaurants'}">Ristoranti</router-link></li>

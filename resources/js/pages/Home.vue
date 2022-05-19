@@ -4,9 +4,9 @@
         <section class="jumbotron">
             <div class="container ms_padding-150">
                 <div class="row">
-                    <div class="col-6 ">
+                    <div class="col-12 col-md-6">
                         <div class="card text-ligth border-0 bg-transparent ms-height-100">
-                            <div class="card-body">
+                            <div class="card-body container">
                               <h2 class="card-title">Deliverboo</h2>      
                               <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit officia adipisci quia, modi quaerat voluptate! Culpa omnis aliquam aliquid ab doloremque debitis, quo possimus repellat ipsum aperiam maiores assumenda placeat.</p>
                               <button type="button" class="btn btn-danger ms_btn-radius"><router-link class="text-white" :to="{name: 'Restaurants'}">Vedi Ristoranti</router-link></button>
@@ -119,7 +119,10 @@ export default {
 <style scoped lang="scss">
 .jumbotron{  
     background-image: url("/images/jumbotron.jpeg");
+    background-repeat: no-repeat;
+    background-position:center;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
     background-size: cover;
-    background-position: center;
 }
 </style>

@@ -40,8 +40,8 @@
             </div>
             
             <div>
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5" v-if="risultato">
-                    <div class="col mx-2 my-3 " v-for="utente in utenti" :key="utente.id">
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-5" v-if="risultato">
+                    <div class="col mx-5 my-3" v-for="utente in utenti" :key="utente.id">
                         <RestaurantCard :utenti="utente"></RestaurantCard>
                     </div>
                     <div v-if="utenti.length == 0">
@@ -120,7 +120,8 @@ export default {
     -moz-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover;
-    min-height: 100vh;     
+    min-height: 100vh;
+    overflow: hidden;     
     .cat-container {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 13px;
