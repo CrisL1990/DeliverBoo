@@ -1973,6 +1973,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header'
 });
@@ -2010,6 +2011,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -28223,7 +28226,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".jumbotron[data-v-b3c5cf30] {\n  background-image: url(\"/images/jumbotron.jpeg\");\n  background-size: cover;\n  background-position: center;\n}", ""]);
+exports.push([module.i, ".jumbotron[data-v-b3c5cf30] {\n  background-image: url(\"/images/jumbotron.jpeg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n}", ""]);
 
 // exports
 
@@ -28261,7 +28264,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".restaurants-bg[data-v-ccd76a46] {\n  background-image: url(\"/images/sfondo-restaurants.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  min-height: 100vh;\n}\n.restaurants-bg .cat-container[data-v-ccd76a46] {\n  font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n  font-size: 13px;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags[data-v-ccd76a46] {\n  list-style: none;\n  padding: 20px;\n  display: flex;\n  background-color: rgba(255, 255, 255, 0);\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li[data-v-ccd76a46] {\n  display: inline;\n  margin: 0 15px;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li label[data-v-ccd76a46] {\n  background-color: rgba(255, 255, 255, 0.9);\n  border: 2px solid rgba(139, 139, 139, 0.3);\n  color: #adadad;\n  border-radius: 25px;\n  white-space: nowrap;\n  margin: 3px 0px;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -webkit-tap-highlight-color: transparent;\n  transition: all 0.2s;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li label[data-v-ccd76a46] {\n  padding: 8px 12px;\n  cursor: pointer;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox]:checked + label[data-v-ccd76a46] {\n  border: 2px solid #1bdbf8;\n  background-color: #12bbd4;\n  color: #fff;\n  transition: all 0.2s;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox][data-v-ccd76a46] {\n  display: absolute;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox][data-v-ccd76a46] {\n  position: absolute;\n  opacity: 0;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox]:focus + label[data-v-ccd76a46] {\n  border: 2px solid #e9a1ff;\n}\n.ms_btn-restaurants[data-v-ccd76a46] {\n  padding: 12px 50px !important;\n}", ""]);
+exports.push([module.i, ".restaurants-bg[data-v-ccd76a46] {\n  background-image: url(\"/images/sfondo-restaurants.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  min-height: 100vh;\n  overflow: hidden;\n}\n.restaurants-bg .cat-container[data-v-ccd76a46] {\n  font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n  font-size: 13px;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags[data-v-ccd76a46] {\n  list-style: none;\n  padding: 20px;\n  display: flex;\n  background-color: rgba(255, 255, 255, 0);\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li[data-v-ccd76a46] {\n  display: inline;\n  margin: 0 15px;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li label[data-v-ccd76a46] {\n  background-color: rgba(255, 255, 255, 0.9);\n  border: 2px solid rgba(139, 139, 139, 0.3);\n  color: #adadad;\n  border-radius: 25px;\n  white-space: nowrap;\n  margin: 3px 0px;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -webkit-tap-highlight-color: transparent;\n  transition: all 0.2s;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li label[data-v-ccd76a46] {\n  padding: 8px 12px;\n  cursor: pointer;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox]:checked + label[data-v-ccd76a46] {\n  border: 2px solid #1bdbf8;\n  background-color: #12bbd4;\n  color: #fff;\n  transition: all 0.2s;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox][data-v-ccd76a46] {\n  display: absolute;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox][data-v-ccd76a46] {\n  position: absolute;\n  opacity: 0;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox]:focus + label[data-v-ccd76a46] {\n  border: 2px solid #e9a1ff;\n}\n.ms_btn-restaurants[data-v-ccd76a46] {\n  padding: 12px 50px !important;\n}", ""]);
 
 // exports
 
@@ -55981,7 +55984,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card", staticStyle: { width: "100%" } }, [
+  return _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
     _c(
       "div",
       { staticClass: "card-body ms_bg-card" },
@@ -56327,7 +56330,7 @@ var render = function () {
     _c("section", { staticClass: "jumbotron" }, [
       _c("div", { staticClass: "container ms_padding-150" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-6 " }, [
+          _c("div", { staticClass: "col-12 col-md-6" }, [
             _c(
               "div",
               {
@@ -56335,7 +56338,7 @@ var render = function () {
                   "card text-ligth border-0 bg-transparent ms-height-100",
               },
               [
-                _c("div", { staticClass: "card-body" }, [
+                _c("div", { staticClass: "card-body container" }, [
                   _c("h2", { staticClass: "card-title" }, [
                     _vm._v("Deliverboo"),
                   ]),
@@ -57186,13 +57189,13 @@ var render = function () {
               "div",
               {
                 staticClass:
-                  "row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5",
+                  "row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-5",
               },
               [
                 _vm._l(_vm.utenti, function (utente) {
                   return _c(
                     "div",
-                    { key: utente.id, staticClass: "col mx-2 my-3 " },
+                    { key: utente.id, staticClass: "col mx-5 my-3" },
                     [_c("RestaurantCard", { attrs: { utenti: utente } })],
                     1
                   )

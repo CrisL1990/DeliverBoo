@@ -11021,10 +11021,6 @@ a.text-dark:focus {
   transition: 0.5s;
 }
 
-.jumbotron {
-  background-color: #a9a6ae;
-}
-
 .ms_p-jumbotron {
   font-size: 20px;
 }
