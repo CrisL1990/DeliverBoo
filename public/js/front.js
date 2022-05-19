@@ -2912,6 +2912,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Restaurants',
@@ -28269,7 +28275,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".restaurants-bg[data-v-ccd76a46] {\n  background-image: url(\"/images/sfondo-restaurants.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  min-height: 100vh;\n  overflow: hidden;\n}\n.restaurants-bg .cat-container[data-v-ccd76a46] {\n  font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n  font-size: 13px;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags[data-v-ccd76a46] {\n  list-style: none;\n  padding: 20px;\n  display: flex;\n  background-color: rgba(255, 255, 255, 0);\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li[data-v-ccd76a46] {\n  display: inline;\n  margin: 0 15px;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li label[data-v-ccd76a46] {\n  background-color: rgba(255, 255, 255, 0.9);\n  border: 2px solid rgba(139, 139, 139, 0.3);\n  color: #adadad;\n  border-radius: 25px;\n  white-space: nowrap;\n  margin: 3px 0px;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -webkit-tap-highlight-color: transparent;\n  transition: all 0.2s;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li label[data-v-ccd76a46] {\n  padding: 8px 12px;\n  cursor: pointer;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox]:checked + label[data-v-ccd76a46] {\n  border: 2px solid #1bdbf8;\n  background-color: #12bbd4;\n  color: #fff;\n  transition: all 0.2s;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox][data-v-ccd76a46] {\n  display: absolute;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox][data-v-ccd76a46] {\n  position: absolute;\n  opacity: 0;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox]:focus + label[data-v-ccd76a46] {\n  border: 2px solid #e9a1ff;\n}\n.ms_btn-restaurants[data-v-ccd76a46] {\n  padding: 12px 50px !important;\n}", ""]);
+exports.push([module.i, ".restaurants-bg[data-v-ccd76a46] {\n  background-image: url(\"/images/sfondo-restaurants.jpg\");\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  min-height: 100vh;\n  overflow: hidden;\n}\n.restaurants-bg .cat-container[data-v-ccd76a46] {\n  font-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n  font-size: 13px;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags[data-v-ccd76a46] {\n  list-style: none;\n  padding: 20px;\n  display: flex;\n  background-color: rgba(255, 255, 255, 0);\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li[data-v-ccd76a46] {\n  display: inline;\n  margin: 0 15px;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li label[data-v-ccd76a46] {\n  background-color: rgba(255, 255, 255, 0.9);\n  border: 2px solid rgba(139, 139, 139, 0.3);\n  color: #adadad;\n  border-radius: 25px;\n  white-space: nowrap;\n  margin: 3px 0px;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  -webkit-tap-highlight-color: transparent;\n  transition: all 0.2s;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li label[data-v-ccd76a46] {\n  padding: 8px 12px;\n  cursor: pointer;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox]:checked + label[data-v-ccd76a46] {\n  border: 2px solid #1bdbf8;\n  background-color: #12bbd4;\n  color: #fff;\n  transition: all 0.2s;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox][data-v-ccd76a46] {\n  display: absolute;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox][data-v-ccd76a46] {\n  position: absolute;\n  opacity: 0;\n}\n.restaurants-bg .cat-container ul.ks-cboxtags li input[type=checkbox]:focus + label[data-v-ccd76a46] {\n  border: 2px solid #e9a1ff;\n}\n.restaurants-bg .nessunRistorante[data-v-ccd76a46] {\n  margin: 20px 0;\n  border-radius: 5px;\n  padding: 10%;\n  background-color: rgba(255, 157, 0, 0.8);\n}\n.ms_btn-restaurants[data-v-ccd76a46] {\n  padding: 12px 50px !important;\n}", ""]);
 
 // exports
 
@@ -55938,7 +55944,7 @@ var staticRenderFns = [
             staticClass: "nav-link ms-bg-grey ms-color ms-mf-md",
             attrs: { href: "/admin" },
           },
-          [_vm._v("Accesso Admin")]
+          [_vm._v("Accedi")]
         ),
       ]),
     ])
@@ -57210,9 +57216,7 @@ var render = function () {
                   )
                 }),
                 _vm._v(" "),
-                _vm.utenti.length == 0
-                  ? _c("div", [_c("h1", [_vm._v("Nessun ristorante trovato")])])
-                  : _vm._e(),
+                _vm.utenti.length == 0 ? _c("div", [_vm._m(0)]) : _vm._e(),
               ],
               2
             )
@@ -57221,7 +57225,16 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "nessunRistorante" }, [
+      _c("h1", [_vm._v("Nessun ristorante trovato")]),
+    ])
+  },
+]
 render._withStripped = true
 
 

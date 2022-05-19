@@ -13,7 +13,7 @@
         </ul>
          <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <a class="nav-link ms-bg-grey ms-color ms-mf-md" href="/admin">Accesso Admin</a>
+                <a class="nav-link ms-bg-grey ms-color ms-mf-md" href="/admin">Accedi</a>
             </li>
         </ul>
 

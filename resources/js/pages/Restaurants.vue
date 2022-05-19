@@ -45,7 +45,13 @@
                         <RestaurantCard :utenti="utente"></RestaurantCard>
                     </div>
                     <div v-if="utenti.length == 0">
-                        <h1>Nessun ristorante trovato</h1>
+
+                        <div class="nessunRistorante">
+
+                            <h1>Nessun ristorante trovato</h1>
+                            
+                        </div>
+                        
                     </div>
                 </div>        
             </div>
@@ -174,6 +180,14 @@ export default {
         ul.ks-cboxtags li input[type="checkbox"]:focus + label {
         border: 2px solid #e9a1ff;
         }
+    }
+
+    .nessunRistorante {
+        
+        margin: 20px 0;
+        border-radius: 5px;
+        padding: 10%;
+        background-color: rgba(255,157, 0, 0.8);
     }
 }
 
