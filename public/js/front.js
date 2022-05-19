@@ -2644,7 +2644,8 @@ __webpack_require__.r(__webpack_exports__);
       hostedFieldInstance: false,
       nonce: "",
       error: "",
-      rinvio: true
+      rinvio: true,
+      carrelloVuoto: []
     };
   },
   methods: {
@@ -2653,7 +2654,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.handleSubmit();
 
-      if (this.hostedFieldInstance && this.success == true) {
+      if (this.hostedFieldInstance) {
         this.error = "";
         this.nonce = "";
         this.hostedFieldInstance.tokenize().then(function (payload) {
@@ -2702,11 +2703,12 @@ __webpack_require__.r(__webpack_exports__);
           _this2.errors = response.data.errors;
           _this2.success = false;
         } else {
-          _this2.unsuccess = false;
-          _this2.success = true;
           _this2.nome = '';
           _this2.tel = "", _this2.email = '';
           _this2.indirizzo = "", _this2.errors = {};
+          var carrello = JSON.stringify(_this2.carrelloVuoto); //svuoto il carrello nel localStorage
+
+          localStorage.setItem('carrello', carrello);
         }
       });
     }
@@ -28245,7 +28247,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".order-box[data-v-6a4689a4] {\n  background-image: url(\"/images/backgrpund-order.jpg\");\n  background-repeat: no-repeat;\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  height: 100%;\n  min-height: 80vh;\n}\n.ms-mark[data-v-6a4689a4] {\n  background-color: green;\n  color: #fff;\n  padding: 10px;\n  border-radius: 20px;\n}\n.card[data-v-6a4689a4] {\n  margin-bottom: 1.5rem;\n}\n.card[data-v-6a4689a4] {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  min-width: 0;\n  word-wrap: break-word;\n  background-color: #fff;\n  background-clip: border-box;\n  border: 1px solid #c8ced3;\n  border-radius: 0.25rem;\n}\n.card-header[data-v-6a4689a4]:first-child {\n  border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;\n}\n.card-header[data-v-6a4689a4] {\n  padding: 0.75rem 1.25rem;\n  margin-bottom: 0;\n  background-color: #f0f3f5;\n  border-bottom: 1px solid #c8ced3;\n}\n.card-body[data-v-6a4689a4] {\n  flex: 1 1 auto;\n  padding: 1.25rem;\n}\n.form-control[data-v-6a4689a4]:focus {\n  color: #5c6873;\n  background-color: #fff;\n  border-color: #c8ced3 !important;\n  outline: 0;\n  box-shadow: 0 0 0 #F44336;\n}", ""]);
+exports.push([module.i, ".confirmPayment[data-v-6a4689a4] {\n  transform: translateY(120%);\n  height: 150px;\n  opacity: 0.9;\n}\n.order-box[data-v-6a4689a4] {\n  background-image: url(\"/images/backgrpund-order.jpg\");\n  background-repeat: no-repeat;\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  height: 100%;\n  min-height: 80vh;\n}\n.ms-mark[data-v-6a4689a4] {\n  background-color: green;\n  color: #fff;\n  padding: 10px;\n  border-radius: 20px;\n}\n.card[data-v-6a4689a4] {\n  margin-bottom: 1.5rem;\n}\n.card[data-v-6a4689a4] {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  min-width: 0;\n  word-wrap: break-word;\n  background-color: #fff;\n  background-clip: border-box;\n  border: 1px solid #c8ced3;\n  border-radius: 0.25rem;\n}\n.card-header[data-v-6a4689a4]:first-child {\n  border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;\n}\n.card-header[data-v-6a4689a4] {\n  padding: 0.75rem 1.25rem;\n  margin-bottom: 0;\n  background-color: #f0f3f5;\n  border-bottom: 1px solid #c8ced3;\n}\n.card-body[data-v-6a4689a4] {\n  flex: 1 1 auto;\n  padding: 1.25rem;\n}\n.form-control[data-v-6a4689a4]:focus {\n  color: #5c6873;\n  background-color: #fff;\n  border-color: #c8ced3 !important;\n  outline: 0;\n  box-shadow: 0 0 0 #F44336;\n}", ""]);
 
 // exports
 
@@ -56457,11 +56459,14 @@ var render = function () {
     _vm.success
       ? _c(
           "div",
-          { staticClass: "alert alert-success  pt-5 ", attrs: { focus: "" } },
+          {
+            staticClass: "text-center alert alert-success confirmPayment pt-5 ",
+            attrs: { focus: "" },
+          },
           [
-            _vm._v("\r\n            Grazie per averci scelto!!"),
+            _vm._v("\r\n            Grazie per averci scelto"),
             _c("br"),
-            _vm._v("\r\n            Il tuo ordine é avvenuto con successo!!"),
+            _vm._v("\r\n            Il tuo ordine é avvenuto con successo"),
             _c("br"),
             _vm._v("\r\n            Clicca il link per tornare alla"),
             _c(
@@ -56470,7 +56475,7 @@ var render = function () {
                 staticClass: "ordine  mb-1 mx-1",
                 attrs: { to: { name: "Home" } },
               },
-              [_vm._v(" Home")]
+              [_vm._v("Home")]
             ),
           ],
           1
@@ -73495,7 +73500,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Roberto\Desktop\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Henry\Documents\Boolean\GitHub\DeliverBoo\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
