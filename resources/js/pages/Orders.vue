@@ -6,8 +6,9 @@
             Clicca il link per tornare alla<router-link class="ordine  mb-1 mx-1" :to="{name: 'Home'}">Home</router-link>
     </div>
      <!-- Credenziali  -->
-    <div  v-if="unsuccess" class="d-block d-flex">
-        <div class="container">
+     <div class="container">
+        <div  v-if="unsuccess" class="row row-cols-1 row-cols-lg-2 d-block d-flex">
+        <div class="col container">
             <form method="POST" @submit.prevent="handleSubmit">
 
                 <div class="row">
@@ -101,11 +102,11 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="row">
-                                                    <div class="col-6">
+                                                    <div class="col-12 col-md-6">
                                                         <label>Expire Date</label>
                                                         <div id="expireDate" class="form-control"></div>
                                                     </div>
-                                                    <div class="col-6">
+                                                    <div class="col-12 col-md-6">
                                                         <label>CVV</label>
                                                         <div id="cvv" class="form-control"></div>
                                                     </div>
@@ -125,31 +126,33 @@
         </div>
    
         <!-- Riepilogo ordine -->
-        <div class="container">
+        <div class="col container">
             <div class="row">
                 <div class="col-8">
                     <div class="card mt-3">
                 
                         <div class="card-header">
-                            <h1>Riepilogo ordine:</h1>
+                            <h5><strong>Riepilogo ordine:</strong></h5>
                         </div>
                         
                         <div class="card-body" v-for="ordine in ordine" :key="ordine.id">
                         
-                            <h3>Nome: {{ordine.name}}</h3>
-                            <h3> Totale piatti: {{ordine.quantity}}</h3>
-                            <h3>Prezzo: {{ordine.price}}€</h3>
+                            <div><strong>Nome: {{ordine.name}}</strong></div>
+                            <div><strong>Totale piatti: {{ordine.quantity}}</strong></div>  
+                            <div><strong>Prezzo: </strong>{{ordine.price}}€</div>
                             
                         </div>
                         <div class="card-body">
-                            <h1 class="ms-mark" :v-bind="totale">Totale: {{totale}}€ </h1>
+                            <h5 class="ms-mark" :v-bind="totale">Totale: {{totale}}€ </h5>
                         </div>
                     </div>
                 </div>
             </div>
 
         </div>
-    </div>
+     </div>
+     </div>
+    
 
 
 </div>
@@ -376,10 +379,11 @@ export default {
      
 }
 .ms-mark{
-    background-color: green;
+    background-color: rgba(0, 128, 0, 0.568);
     color: #fff;
-    padding: 10px;
+    padding: 10px 32px;
     border-radius: 20px;
+    width: 70%;
 }
 
 .card {
@@ -421,5 +425,13 @@ export default {
     border-color: #c8ced3 !important;
     outline: 0;
     box-shadow: 0 0 0 #F44336;
+}
+.card{
+    background-color: rgba(36, 2, 44, 0.753)!important;
+    border: none!important;
+    color: #fff!important;
+}
+.card-header{
+        background-color: rgba(36, 2, 44, 0.753)!important;    
 }
 </style>
