@@ -199,17 +199,9 @@ export default {
                 },).catch(err => {
                     console.error(err);
                     this.error = err.message;
-                    this.unsuccess = true
-                    this.success = false
                 });
-
-                this.unsuccess=false;
-                this.success = true;
                 
-            } else {
-                this.unsuccess = true
-                this.success = false
-            }
+            } 
         },
 
         getOrder(){

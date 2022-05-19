@@ -2660,14 +2660,7 @@ __webpack_require__.r(__webpack_exports__);
         })["catch"](function (err) {
           console.error(err);
           _this.error = err.message;
-          _this.unsuccess = true;
-          _this.success = false;
         });
-        this.unsuccess = false;
-        this.success = true;
-      } else {
-        this.unsuccess = true;
-        this.success = false;
       }
     },
     getOrder: function getOrder() {
