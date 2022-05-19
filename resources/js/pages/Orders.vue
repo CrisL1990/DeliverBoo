@@ -179,7 +179,8 @@ export default {
             hostedFieldInstance: false,
             nonce: "",
             error: "",
-            rinvio: true
+            rinvio: true,
+            carrelloVuoto: []
          }
      },
      methods:{
@@ -257,6 +258,8 @@ export default {
                     this.email = '';
                     this.indirizzo= "",
                     this.errors = {};
+                    let carrello = JSON.stringify(this.carrelloVuoto); //svuoto il carrello nel localStorage
+                    localStorage.setItem('carrello', carrello); 
                     }
             });
                
