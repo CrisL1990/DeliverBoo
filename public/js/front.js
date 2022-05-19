@@ -2649,14 +2649,16 @@ __webpack_require__.r(__webpack_exports__);
     payWithCreditCard: function payWithCreditCard() {
       var _this = this;
 
-      this.handleSubmit();
-
       if (this.hostedFieldInstance) {
         this.error = "";
         this.nonce = "";
         this.hostedFieldInstance.tokenize().then(function (payload) {
           console.log(payload);
           _this.nonce = payload.nonce;
+
+          if (_this.nonce == payload.nonce) {
+            _this.handleSubmit();
+          }
         })["catch"](function (err) {
           console.error(err);
           _this.error = err.message;
@@ -2669,7 +2671,6 @@ __webpack_require__.r(__webpack_exports__);
           var getCart = localStorage.getItem('carrello');
           var cart = JSON.parse(getCart);
           this.ordine = cart;
-          console.log(this.ordine);
           this.cart = JSON.stringify(this.ordine);
           var getTotal = localStorage.getItem('totale');
           var total = JSON.parse(getTotal);
@@ -2700,6 +2701,8 @@ __webpack_require__.r(__webpack_exports__);
           _this2.errors = response.data.errors;
           _this2.success = false;
         } else {
+          _this2.success = true;
+          _this2.unsuccess = false;
           _this2.nome = '';
           _this2.tel = "", _this2.email = '';
           _this2.indirizzo = "", _this2.errors = {};
@@ -56510,7 +56513,7 @@ var render = function () {
                                   _c(
                                     "label",
                                     { attrs: { for: "customer_name" } },
-                                    [_vm._v("Nome proprietario*")]
+                                    [_vm._v("Nome e Cognome*")]
                                   ),
                                   _vm._v(" "),
                                   _c("input", {
@@ -56529,7 +56532,8 @@ var render = function () {
                                     attrs: {
                                       id: "customer_name",
                                       type: "text",
-                                      placeholder: "Inserisci il tuo nome",
+                                      placeholder:
+                                        "Inserisci il tuo nome e cognome",
                                     },
                                     domProps: { value: _vm.nome },
                                     on: {
@@ -56666,7 +56670,7 @@ var render = function () {
                                     attrs: {
                                       id: "customer_telephone",
                                       type: "text",
-                                      placeholder: "000 111111",
+                                      placeholder: "000-111-00-11",
                                     },
                                     domProps: { value: _vm.tel },
                                     on: {
@@ -56779,7 +56783,7 @@ var render = function () {
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "card-body" }, [
-                            _vm.nonce
+                            _vm.nonce && _vm.success
                               ? _c(
                                   "div",
                                   { staticClass: "alert alert-success" },

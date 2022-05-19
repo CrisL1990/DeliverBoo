@@ -24,8 +24,8 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <label for="customer_name">Nome proprietario*</label>
-                                                <input v-model="nome"  class="form-control" :class="{'is-invalid':errors.customer_name}" id="customer_name" type="text"  placeholder="Inserisci il tuo nome">
+                                                <label for="customer_name">Nome e Cognome*</label>
+                                                <input v-model="nome"  class="form-control" :class="{'is-invalid':errors.customer_name}" id="customer_name" type="text"  placeholder="Inserisci il tuo nome e cognome">
                                                 <p v-for="(error, index) in errors.customer_name" :key="index" class="invalid-feedback">
                                                     {{error}}
                                                 </p>
@@ -51,7 +51,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label for="customer_telephone">Inserisci il tuo numero di telefono*</label>
-                                                <input v-model="tel" :class="{'is-invalid':errors.customer_telephone}"  class="form-control" id="customer_telephone" type="text"  placeholder="000 111111">
+                                                <input v-model="tel" :class="{'is-invalid':errors.customer_telephone}"  class="form-control" id="customer_telephone" type="text"  placeholder="000-111-00-11">
                                                 <p v-for="(error, index) in errors.customer_telephone" :key="index" class="invalid-feedback">
                                                     {{error}}
                                                 </p>
@@ -80,7 +80,7 @@
                                 <div class="card bg-light">
                                     <div class="card-header">Payment Information</div>
                                     <div class="card-body">
-                                        <div class="alert alert-success" v-if="nonce">
+                                        <div class="alert alert-success" v-if="nonce && success">
                                             Successfully generated nonce.
                                         </div>
                                         <div class="alert alert-danger" v-if="error">
@@ -187,8 +187,6 @@ export default {
 
         payWithCreditCard() {
 
-            this.handleSubmit();
-
             if(this.hostedFieldInstance){
                 this.error = "";
                 this.nonce = "";
@@ -196,6 +194,12 @@ export default {
                 this.hostedFieldInstance.tokenize().then(payload => {
                     console.log(payload);
                     this.nonce = payload.nonce;
+
+                    if (this.nonce == payload.nonce) {
+
+                        this.handleSubmit();
+                    }
+
                 },).catch(err => {
                     console.error(err);
                     this.error = err.message;
@@ -212,7 +216,6 @@ export default {
                     let getCart = localStorage.getItem('carrello');
                     let cart = JSON.parse(getCart);
                     this.ordine = cart;
-                    console.log(this.ordine);
                     this.cart = JSON.stringify(this.ordine);
 
                     let getTotal = localStorage.getItem('totale');
@@ -249,6 +252,8 @@ export default {
                     this.success = false;
                    
                 } else {
+                    this.success = true;
+                    this.unsuccess = false;
                     this.nome = '';
                     this.tel= "",
                     this.email = '';
